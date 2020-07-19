@@ -3,6 +3,9 @@ package Binary;
 public class ShipWithinDays {
     public int shipWithinDays(int[] weights, int D) {
         int left = 0, right = 0;
+
+        // min: the ship needs to be able to carry the heaviest
+        // max: what if all the goods need to be shipped in 1 day
         for (int w: weights) {
             left = Math.max(left, w);
             right += w;

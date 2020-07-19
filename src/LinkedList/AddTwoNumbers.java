@@ -85,7 +85,6 @@ public class AddTwoNumbers {
         ListNode fifth4 = new ListNode(9);
         ListNode fifth5 = new ListNode(9);
 
-
         first.next = second;
         second.next = third;
         third.next = fourth;

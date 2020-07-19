@@ -75,7 +75,7 @@ public class MaxLengthConcatenatedString {
     }
 
     // Driver method
-    public static void main(String[] args) throws java.lang.Exception {
+    public static void main(String[] args) {
         ArrayList<String> wordList = new ArrayList<>(Arrays.asList("cha","r","act","ers"));
 
         MaxLengthConcatenatedString m = new MaxLengthConcatenatedString();
