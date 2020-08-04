@@ -41,8 +41,8 @@ public class PathSum2 {
         }
         sum -= root.val;
 
-        findPath(root.left, sum, new ArrayList<Integer>(path), paths);
-        findPath(root.right, sum, new ArrayList<Integer>(path), paths);
+        findPath(root.left, sum, new ArrayList<>(path), paths);
+        findPath(root.right, sum, new ArrayList<>(path), paths);
     }
 
     public void initialize() {

@@ -22,7 +22,7 @@ public class WordLadder {
         }
 
         Queue<Pair> bfsQueue = new LinkedList<>();
-        boolean visited[] = new boolean[wordList.size()];
+        boolean[] visited = new boolean[wordList.size()];
 
         bfsQueue.add(new Pair(beginWord, 1));
 

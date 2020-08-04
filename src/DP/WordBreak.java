@@ -12,7 +12,6 @@ public class WordBreak {
         return dfs(s, 0, new HashSet<>(dict), set);
     }
 
-    // easier to understand
     private boolean dfs(String s, int index, Set<String> dict, Set<Integer> set){
         // base case
         if(index == s.length()) return true;
@@ -35,15 +34,11 @@ public class WordBreak {
         boolean[] f = new boolean[s.length() + 1];
 
         f[0] = true;
-        for(int i = 1; i <= s.length(); i++){
-            for(String str: dict){
-                if(str.length() <= i){
-                    if(f[i - str.length()]){
-                        if(s.startsWith(str, i-str.length())){
-                            f[i] = true;
-                            break;
-                        }
-                    }
+        for(int i=1; i <= s.length(); i++){
+            for(int j=0; j < i; j++){
+                if(f[j] && dict.contains(s.substring(j, i))){
+                    f[i] = true;
+                    break;
                 }
             }
         }
@@ -53,7 +48,7 @@ public class WordBreak {
 
     public static void main(String[] args) {
         String s = "leetcode";
-        List<String> dict = Arrays.asList("leet", "code", "sand", "and", "cat");
+        List<String> dict = Arrays.asList("l", "leet", "code", "sand", "and", "cat");
         WordBreak w = new WordBreak();
         System.out.println("Exists: " + w.wordBreak(s, dict) + "; " + w.wordBreakDP(s, dict));
     }
