@@ -19,7 +19,6 @@ public class Subsets {
         }
     }
 
-
     public static void main(String[] args) {
         Subsets s = new Subsets();
         int[] input = {1,2,3};

@@ -27,6 +27,7 @@ public class PartitionLabels {
         return list;
     }
 
+    // The partition is "ababcbaca", "defegde", "hijhklij".
     public static void main(String[] args)  {
         PartitionLabels p = new PartitionLabels();
         String input = "ababcbacadefegdehijhklij";

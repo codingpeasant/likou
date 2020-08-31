@@ -25,7 +25,7 @@ public class SplitBST {
         if (root == null) {
             return res;
         }
-        if (V >= root.val) {
+        if (root.val <= V) {
             res = splitBST(root.right, V);
             root.right = res[0];
             res[0] = root;

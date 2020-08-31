@@ -6,33 +6,18 @@ import java.util.Stack;
 
 public class ValidParentheses {
     public boolean isValid(String s) {
-        if (s.isEmpty()) {
-            return true;
+        Stack<Character> stack = new Stack<Character>();
+        for (char c : s.toCharArray()) {
+            if (c == '(')
+                stack.push(')');
+            else if (c == '{')
+                stack.push('}');
+            else if (c == '[')
+                stack.push(']');
+            else if (stack.isEmpty() || stack.pop() != c)
+                return false;
         }
-
-        Map<Character, Character> charMap = new HashMap<>();
-        charMap.put(']', '[');
-        charMap.put('}', '{');
-        charMap.put(')', '(');
-
-        Stack<Character> charStack = new Stack<>();
-
-        for (int i = 0; i < s.length(); i++) {
-            char cur = s.charAt(i);
-            if (charMap.containsValue(cur)) {
-                charStack.push(cur);
-            } else {
-                if (charStack.isEmpty()) {
-                    return false;
-                }
-                Character topElem = charStack.pop();
-                if (!topElem.equals(charMap.get(cur))) {
-                    return false;
-                }
-            }
-        }
-
-        return charStack.isEmpty();
+        return stack.isEmpty();
     }
 
     // Driver method
