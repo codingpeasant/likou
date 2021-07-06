@@ -1,5 +1,7 @@
 package LinkedList;
 
+// https://leetcode.com/problems/linked-list-cycle-ii/
+// https://github.com/youngyangyang04/leetcode-master/blob/master/problems/0142.%E7%8E%AF%E5%BD%A2%E9%93%BE%E8%A1%A8II.md
 public class LinkedListCycle2 {
 //    If there exists a cycle, they will meet each other at a node, say x, and x represents the x-th node in this list. Let’s assume the position of cycle start is at y-th node and the length of cycle is m.
 //    About runner, it has already run 2x nodes, which is equal to y + m + (x — y) (length to cycle start + length of cycle + nodes to meet walker). So we have 2x = y + m + (x — y), and it can conduct to x = m.
@@ -15,17 +17,20 @@ public class LinkedListCycle2 {
     }
 
     public ListNode detectCycle(ListNode head) {
-        ListNode ptrSlow, ptrFast, ptrSeek;
-        ptrFast = ptrSlow = ptrSeek = head;
-        while (ptrSlow != null && ptrFast != null && ptrFast.next != null) {
-            ptrFast = ptrFast.next.next;
-            ptrSlow = ptrSlow.next;
-            if (ptrFast == ptrSlow) {
-                while (ptrSeek != ptrSlow) {
-                    ptrSeek = ptrSeek.next;
-                    ptrSlow = ptrSlow.next;
+        ListNode slow = head;
+        ListNode fast = head;
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+            if (slow == fast) {// 有环
+                ListNode index1 = fast;
+                ListNode index2 = head;
+                // 两个指针，从头结点和相遇结点，各走一步，直到相遇，相遇点即为环入口
+                while (index1 != index2) {
+                    index1 = index1.next;
+                    index2 = index2.next;
                 }
-                return ptrSlow;
+                return index1;
             }
         }
         return null;

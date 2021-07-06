@@ -3,7 +3,7 @@ package BackTrack;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-
+// https://leetcode.com/problems/combination-sum-ii/
 public class CombinationSum2 {
     public List<List<Integer>> combinationSum2(int[] candidates, int target) {
         Arrays.sort(candidates); // sort to skip the consecutive duplicate candidate
@@ -12,7 +12,7 @@ public class CombinationSum2 {
         return res;
     }
 
-    private void dfs(int[] candidates, int target, List<Integer> curList, List<List<Integer>> res, int start, int curSum) {
+    private void dfs(int[] candidates, int target, List<Integer> curList, List<List<Integer>> res, int curSum, int start) {
         if (target == curSum) {
             res.add(new ArrayList<>(curList));
             return;
@@ -23,7 +23,7 @@ public class CombinationSum2 {
             if (i > start && candidates[i] == candidates[i-1]) continue;
             curList.add(candidates[i]);
             curSum += candidates[i];
-            dfs(candidates, target, curList, res, i + 1, curSum);
+            dfs(candidates, target, curList, res, curSum, i + 1);
             curList.remove(curList.size() - 1);
             curSum -= candidates[i];
         }

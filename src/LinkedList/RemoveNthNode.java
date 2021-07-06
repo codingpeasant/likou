@@ -1,5 +1,6 @@
 package LinkedList;
 
+// https://leetcode.com/problems/remove-nth-node-from-end-of-list/
 public class RemoveNthNode {
     class ListNode {
         int val;
@@ -43,7 +44,7 @@ public class RemoveNthNode {
         third.next = fourth;
         fourth.next = fifth;
 
-        ListNode newList = removeNthFromEnd(first, 2);
+        ListNode newList = removeNthFromEnd(first, 5);
         ListNode ptr = newList;
         while(ptr != null) {
             System.out.print(ptr.val + " -> ");
