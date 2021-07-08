@@ -7,7 +7,7 @@ public class UniquePaths {
             dp[i][1]=1;
         }
 
-        for (int i = 1; i < m; i++) {
+        for (int i = 1; i < n; i++) {
             dp[1][n]=1;
         }
 

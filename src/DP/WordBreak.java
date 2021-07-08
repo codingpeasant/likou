@@ -8,7 +8,7 @@ import java.util.Set;
 public class WordBreak {
     public boolean wordBreak(String s, List<String> dict) {
         // DFS
-        Set<Integer> set = new HashSet<Integer>();
+        Set<Integer> set = new HashSet<>();
         return dfs(s, 0, new HashSet<>(dict), set);
     }
 

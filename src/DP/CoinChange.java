@@ -28,8 +28,8 @@ public class CoinChange {
     }
 
     public static void main(String[] args) {
-        int[] coins = {10, 5, 7};
-        int value = 11;
+        int[] coins = {10, 2, 7};
+        int value = 4;
         CoinChange v = new CoinChange();
         System.out.println("Min coins: " + v.coinChange(coins, value));
 

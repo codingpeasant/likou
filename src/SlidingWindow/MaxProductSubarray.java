@@ -5,9 +5,9 @@ public class MaxProductSubarray {
         if(nums==null || nums.length==0){
             return 0;
         }
-        int maxPossible =nums[0];
-        int minPossible= nums[0];
-        int ans  = maxPossible;
+        int maxPossible = nums[0];
+        int minPossible = nums[0];
+        int ans = maxPossible;
 
         for(int i=1;i<nums.length;i++){
             int a = nums[i]*maxPossible;

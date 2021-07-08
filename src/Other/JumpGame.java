@@ -1,5 +1,8 @@
 package Other;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 // greedy
 public class JumpGame {
     public boolean canJump(int[] A) {
@@ -11,9 +14,27 @@ public class JumpGame {
         return true;
     }
 
+    public boolean bfs(int[] A) {
+        Queue<Integer> bfsQueue = new LinkedList<>();
+        bfsQueue.add(A[0]);
+        while (!bfsQueue.isEmpty()) {
+            int curIndex = bfsQueue.poll();
+
+            for (int i = 1; i <= A[curIndex]; i++) {
+                if (curIndex + i >= A.length - 1) {
+                    return true;
+                }
+                bfsQueue.add(A[curIndex + i]);
+            }
+        }
+
+        return false;
+    }
+
     public static void main(String args[]) {
         JumpGame j = new JumpGame();
-        int[] input = {1,2,2,0,0,1};
+        int[] input = {1,1,2,3,0,1};
         System.out.println("Can reach last index: " + j.canJump(input));
+        System.out.println("Can reach last index (bfs): " + j.bfs(input));
     }
 }

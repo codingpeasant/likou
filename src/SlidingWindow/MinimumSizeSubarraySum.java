@@ -21,7 +21,7 @@ public class MinimumSizeSubarraySum {
 
     public static void main(String[] args) {
         MinimumSizeSubarraySum m = new MinimumSizeSubarraySum();
-        int[] input = {2,3,10,2,6,3};
+        int[] input = {2,3,1,2,6,3};
         System.out.println("Min length: " + m.minSubArrayLen(7, input));
     }
 }
