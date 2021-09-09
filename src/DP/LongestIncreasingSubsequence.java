@@ -2,6 +2,7 @@ package DP;
 
 import java.util.Arrays;
 
+// https://leetcode.com/problems/longest-increasing-subsequence/
 public class LongestIncreasingSubsequence {
     public int lengthOfLIS(int[] nums) {
         if (nums == null || nums.length == 0) {
@@ -14,6 +15,7 @@ public class LongestIncreasingSubsequence {
 
         int max = 0;
         for (int i = 0; i < nums.length; i++) {
+            // subsequnce needs to look at all the previous values - subarray only needs to lool at i - 1
             for (int j = 0; j < i; j++) {
                 if (nums[i] > nums[j]) {
                     dp[i] = Math.max(dp[i], dp[j] + 1);

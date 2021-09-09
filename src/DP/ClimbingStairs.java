@@ -1,5 +1,7 @@
 package DP;
 
+// https://leetcode.com/problems/climbing-stairs/
+// both dp and dfs have the same logic, but use different ways to build the final result
 public class ClimbingStairs {
     public int climbStairs(int n) {
         int[] dp = new int[n + 1];
@@ -23,6 +25,7 @@ public class ClimbingStairs {
             return 2;
         }
 
+        // when n - 1, you can step up by 1; when n -2, you can step up by 2; so add the previous 2 steps' ways together
         return climbStairsDFS(n - 1) + climbStairsDFS(n - 2);
     }
 

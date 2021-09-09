@@ -1,5 +1,6 @@
 package DFS;
 
+// https://leetcode.com/discuss/interview-question/algorithms/125084/given-a-binary-search-tree-find-the-distance-between-2-nodes
 public class FindDistanceBetween2NodesBST {
     class TreeNode {
         int val;
@@ -35,6 +36,18 @@ public class FindDistanceBetween2NodesBST {
             return root;
         }
     }
+
+//    public TreeNode getLca(TreeNode root, int node1, int node2) {
+//        while (true) {
+//            if (root.val > node1 && root.val > node2) {
+//                root = root.left;
+//            } else if (root.val < node1 && root.val < node2) {
+//                root = root.right;
+//            } else {
+//                return root;
+//            }
+//        }
+//    }
 
     private int getDistance(TreeNode root, int node) {
         if (root.val == node) {
