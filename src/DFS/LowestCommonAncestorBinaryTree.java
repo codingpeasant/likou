@@ -1,5 +1,6 @@
 package DFS;
 
+// https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/
 public class LowestCommonAncestorBinaryTree {
     class TreeNode {
         int val;
@@ -22,16 +23,15 @@ public class LowestCommonAncestorBinaryTree {
 
     // this is a tree search and backtrack. When find the values, back track to the first node with results from subtrees
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
-        if(root == p || root == q || root == null)
+        // if found, return immediately; root == null means the subtrees from this root have neither p nor q
+        if (root == p || root == q || root == null)
             return root;
-        TreeNode left = lowestCommonAncestor(root.left,  p,  q);
-        TreeNode right = lowestCommonAncestor(root.right,  p,  q);
-        if (left == null)
-            return right;
-        else if (right == null)
-            return left;
-        else
-            return root;
+        TreeNode left = lowestCommonAncestor(root.left, p, q);
+        TreeNode right = lowestCommonAncestor(root.right, p, q);
+        // if left subtree has p or q, and right subtree also has p or q
+        if (left != null && right != null) return root;
+        // return the subtree that has p or q; if both are null, return right, which is null.
+        return left != null ? left : right;
     }
 
     public void initialize() {

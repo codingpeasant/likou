@@ -3,6 +3,7 @@ package DFS;
 import java.util.ArrayList;
 import java.util.List;
 
+// https://leetcode.com/problems/word-search-ii/
 public class WordSearch2 {
     class TrieNode {
         TrieNode[] next = new TrieNode[26];
@@ -14,7 +15,7 @@ public class WordSearch2 {
         TrieNode root = buildTrie(words);
         for (int i = 0; i < board.length; i++) {
             for (int j = 0; j < board[0].length; j++) {
-                dfs (board, i, j, root, res);
+                dfs(board, i, j, root, res);
             }
         }
         return res;
@@ -30,7 +31,7 @@ public class WordSearch2 {
         }
 
         board[i][j] = '#';
-        if (i > 0) dfs(board, i - 1, j ,p, res);
+        if (i > 0) dfs(board, i - 1, j, p, res);
         if (j > 0) dfs(board, i, j - 1, p, res);
         if (i < board.length - 1) dfs(board, i + 1, j, p, res);
         if (j < board[0].length - 1) dfs(board, i, j + 1, p, res);
@@ -53,13 +54,13 @@ public class WordSearch2 {
 
     public static void main(String[] args) {
         char M[][] = new char[][]{
-                {'a','b','c','e'},
-                {'s','f','c','s'},
-                {'a','d','e','e'}
+                {'a', 'b', 'c', 'e'},
+                {'s', 'f', 'c', 's'},
+                {'a', 'd', 'e', 'e'}
         };
 
         WordSearch2 w = new WordSearch2();
         String[] words = {"abce", "dfcs", "aaaa"};
-        System.out.println("Word exists: " +w.findWords(M, words));
+        System.out.println("Word exists: " + w.findWords(M, words));
     }
 }

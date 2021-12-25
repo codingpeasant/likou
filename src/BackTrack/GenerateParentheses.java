@@ -34,6 +34,6 @@ public class GenerateParentheses {
         GenerateParentheses mdt = new GenerateParentheses();
         for (String parenthesis : mdt.generateParenthesis(3)) {
             System.out.println(parenthesis);
-        }
+        } // "((()))","(()())","(())()","()(())","()()()"
     }
 }

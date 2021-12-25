@@ -1,5 +1,6 @@
 package DP;
 
+// https://leetcode.com/problems/house-robber-ii/
 public class HouseRob2 {
     public int rob(int[] nums) {
         if (nums.length == 0)
@@ -16,8 +17,8 @@ public class HouseRob2 {
                 startFromSecondHouse[i] = 0;
             } else if (i == 1) {
                 startFromFirstHouse[i] = Math.max(startFromFirstHouse[i - 1], nums[i]);
-                startFromSecondHouse[i] = Math.max(startFromSecondHouse[i - 1], nums[i]);
-            } else if (i == nums.length - 1) {
+                startFromSecondHouse[i] = nums[i];;
+            } else if (i == nums.length - 1) { // only applicable for start second house
                 startFromSecondHouse[i] = Math.max(startFromSecondHouse[i - 2] + nums[i], startFromSecondHouse[i - 1]);
             } else {
                 startFromFirstHouse[i] = Math.max(startFromFirstHouse[i - 2] + nums[i], startFromFirstHouse[i - 1]);

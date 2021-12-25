@@ -3,12 +3,12 @@ package DataStructure;
 import java.util.HashMap;
 import java.util.Map;
 
+// https://leetcode.com/problems/count-good-meals/
 // https://leetcode.com/problems/count-good-meals/discuss/999119/Java-HashMap-Two-Sum-O(N)
 public class CountGoodMeal {
     int mod = 1000000007;
     public int countPairs(int[] arr) {
         Map<Integer, Integer> map = new HashMap<>();
-        int n = arr.length;
         long res = 0;
         for (int num : arr) {
             int power = 1;

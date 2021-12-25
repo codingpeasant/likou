@@ -1,5 +1,9 @@
 package Other;
 
+import java.util.List;
+
+// https://leetcode.com/problems/next-permutation/
+// https://leetcode.com/problems/next-permutation/discuss/13994/Readable-code-without-confusing-ij-and-with-explanation
 public class NextPermutation {
     public void nextPermutation(int[] nums) {
         if (nums == null || nums.length == 0) return;

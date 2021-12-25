@@ -3,6 +3,7 @@ package DFS;
 import java.util.LinkedList;
 import java.util.List;
 
+// https://leetcode.com/problems/pacific-atlantic-water-flow/
 public class PacificAtlanticWaterFlow {
     // size: 4 * 2
     int[][] dirs = new int[][]{{0, 1}, {0, -1}, {1, 0}, {-1, 0}};
@@ -63,6 +64,6 @@ public class PacificAtlanticWaterFlow {
                 {6,7,1,4,5},
                 {5,1,1,2,4}
         };
-        System.out.println(p.pacificAtlantic(input));
+        p.pacificAtlantic(input).forEach(arr -> System.out.println(arr[0] + "," + arr[1]));
     }
 }

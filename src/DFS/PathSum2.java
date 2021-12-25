@@ -2,7 +2,7 @@ package DFS;
 
 import java.util.ArrayList;
 import java.util.List;
-
+// https://leetcode.com/problems/path-sum-ii/
 public class PathSum2 {
     class TreeNode {
         int val;
@@ -25,7 +25,7 @@ public class PathSum2 {
 
     public List<List<Integer>> pathSum(TreeNode root, int sum) {
         List<List<Integer>> paths = new ArrayList<>();
-        findPath(root, sum, new ArrayList<Integer>(), paths);
+        findPath(root, sum, new ArrayList<>(), paths);
         return paths;
     }
 

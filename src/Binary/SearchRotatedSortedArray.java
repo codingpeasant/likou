@@ -1,5 +1,6 @@
 package Binary;
 
+// https://leetcode.com/problems/search-in-rotated-sorted-array/
 public class SearchRotatedSortedArray {
     public int search(int[] nums, int target) {
         int smallestIndex = findSmallestIndex(nums);
@@ -15,7 +16,7 @@ public class SearchRotatedSortedArray {
             high = smallestIndex - 1;
         }
 
-        while (low <= high) {
+        while (low <= high) { // standard binary search
             int mid = (low + high) / 2;
             if (nums[mid] == target) return mid;
             else if (target > nums[mid]) low = mid + 1;

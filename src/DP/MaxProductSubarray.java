@@ -53,6 +53,7 @@ public class MaxProductSubarray {
     public static void main(String[] args) {
         MaxProductSubarray mdt = new MaxProductSubarray();
         int[] sequence = {-2,1,-3,4,-1,2,1,-5,-4};
-        System.out.println("MaxSub Product: " + mdt.maxProduct(sequence) + "/" + mdt.maxProductDP(sequence));
+        System.out.println("MaxSub Product: " + mdt.maxProduct(sequence));
+        System.out.println("MaxSub Product: " + mdt.maxProductDP(sequence));
     }
 }

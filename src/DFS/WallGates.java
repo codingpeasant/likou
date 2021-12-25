@@ -1,6 +1,13 @@
 package DFS;
 
+// https://leetcode.ca/2016-09-11-286-Walls-and-Gates/
 public class WallGates {
+    private static final int[][] DIRS = new int[][]{
+            {-1,0},
+            {1,0},
+            {0, -1},
+            {0,1}
+    };
     public void wallsAndGates(int[][] rooms) {
         if (rooms == null || rooms.length == 0) return;
         for (int i = 0; i < rooms.length; i++) {
@@ -13,18 +20,14 @@ public class WallGates {
     }
 
     private void dfs(int[][] rooms, int i, int j, int distance) {
-        int rows = rooms.length;
-        int cols = rooms[0].length;
-
         if (i < 0 || j < 0 || i >= rooms.length || j >= rooms.length || rooms[i][j] < distance) {
             return;
         }
 
         rooms[i][j] = distance;
-        dfs(rooms, i + 1, j, distance + 1);
-        dfs(rooms, i, j + 1, distance + 1);
-        dfs(rooms, i, j - 1, distance + 1);
-        dfs(rooms, i - 1, j, distance + 1);
+        for (int[] dir: DIRS) {
+            dfs(rooms, i + dir[0], j + dir[1], distance + 1);
+        }
     }
 
     public static void main(String[] args) {

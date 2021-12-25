@@ -3,6 +3,7 @@ package BFS;
 import java.util.LinkedList;
 import java.util.Queue;
 
+// https://leetcode.com/problems/minimum-depth-of-binary-tree/
 public class MinDepthOfTree {
     class TreeNode {
         int val;
@@ -34,9 +35,9 @@ public class MinDepthOfTree {
 
         while (!bfsQueue.isEmpty()) {
             int count = bfsQueue.size();
-            while (count > 0) {
+            for (int i = 0; i < count; i++) {
                 TreeNode cur = bfsQueue.poll();
-                if (cur.left == null && cur.right == null) {
+                if (cur.left == null && cur.right == null) { // when the first leaf node appears
                     return level;
                 }
                 if (cur.left != null) {
@@ -45,7 +46,6 @@ public class MinDepthOfTree {
                 if (cur.right != null) {
                     bfsQueue.add(cur.right);
                 }
-                count--;
             }
             level++;
         }

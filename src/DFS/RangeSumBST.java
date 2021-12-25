@@ -1,5 +1,6 @@
 package DFS;
 
+// https://leetcode.com/problems/range-sum-of-bst/
 public class RangeSumBST {
 
     class TreeNode {
@@ -34,6 +35,25 @@ public class RangeSumBST {
         return sum;
     }
 
+    int sum = 0;
+    public void rangeSumBST2(TreeNode root, int left, int right) {
+            if (root == null) {
+                return;
+            }
+
+            if (root.val > right) {
+                rangeSumBST2(root.left, left, right);
+            }
+            if (root.val < left) {
+                rangeSumBST2(root.right, left, right);
+            }
+            if (root.val <= right && root.val >= left) {
+                sum += root.val;
+                rangeSumBST2(root.left, left, right);
+                rangeSumBST2(root.right, left, right);
+            }
+    }
+
     public void initialize() {
         TreeNode node1 = new TreeNode(4);
         TreeNode node2 = new TreeNode(2);
@@ -53,6 +73,8 @@ public class RangeSumBST {
         node3.right = node7;
 
         System.out.println("Sum is: " + rangeSumBST(node1, 5, 7));
+        rangeSumBST2(node1, 5, 7);
+        System.out.println("Sum is: " + sum);
     }
 
     public static void main(String[] args) {

@@ -1,49 +1,33 @@
 package Heap;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
+// https://leetcode.com/problems/top-k-frequent-elements/
 public class TopKFrequent {
-    class Pair {
-        int num;
-        int count;
-
-        public Pair(int num, int count) {
-            this.count = count;
-            this.num = num;
-        }
-    }
-
     public int[] topKFrequent(int[] nums, int k) {
-        if (k == 0) return new int[0];
-
-        Map<Integer, Integer> numCount = new HashMap<>();
-
-        for (int i = 0; i < nums.length; i++) {
-            numCount.put(nums[i], numCount.getOrDefault(nums[i], 0) + 1);
+        Map<Integer, Integer> map = new HashMap<>();
+        for (int n : nums) {
+            map.put(n, map.getOrDefault(n, 0) + 1);
         }
 
-        ArrayList<Pair> numCountPair = new ArrayList<>();
-        for (Integer num:numCount.keySet()) {
-            Pair pair = new Pair(num, numCount.get(num));
-            numCountPair.add(pair);
+        PriorityQueue<Map.Entry<Integer, Integer>> maxHeap =
+                new PriorityQueue<>((a, b) -> (b.getValue() - a.getValue()));
+        for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
+            maxHeap.add(entry);
         }
 
-        numCountPair.sort((o1, o2) -> -Integer.compare(o1.count, o2.count));
-        int resSize = Math.min(numCountPair.size(), k);
-        int[] res = new int[resSize];
-        for (int i = 0; i < resSize; i++) {
-            res[i] = numCountPair.get(i).num;
+        List<Integer> res = new ArrayList<>();
+        while (res.size() < k) {
+            Map.Entry<Integer, Integer> entry = maxHeap.poll();
+            res.add(entry.getKey());
         }
 
-        return res;
+        return res.stream().mapToInt(e -> e).toArray();
     }
 
     public static void main(String[] args) {
         int k = 2;
-        int[] arr = {1,1,1,2,2,3,3,3,3};
+        int[] arr = {1, 1, 1, 2, 2, 3, 3, 3, 3};
         TopKFrequent topKFrequent = new TopKFrequent();
         int[] res = topKFrequent.topKFrequent(arr, k);
 

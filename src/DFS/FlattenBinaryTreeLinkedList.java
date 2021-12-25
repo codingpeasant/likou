@@ -1,5 +1,6 @@
 package DFS;
 
+// https://leetcode.com/problems/flatten-binary-tree-to-linked-list/
 public class FlattenBinaryTreeLinkedList {
     class TreeNode {
         int val;
@@ -59,7 +60,4 @@ public class FlattenBinaryTreeLinkedList {
         FlattenBinaryTreeLinkedList mdt = new FlattenBinaryTreeLinkedList();
         mdt.initialize();
     }
-
-
-
 }

@@ -1,5 +1,6 @@
 package Binary;
 
+// https://leetcode.com/problems/find-peak-element/
 public class FindPeakElement {
     public int findPeakElement(int[] nums) {
         int left = 0;

@@ -1,5 +1,6 @@
 package Other;
 
+// https://leetcode.com/problems/move-zeroes/
 public class MoveZeroes {
     public void moveZeroes(int[] nums) {
         if (nums == null || nums.length == 0) return;

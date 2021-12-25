@@ -27,7 +27,7 @@ public class FindDistanceBetween2NodesBST {
         return getDistance(lca, node1) + getDistance(lca, node2);
     }
 
-    private TreeNode lca(TreeNode root, int node1, int node2) {
+    private TreeNode lca(TreeNode root, int node1, int node2) { // find the lowest common ancestor
         if (root.val < node1 && root.val < node2) {
             return lca(root.right, node1, node2);
         } else if (root.val > node1 && root.val > node2) {
@@ -36,18 +36,6 @@ public class FindDistanceBetween2NodesBST {
             return root;
         }
     }
-
-//    public TreeNode getLca(TreeNode root, int node1, int node2) {
-//        while (true) {
-//            if (root.val > node1 && root.val > node2) {
-//                root = root.left;
-//            } else if (root.val < node1 && root.val < node2) {
-//                root = root.right;
-//            } else {
-//                return root;
-//            }
-//        }
-//    }
 
     private int getDistance(TreeNode root, int node) {
         if (root.val == node) {

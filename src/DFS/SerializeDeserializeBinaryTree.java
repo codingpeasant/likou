@@ -3,6 +3,8 @@ package DFS;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Queue;
+
+// https://leetcode.com/problems/serialize-and-deserialize-binary-tree/
 // The idea is simple: print the tree in pre-order traversal and use "X" to denote null node and split node with ",".
 // We can use a StringBuilder for building the string on the fly.
 // For deserializing, we use a Queue to store the pre-order traversal and since we have "X" as null node, we know exactly how to where to end building subtress.
@@ -47,16 +49,15 @@ public class SerializeDeserializeBinaryTree {
     }
     // Decodes your encoded data to tree.
     public TreeNode deserialize(String data) {
-        Queue<String> nodes = new LinkedList<>();
-        nodes.addAll(Arrays.asList(data.split(spliter)));
+        Queue<String> nodes = new LinkedList<>(Arrays.asList(data.split(spliter)));
         return buildTree(nodes);
     }
 
     private TreeNode buildTree(Queue<String> nodes) {
-        String val = nodes.remove();
+        String val = nodes.poll();
         if (val.equals(NN)) return null;
         else {
-            TreeNode node = new TreeNode(Integer.valueOf(val));
+            TreeNode node = new TreeNode(Integer.parseInt(val));
             node.left = buildTree(nodes);
             node.right = buildTree(nodes);
             return node;
@@ -78,6 +79,16 @@ public class SerializeDeserializeBinaryTree {
         node5.right = node6;
 
         System.out.println("Serialized tree: " + serialize(node1));
+        preOrder(deserialize(serialize(node1)));
+    }
+
+    public void preOrder(TreeNode node) {
+        if (node == null) {
+            return;
+        }
+        System.out.print(node.val + ", ");
+        preOrder(node.left);
+        preOrder(node.right);
     }
 
     public static void main(String[] args) {

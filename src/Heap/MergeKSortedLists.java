@@ -1,13 +1,8 @@
 package Heap;
 
-import LinkedList.DeleteDup;
-
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.PriorityQueue;
 import java.util.Queue;
-
+// https://leetcode.com/problems/merge-k-sorted-lists/
 public class MergeKSortedLists {
     class ListNode {
         int val;

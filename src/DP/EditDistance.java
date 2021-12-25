@@ -8,7 +8,7 @@ public class EditDistance {
         int n = word2.length();
 
         int[][] cost = new int[m + 1][n + 1]; // first row/col is empty string
-        for (int i = 0; i <= m; i++)
+        for (int i = 1; i <= m; i++)
             cost[i][0] = i;
         for (int i = 1; i <= n; i++)
             cost[0][i] = i;
@@ -32,6 +32,7 @@ public class EditDistance {
     public static void main(String[] args) {
         EditDistance ed = new EditDistance();
         System.out.println(ed.minDistance("intention", "execution"));
+        System.out.println(ed.minDistance("horse", "ros"));
     }
 
 }

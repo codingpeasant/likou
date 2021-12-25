@@ -1,5 +1,6 @@
 package SlidingWindow;
 
+// https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/
 public class BestTimeToBuySellStock2 {
     // can sell and buy at the same day
     public int maxProfit(int[] prices) {

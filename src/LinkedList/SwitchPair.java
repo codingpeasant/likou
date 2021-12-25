@@ -42,8 +42,7 @@ public class SwitchPair {
         third.next = fourth;
         fourth.next = fifth;
 
-        ListNode newList = swapPairs(first);
-        ListNode ptr = newList;
+        ListNode ptr = swapPairs(first);
         while (ptr != null) {
             System.out.print(ptr.val + " -> ");
             ptr = ptr.next;

@@ -12,7 +12,7 @@ public class HouseRob {
             } else if (i == 1) {
                 dp[i] = Math.max(dp[i - 1], nums[i]);
             } else {
-                dp[i] = Math.max(dp[i - 2] + nums[i], dp[i - 1]);
+                dp[i] = Math.max(dp[i - 2] + nums[i], dp[i - 1]); // rob current or skip current
             }
         }
 

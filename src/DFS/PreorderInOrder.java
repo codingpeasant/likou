@@ -1,9 +1,8 @@
 package DFS;
 
-import BFS.PathSum;
-
 import java.util.HashMap;
 
+// https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/
 public class PreorderInOrder {
     class TreeNode {
         int val;
@@ -31,15 +30,15 @@ public class PreorderInOrder {
             return null;
         }
 
-        HashMap<Integer, Integer> inMap = new HashMap<Integer, Integer>();
+        HashMap<Integer, Integer> inMap = new HashMap<>();
         for (int i = 0; i < inorder.length; i++) {
             inMap.put(inorder[i], i);
         }
 
-        return build(preorder, inorder, 0, inorder.length - 1, inMap);
+        return build(preorder, 0, inorder.length - 1, inMap);
     }
 
-    public TreeNode build(int[] preOrder, int[] inOrder, int inOrderLeft, int inOrderRight, HashMap<Integer, Integer> inMap) {
+    public TreeNode build(int[] preOrder, int inOrderLeft, int inOrderRight, HashMap<Integer, Integer> inMap) {
         if (inOrderLeft > inOrderRight) {
             return null;
         }
@@ -47,8 +46,8 @@ public class PreorderInOrder {
         int rootVal = preOrder[index++];
         TreeNode root = new TreeNode(rootVal);
         int cut = inMap.get(rootVal);
-        root.left = build(preOrder, inOrder, inOrderLeft, cut - 1, inMap);
-        root.right = build(preOrder, inOrder, cut + 1, inOrderRight, inMap);
+        root.left = build(preOrder, inOrderLeft, cut - 1, inMap);
+        root.right = build(preOrder, cut + 1, inOrderRight, inMap);
         return root;
     }
 

@@ -1,5 +1,6 @@
 package Binary;
 
+// https://leetcode.com/problems/search-insert-position/
 public class SearchInsertPosition {
     public int findMin(int[] nums, int target) {
         int left = 0;

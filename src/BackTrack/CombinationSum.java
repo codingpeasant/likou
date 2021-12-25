@@ -23,7 +23,7 @@ public class CombinationSum {
         for (int i = start; i < candidate.length; i++) {
             curSum += candidate[i];
             curList.add(candidate[i]);
-            backtrack(candidate, target, list, curList, curSum, i);
+            backtrack(candidate, target, list, curList, curSum, i); // start guarantees when iterating to the next candidate, the previous candidate is not included
             curSum -= candidate[i];
             curList.remove(curList.size() - 1);
         }

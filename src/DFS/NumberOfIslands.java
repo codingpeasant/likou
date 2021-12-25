@@ -1,5 +1,6 @@
 package DFS;
 
+// https://leetcode.com/problems/number-of-islands/
 public class NumberOfIslands {
     public int numIslands(int[][] grid) {
         if (grid == null || grid.length == 0 || grid[0].length == 0)

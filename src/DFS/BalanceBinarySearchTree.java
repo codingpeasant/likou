@@ -3,6 +3,7 @@ package DFS;
 import java.util.ArrayList;
 import java.util.List;
 
+// https://leetcode.com/problems/balance-a-binary-search-tree/
 public class BalanceBinarySearchTree {
     class TreeNode {
         int val;
@@ -43,7 +44,7 @@ public class BalanceBinarySearchTree {
         return root;
     }
 
-    private void getSortedValues(TreeNode root, List<Integer> sortedValues) {
+    private void getSortedValues(TreeNode root, List<Integer> sortedValues) { // in order traversal to get sorted order
         if (root == null) return;
         getSortedValues(root.left, sortedValues);
         sortedValues.add(root.val);

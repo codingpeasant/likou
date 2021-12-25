@@ -1,8 +1,11 @@
 package BFS;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Queue;
 
+// https://leetcode.com/problems/maximum-width-of-binary-tree/
 public class MaximumWidthBinaryTree {
     class TreeNode {
         int val;
@@ -60,6 +63,27 @@ public class MaximumWidthBinaryTree {
         return maxWidth;
     }
 
+    public int widthOfBinaryTreeDFS(TreeNode root) {
+        if (root == null) {
+            return 0;
+        }
+        return helper(root, 0, 1, new ArrayList<>());
+
+    }
+    private int helper(TreeNode root, int depth, int index, List<Integer> list) {
+        if (root == null) {
+            return 0;
+        }
+        //add index of leftmost node to list, at depth'th position in list
+        if (depth == list.size()) {
+            list.add(index);
+        }
+        int currWidth = index - list.get(depth) + 1;
+        int leftWidth = helper(root.left, depth + 1, index * 2, list);
+        int rightWidth = helper(root.right, depth + 1, index * 2 + 1, list);
+        return Math.max(currWidth, Math.max(leftWidth, rightWidth));
+    }
+
     public void initialize() {
         TreeNode node1 = new TreeNode(4);
         TreeNode node2 = new TreeNode(2);
@@ -79,6 +103,7 @@ public class MaximumWidthBinaryTree {
         //node3.right = node7;
 
         System.out.println("Max width is: " + widthOfBinaryTree(node1));
+        System.out.println("Max width is: " + widthOfBinaryTreeDFS(node1));
     }
 
     public static void main(String[] args) {

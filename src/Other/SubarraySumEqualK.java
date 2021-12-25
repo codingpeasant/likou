@@ -3,6 +3,7 @@ package Other;
 import java.util.HashMap;
 import java.util.Map;
 
+// https://leetcode.com/problems/subarray-sum-equals-k/
 // sum(i,j)=sum(0,j)-sum(0,i), where sum(i,j) represents the sum of all the elements from index i to j-1
 public class SubarraySumEqualK {
     public int subarraySum(int[] nums, int k) {
@@ -22,9 +23,24 @@ public class SubarraySumEqualK {
         return res;
     }
 
+    public int subarraySum2(int[] nums, int k) {
+        int count = 0;
+        for (int start = 0; start < nums.length; start++) {
+            int sum=0;
+            for (int end = start; end < nums.length; end++) {
+                sum+=nums[end];
+                if (sum == k)
+                    System.out.println(start + "/" + end);
+                    count++;
+            }
+        }
+        return count;
+    }
+
     public static void main(String args[]) {
         SubarraySumEqualK s = new SubarraySumEqualK();
         int[] input = {1,1,1,1,1,-1,1,1,1,2};
         System.out.println(s.subarraySum(input, 5));
+        System.out.println(s.subarraySum2(input, 5));
     }
 }

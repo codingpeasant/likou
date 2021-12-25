@@ -25,7 +25,7 @@ public class ClimbingStairs {
             return 2;
         }
 
-        // when n - 1, you can step up by 1; when n -2, you can step up by 2; so add the previous 2 steps' ways together
+        // when n - 1, you can step up by 1; when n - 2, you can step up by 2; so add the previous 2 steps' ways together
         return climbStairsDFS(n - 1) + climbStairsDFS(n - 2);
     }
 

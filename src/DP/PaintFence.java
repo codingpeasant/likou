@@ -1,5 +1,6 @@
 package DP;
 
+// https://leetcode.ca/2016-09-01-276-Paint-Fence/
 public class PaintFence {
     public int numWays(int n, int k) {
         if (n == 1) {
@@ -30,7 +31,7 @@ public class PaintFence {
             dp[i] = same + diff;
         }
 
-        return same + diff;
+        return dp[n];
     }
 
     public static void main(String[] args) {

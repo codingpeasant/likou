@@ -1,5 +1,6 @@
 package SlidingWindow;
 
+// https://leetcode.com/problems/best-time-to-buy-and-sell-stock/
 public class BestTimeToBuySellStock {
     // https://leetcode.com/problems/best-time-to-buy-and-sell-stock/discuss/39038/Kadane's-Algorithm-Since-no-one-has-mentioned-about-this-so-far-%3A)-(In-case-if-interviewer-twists-the-input)
     // Same with MaxSubarray
@@ -12,9 +13,22 @@ public class BestTimeToBuySellStock {
         return maxSoFar;
     }
 
+    public int maxProfitState(int[] prices) {
+        int buy = Integer.MAX_VALUE;
+        int sell = 0;
+
+        for (int price : prices) {
+            buy = Math.min(buy, price);
+            sell = Math.max(sell, price - buy);
+        }
+
+        return sell;
+    }
+
     public static void main(String[] args) {
         BestTimeToBuySellStock mdt = new BestTimeToBuySellStock();
-        int[] sequence = {2,1,3,4,1,2,1,5,4};
+        int[] sequence = {2,1,3,6,1,2,1,5,4};
         System.out.println("Max Profit: " + mdt.maxProfit(sequence));
+        System.out.println("Max Profit: " + mdt.maxProfitState(sequence));
     }
 }

@@ -1,5 +1,6 @@
 package Other;
 
+// https://leetcode.com/problems/add-binary/
 public class AddBinary {
     public String addBinary(String a, String b) {
         StringBuilder builder = new StringBuilder();
@@ -18,6 +19,7 @@ public class AddBinary {
         if (carry > 0) {
             builder.append(carry);
         }
+
         return builder.reverse().toString();
     }
 

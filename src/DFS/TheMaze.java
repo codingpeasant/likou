@@ -1,7 +1,6 @@
 package DFS;
 
-import javax.annotation.processing.SupportedSourceVersion;
-
+// https://leetcode.ca/2017-04-03-490-The-Maze/
 public class TheMaze {
     // size: 4 * 2
     int[][] dirs = new int[][]{{0, 1}, {0, -1}, {1, 0}, {-1, 0}};

@@ -3,6 +3,7 @@ package BFS;
 import java.util.LinkedList;
 import java.util.Queue;
 
+// https://leetcode.com/problems/rotting-oranges/
 public class RottingOranges {
     public int orangesRotting(int[][] grid) {
         if (grid == null || grid.length == 0) return 0;

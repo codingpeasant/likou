@@ -13,23 +13,22 @@ public class RemoveNthNode {
     }
 
     public ListNode removeNthFromEnd(ListNode head, int n) {
-
-        ListNode start = new ListNode(0);
-        ListNode slow = start, fast = start;
-        slow.next = head;
+        ListNode dummy = new ListNode(0);
+        ListNode slow = dummy, fast = dummy;
+        dummy.next = head;
 
         //Move fast in front so that the gap between slow and fast becomes n
-        for(int i=1; i<=n+1; i++)   {
+        for (int i = 0; i <= n; i++) {
             fast = fast.next;
         }
-        //Move fast to the end, maintaining the gap
-        while(fast != null) {
+        //Move fast to the end, maintaining the gap; move n + 1 times
+        while (fast != null) {
             slow = slow.next;
             fast = fast.next;
         }
         //Skip the desired node
         slow.next = slow.next.next;
-        return start.next;
+        return dummy.next;
     }
 
     public void initialize() {
@@ -46,7 +45,7 @@ public class RemoveNthNode {
 
         ListNode newList = removeNthFromEnd(first, 5);
         ListNode ptr = newList;
-        while(ptr != null) {
+        while (ptr != null) {
             System.out.print(ptr.val + " -> ");
             ptr = ptr.next;
         }

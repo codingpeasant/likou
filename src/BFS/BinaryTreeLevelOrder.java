@@ -5,6 +5,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 
+// https://leetcode.com/problems/binary-tree-level-order-traversal/
 public class BinaryTreeLevelOrder {
     class TreeNode {
         int val;
@@ -34,10 +35,9 @@ public class BinaryTreeLevelOrder {
         bfsQueue.add(root);
 
         while (!bfsQueue.isEmpty()) {
-            int count = bfsQueue.size();
+            int count = bfsQueue.size(); // the key for level order traversal
             List<Integer> levelNodes = new ArrayList<>();
-
-            while (count > 0) {
+            for (int i = 0; i < count; i++) {
                 TreeNode cur = bfsQueue.poll();
                 levelNodes.add(cur.val);
 
@@ -48,8 +48,6 @@ public class BinaryTreeLevelOrder {
                 if (cur.right != null) {
                     bfsQueue.add(cur.right);
                 }
-
-                count--;
             }
             response.add(levelNodes);
         }

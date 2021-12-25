@@ -39,4 +39,23 @@ public class IntersectionTwoLinkedLists {
 
         return null;
     }
+
+    public ListNode getIntersectionNode1(ListNode headA, ListNode headB) {
+        Set<ListNode> uniqueValues = new HashSet<>();
+        ListNode ptr1 = headA;
+        while (ptr1 != null) {
+            uniqueValues.add(ptr1);
+            ptr1 = ptr1.next;
+        }
+
+        ListNode ptr2 = headB;
+        while (ptr2 != null) {
+            if (!uniqueValues.add(ptr2)) {
+                return ptr2;
+            }
+            ptr2 = ptr2.next;
+        }
+
+        return null;
+    }
 }

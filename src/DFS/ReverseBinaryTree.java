@@ -1,5 +1,6 @@
 package DFS;
 
+// https://leetcode.com/problems/invert-binary-tree/
 public class ReverseBinaryTree {
     class TreeNode {
         int val;
@@ -26,14 +27,8 @@ public class ReverseBinaryTree {
         }
 
         final TreeNode left = root.left, right = root.right;
-
-        if (root.left != null) {
-            root.right = invertTree(left);
-        }
-
-        if (root.right != null) {
-            root.left = invertTree(right);
-        }
+        root.right = invertTree(left);
+        root.left = invertTree(right);
 
         return root;
     }

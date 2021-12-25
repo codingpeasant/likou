@@ -2,7 +2,7 @@ package BackTrack;
 
 import java.util.ArrayList;
 import java.util.List;
-
+// https://leetcode.com/problems/subsets/
 public class Subsets {
     public List<List<Integer>> subsets(int[] nums) {
         List<List<Integer>> list = new ArrayList<>();
@@ -19,6 +19,11 @@ public class Subsets {
         }
     }
 
+//      1     2      3
+//    / | \  / \     |
+//    _ 2  3 -  3    -
+//    /  \
+//    -   3
     public static void main(String[] args) {
         Subsets s = new Subsets();
         int[] input = {1,2,3};
