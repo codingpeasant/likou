@@ -2,6 +2,7 @@ package Other;
 
 import java.util.Arrays;
 
+// https://leetcode.ca/2016-08-08-252-Meeting-Rooms/
 public class MeetingRoom {
     public class Interval {
         int start;

@@ -2,12 +2,15 @@ package Other;
 
 import java.util.LinkedList;
 
+// https://leetcode.ca/2016-11-10-346-Moving-Average-from-Data-Stream/
 public class MovingAverage {
     double sum;
     int size;
     LinkedList<Integer> list;
 
-    /** Initialize your data structure here. */
+    /**
+     * Initialize your data structure here.
+     */
     public MovingAverage(int size) {
         this.list = new LinkedList<>();
         this.size = size;
@@ -17,13 +20,13 @@ public class MovingAverage {
         sum += val;
         list.offer(val);
 
-        if(list.size()<=size){
-            return sum/list.size();
+        if (list.size() <= size) {
+            return sum / list.size();
         }
 
         sum -= list.poll();
 
-        return sum/size;
+        return sum / size;
     }
 
     public static void main(String[] args) {

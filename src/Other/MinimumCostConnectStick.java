@@ -2,6 +2,8 @@ package Other;
 
 import java.util.PriorityQueue;
 
+// https://leetcode.ca/2019-02-09-1167-Minimum-Cost-to-Connect-Sticks/
+// Use the greedy approach.
 public class MinimumCostConnectStick {
     public int connectSticks(int[] sticks) {
         PriorityQueue<Integer> minHeap = new PriorityQueue<>();

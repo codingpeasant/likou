@@ -1,8 +1,9 @@
-package Other;
+package DataStructure;
 
 import java.util.HashSet;
 import java.util.Set;
 
+// https://leetcode.com/problems/jewels-and-stones/
 public class JewelsStones {
     public int numJewelsInStones(String J, String S) {
         Set<Character> jSet = new HashSet<>();

@@ -3,13 +3,16 @@ package Other;
 import java.util.LinkedList;
 import java.util.Queue;
 
+// https://leetcode.com/problems/jump-game/
 // greedy
 public class JumpGame {
     public boolean canJump(int[] A) {
         int max = 0;
-        for(int i=0;i<A.length;i++){
-            if(i>max) {return false;}
-            max = Math.max(A[i]+i,max);
+        for (int i = 0; i < A.length; i++) {
+            if (i > max) {
+                return false;
+            }
+            max = Math.max(A[i] + i, max);
         }
         return true;
     }
@@ -33,7 +36,7 @@ public class JumpGame {
 
     public static void main(String args[]) {
         JumpGame j = new JumpGame();
-        int[] input = {1,1,2,3,0,1};
+        int[] input = {1, 1, 2, 3, 0, 1};
         System.out.println("Can reach last index: " + j.canJump(input));
         System.out.println("Can reach last index (bfs): " + j.bfs(input));
     }

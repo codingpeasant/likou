@@ -1,4 +1,4 @@
-package Other;
+package Array;
 
 // https://leetcode.com/problems/car-pooling/
 public class CarPooling {

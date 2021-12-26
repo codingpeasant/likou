@@ -8,7 +8,7 @@ public class AllPathsFromSourceTarget {
         int target = graph.length - 1;
         List<List<Integer>> res = new ArrayList<>();
         Queue<List<Integer>> q = new LinkedList<>(); // store path like 0 -> 1 -> 4
-        q.add(List.of(0));
+        q.add(Collections.singletonList(0));
 
         while (!q.isEmpty()) {
             List<Integer> curPath = q.poll();
