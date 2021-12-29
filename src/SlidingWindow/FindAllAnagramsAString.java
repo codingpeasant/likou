@@ -22,7 +22,7 @@ public class FindAllAnagramsAString {
             char rightChar = s.charAt(right);
             if (charsCount.get(rightChar) != null) {
                 charsCount.put(rightChar, charsCount.getOrDefault(rightChar, 0) - 1);
-                if (charsCount.get(rightChar) == 0) {
+                if (charsCount.get(rightChar) == 0) { // all occurrences of this char is included
                     moreCharsNeeded--;
                 }
             }
@@ -36,7 +36,7 @@ public class FindAllAnagramsAString {
                 char leftChar = s.charAt(left);
                 if (charsCount.get(leftChar) != null) {
                     charsCount.put(leftChar, charsCount.getOrDefault(leftChar, 0) + 1);
-                    if (charsCount.get(leftChar) > 0) {
+                    if (charsCount.get(leftChar) == 1) { // from 0 to 1
                         moreCharsNeeded++;
                     }
                 }

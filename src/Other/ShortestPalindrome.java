@@ -1,5 +1,6 @@
 package Other;
 
+// https://leetcode.com/problems/shortest-palindrome/
 public class ShortestPalindrome {
     public String shortestPalindrome(String s) {
         if (s == null || s.length() == 0) {
@@ -16,12 +17,13 @@ public class ShortestPalindrome {
                 return t.substring(0, i) + s;
             }
         }
+
         return t + s;
     }
 
     public static void main(String args[]) {
         ShortestPalindrome s = new ShortestPalindrome();
-        String input = "dedcba";
+        String input = "caba";
         System.out.println("shortest is: " + s.shortestPalindrome(input));
     }
 

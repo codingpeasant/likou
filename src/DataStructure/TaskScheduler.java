@@ -1,4 +1,4 @@
-package Other;
+package DataStructure;
 
 import java.util.*;
 
@@ -8,8 +8,8 @@ public class TaskScheduler {
     public int leastInterval(char[] tasks, int n) {
         Map<Character, Integer> taskCounts = new HashMap<>();
         Queue<Map.Entry<Character, Integer>> maxHeap = new PriorityQueue<>(
-                (a,b) -> a.getValue() != b.getValue() ? b.getValue() - a.getValue() : a.getKey() - b.getKey());
-        for (char task:tasks) {
+                (a, b) -> a.getValue() != b.getValue() ? b.getValue() - a.getValue() : a.getKey() - b.getKey());
+        for (char task : tasks) {
             taskCounts.put(task, taskCounts.getOrDefault(task, 0) + 1);
         }
         maxHeap.addAll(taskCounts.entrySet());
@@ -38,7 +38,7 @@ public class TaskScheduler {
 
     public static void main(String[] args) {
         TaskScheduler t = new TaskScheduler();
-        char[] tasks = {'A','A','A','B','B','B'};
+        char[] tasks = {'A', 'A', 'A', 'A', 'A', 'B', 'B', 'B'};
         System.out.println(t.leastInterval(tasks, 2));
     }
 

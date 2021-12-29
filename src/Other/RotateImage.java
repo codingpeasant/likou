@@ -4,6 +4,7 @@ import java.util.Arrays;
 
 // https://leetcode.com/problems/rotate-image/
 public class RotateImage {
+    // The idea was firstly transpose the matrix and then flip it symmetrically.
     public void rotate(int[][] matrix) {
         for (int i = 0; i < matrix.length; i++) {
             for (int j = i; j < matrix[i].length; j++) {

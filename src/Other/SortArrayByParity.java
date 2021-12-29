@@ -1,5 +1,6 @@
 package Other;
 
+// https://leetcode.com/problems/sort-array-by-parity/
 public class SortArrayByParity {
     public int[] sortArrayByParity(int[] A) {
         int end = A.length - 1;

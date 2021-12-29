@@ -37,7 +37,7 @@ public class ReverseLinkedList {
         ListNode temp = null;
         while (!stack.isEmpty()) {
             ListNode cur = stack.pop();
-            if (cur.next == null) {
+            if (cur.next == null) { // find the previous ending node to be the new head
                 ptrNew = cur;
             } else {
                 temp.next = cur;

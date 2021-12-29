@@ -1,5 +1,6 @@
 package Other;
 
+// https://leetcode.com/problems/robot-return-to-origin/
 public class RobotReturnOrigin {
     public boolean judgeCircle(String moves) {
         int x = 0;
@@ -7,10 +8,10 @@ public class RobotReturnOrigin {
 
         for (char move : moves.toCharArray()) {
             switch (move) {
-                case 'U': y++; break;
-                case 'D': y--; break;
-                case 'L': x--; break;
-                case 'R': x++;
+                case 'U' -> y++;
+                case 'D' -> y--;
+                case 'L' -> x--;
+                case 'R' -> x++;
             }
         }
         return x == 0 && y == 0;

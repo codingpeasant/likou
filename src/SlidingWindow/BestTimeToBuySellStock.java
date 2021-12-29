@@ -7,22 +7,22 @@ public class BestTimeToBuySellStock {
     public int maxProfit(int[] prices) {
         int maxCur = 0, maxSoFar = 0;
         for(int i = 1; i < prices.length; i++) {
-            maxCur = Math.max(0, maxCur += prices[i] - prices[i-1]);
+            maxCur = Math.max(0, maxCur + (prices[i] - prices[i - 1]));
             maxSoFar = Math.max(maxCur, maxSoFar);
         }
         return maxSoFar;
     }
 
     public int maxProfitState(int[] prices) {
-        int buy = Integer.MAX_VALUE;
-        int sell = 0;
+        int hold = Integer.MIN_VALUE;
+        int sold = 0;
 
         for (int price : prices) {
-            buy = Math.min(buy, price);
-            sell = Math.max(sell, price - buy);
+            hold = Math.max(hold, -price);
+            sold = Math.max(sold, hold + price);
         }
 
-        return sell;
+        return sold;
     }
 
     public static void main(String[] args) {

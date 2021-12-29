@@ -1,5 +1,6 @@
 package Other;
 
+// https://leetcode.com/problems/string-to-integer-atoi/
 public class StringToInteger {
     public int myAtoi(String str) {
         int index = 0;
@@ -7,34 +8,34 @@ public class StringToInteger {
         int sign = 1;
 
         // Check if empty string
-        if(str.length() == 0)
+        if (str.length() == 0)
             return 0;
 
         // remove white spaces from the string
-        while(index < str.length() && str.charAt(index) == ' ')
+        while (index < str.length() && str.charAt(index) == ' ')
             index++;
 
         if (index == str.length()) return 0;
 
         // get the sign
-        if(str.charAt(index) == '+' || str.charAt(index) == '-') {
+        if (str.charAt(index) == '+' || str.charAt(index) == '-') {
             sign = str.charAt(index) == '+' ? 1 : -1;
             index++;
         }
 
         // convert to the actual number and make sure it's not overflow
-        while(index < str.length()) {
+        while (index < str.length()) {
             int digit = str.charAt(index) - '0';
-            if(digit < 0 || digit > 9) break;
+            if (digit < 0 || digit > 9) break;
 
             // check for overflow
-            if(Integer.MAX_VALUE / 10 < total || Integer.MAX_VALUE / 10 == total && Integer.MAX_VALUE % 10 < digit)
+            if (Integer.MAX_VALUE / 10 < total || Integer.MAX_VALUE / 10 == total && Integer.MAX_VALUE % 10 < digit)
                 return sign == 1 ? Integer.MAX_VALUE : Integer.MIN_VALUE;
 
-            total = total*10 + digit;
+            total = total * 10 + digit;
             index++; // don't forget to increment the counter
         }
-        return total*sign;
+        return total * sign;
     }
 
     public static void main(String[] args) {
@@ -42,6 +43,4 @@ public class StringToInteger {
         String input = "   -234";
         System.out.println("Integer is: " + str.myAtoi(input));
     }
-
-
 }

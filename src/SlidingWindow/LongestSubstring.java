@@ -1,30 +1,10 @@
 package SlidingWindow;
 
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Map;
-import java.util.Set;
+
 // https://leetcode.com/problems/longest-substring-without-repeating-characters/
 public class LongestSubstring {
-//    public int lengthOfLongestSubstring(@NotNull String s) {
-//        Set<Character> existingChars = new HashSet<>();
-//        int curPtr = 0;
-//        int begainPtr = 0;
-//        int maxLength = 0;
-//
-//        while (curPtr < s.length()) {
-//            if (!existingChars.contains(s.charAt(curPtr))) {
-//                existingChars.add(s.charAt(curPtr));
-//                maxLength = Math.max(maxLength, curPtr - begainPtr + 1);
-//                curPtr++;
-//            } else {
-//                existingChars.remove(s.charAt(begainPtr));
-//                begainPtr++;
-//            }
-//        }
-//        return maxLength;
-//    }
-
     public int lengthOfLongestSubstring(String s) {
         if (s == null || s.length() == 0) {
             return 0;
@@ -51,6 +31,20 @@ public class LongestSubstring {
         }
 
         return longestLength;
+    }
+
+    public int lengthOfLongestSubstring2(String s) {
+        if (s.length() == 0) return 0;
+        HashMap<Character, Integer> charIndex = new HashMap<>(); // char:index position
+        int max = 0;
+        for (int i = 0, j = 0; i < s.length(); ++i) {
+            if (charIndex.containsKey(s.charAt(i))) {
+                j = Math.max(j, charIndex.get(s.charAt(i)) + 1);
+            }
+            charIndex.put(s.charAt(i), i);
+            max = Math.max(max, i - j + 1);
+        }
+        return max;
     }
 
     public static void main(String[] args) {

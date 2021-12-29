@@ -11,7 +11,7 @@ public class PermutationString {
         int countNeeded = s1.length();
         Map<Character, Integer> charsCountNeeded = new HashMap<>();
         for (char charNeeded : s1.toCharArray()) {
-           charsCountNeeded.put(charNeeded, charsCountNeeded.getOrDefault(charNeeded, 0) + 1);
+            charsCountNeeded.put(charNeeded, charsCountNeeded.getOrDefault(charNeeded, 0) + 1);
         }
 
         while (right < s2.length()) {
@@ -25,6 +25,7 @@ public class PermutationString {
             right++;
 
             while (countNeeded == 0) {
+                // continuously decrease the window to find the substring
                 if (right - left == s1.length()) {
                     return true;
                 }

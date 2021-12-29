@@ -6,13 +6,14 @@ public class TrappingRainWater {
         if (height == null || height.length == 0) return 0;
 
         int res = 0;
+        // for current position, find the highest 2 walls from left and right
         for (int i = 0; i < height.length; i++) {
             int leftMax = 0, rightMax = 0;
             for (int j = 0; j < i; j++) {
                 leftMax = Math.max(leftMax, height[j]);
             }
 
-            for (int j = i + 1; j< height.length; j++) {
+            for (int j = i + 1; j < height.length; j++) {
                 rightMax = Math.max(rightMax, height[j]);
             }
 
@@ -35,9 +36,9 @@ public class TrappingRainWater {
             maxSoFar = Math.max(maxSoFar, height[i]);
             leftMaxAt[i] = maxSoFar;
         }
-        
+
         maxSoFar = -1;
-        for (int i = height.length - 1; i >=0;i--) {
+        for (int i = height.length - 1; i >= 0; i--) {
             maxSoFar = Math.max(maxSoFar, height[i]);
             rightMaxAt[i] = maxSoFar;
         }
@@ -52,7 +53,7 @@ public class TrappingRainWater {
 
     public static void main(String[] args) {
         TrappingRainWater t = new TrappingRainWater();
-        int[] input = {0,1,0,2,1,0,1,3,2,1,2,1};
+        int[] input = {0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1};
         System.out.println(t.trap(input));
         System.out.println(t.trapMemorization(input));
     }

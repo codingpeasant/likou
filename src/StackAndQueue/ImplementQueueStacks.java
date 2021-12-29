@@ -11,7 +11,7 @@ public class ImplementQueueStacks {
     }
 
     public void push(int x) {
-        Stack<Integer> temp = new Stack<>();
+        Stack<Integer> temp = new Stack<>(); // use another stack to reverse the sequence
         while (!myQueue.empty()) {
             temp.push(myQueue.pop());
         }

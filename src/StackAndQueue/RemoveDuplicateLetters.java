@@ -18,6 +18,8 @@ public class RemoveDuplicateLetters {
             if (visited[c - 'a']) {
                 continue;
             }
+            // got a smaller char and there is another stack.peek() later
+            // pop the larger char
             while (!stack.isEmpty() && stack.peek() > c && count[stack.peek() - 'a'] > 0) {
                 visited[stack.peek() - 'a'] = false;
                 stack.pop();

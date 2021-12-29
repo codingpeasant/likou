@@ -15,7 +15,7 @@ public class LongestSubstringKUnique {
         while (right < str.length()) {
             char rightChar = str.charAt(right);
             charNumber.put(rightChar, charNumber.getOrDefault(rightChar, 0) + 1);
-            if(charNumber.size() == k && longestSubString.length() < right - left + 1) {
+            if (charNumber.size() == k && longestSubString.length() < right - left + 1) {
                 longestSubString = str.substring(left, right + 1);
             }
             right++;

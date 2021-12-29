@@ -1,5 +1,6 @@
-package Recursive;
+package DFS;
 
+// https://leetcode.ca/2018-01-14-776-Split-BST/
 public class SplitBST {
     class TreeNode {
         int val;
@@ -19,19 +20,19 @@ public class SplitBST {
             this.right = right;
         }
     }
-
+    // how to understand this? Suppose V = -1 which is smaller than any value in the BST, then res[0] = null res[1] = BST...
     public TreeNode[] splitBST(TreeNode root, int V) {
         TreeNode[] res = new TreeNode[]{null, null};
         if (root == null) {
             return res;
         }
-        if (root.val <= V) {
+        if (root.val <= V) { // the break point must be at right subtree
             res = splitBST(root.right, V);
-            root.right = res[0];
+            root.right = res[0]; // set right of the original root to the smaller on the left of its subtree
             res[0] = root;
         } else {
             res = splitBST(root.left, V);
-            root.left = res[1]; // set left of the original root to bigger on the right
+            root.left = res[1]; // set left of the original root to the bigger on the right of its subtree
             res[1] = root;
         }
         return res;

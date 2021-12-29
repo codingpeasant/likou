@@ -1,5 +1,6 @@
-package Recursive;
+package Other;
 
+// https://leetcode.com/problems/powx-n/
 public class MyPow {
     // stack overflow
     public double myPow(double x, int n) {
@@ -10,31 +11,31 @@ public class MyPow {
             return x;
         }
 
-        if(n == Integer.MIN_VALUE){
+        if (n == Integer.MIN_VALUE) {
             x = x * x;
-            n = n/2;
+            n = n / 2;
         }
 
-        if(n<0){
+        if (n < 0) {
             n = -n;
-            x = 1/x;
+            x = 1 / x;
         }
 
         return x * myPow(x, n - 1);
     }
 
     public double myPow2(double x, int n) {
-        if(n == 0) return 1;
-        if(n == Integer.MIN_VALUE){
+        if (n == 0) return 1;
+        if (n == Integer.MIN_VALUE) {
             x = x * x;
-            n = n/2;
+            n = n / 2;
         }
-        if(n < 0) {
+        if (n < 0) {
             n = -n;
-            x = 1/x;
+            x = 1 / x;
         }
 
-        return (n%2 == 0) ? myPow(x * x, n/2) : x *  myPow(x * x, n/2);
+        return (n % 2 == 0) ? myPow(x * x, n / 2) : x * myPow(x * x, n / 2);
     }
 
     public static void main(String[] args) {

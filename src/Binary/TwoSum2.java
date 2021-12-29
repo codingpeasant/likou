@@ -1,4 +1,4 @@
-package Other;
+package Binary;
 
 import java.util.Arrays;
 

@@ -1,22 +1,34 @@
 package Other;
 
+// https://leetcode.com/problems/zigzag-conversion/
 public class ZigZagConversion {
-    public String convert(String s, int nRows) {
-        char[] c = s.toCharArray();
-        int len = c.length;
-        StringBuffer[] sb = new StringBuffer[nRows];
-        for (int i = 0; i < sb.length; i++) sb[i] = new StringBuffer();
+    public String convert(String s, int numRows) {
+        if (numRows <= 1) return s;
 
-        int i = 0;
-        while (i < len) {
-            for (int idx = 0; idx < nRows && i < len; idx++) // vertically down
-                sb[idx].append(c[i++]);
-            for (int idx = nRows-2; idx >= 1 && i < len; idx--) // obliquely up
-                sb[idx].append(c[i++]);
+        // Each element in rows represent a row.
+        StringBuilder[] rows = new StringBuilder[numRows];
+        for (int i = 0; i < numRows; i++)
+            rows[i] = new StringBuilder();
+
+        int curRow = 0; // Current row number.
+        int diff = 1; // 1 downwards, -1 upwards.
+
+        for (char ch : s.toCharArray()) {
+            rows[curRow].append(ch);
+            // Opposite moving direction.
+            if (curRow == numRows - 1 ) diff = -1;
+            else if (curRow == 0) diff = 1;
+
+            curRow += diff;
         }
-        for (int idx = 1; idx < sb.length; idx++)
-            sb[0].append(sb[idx]);
-        return sb[0].toString();
+
+        // Format result.
+        StringBuilder result = new StringBuilder();
+        for (StringBuilder row : rows) {
+            result.append(row);
+        }
+
+        return result.toString();
     }
 
     public static void main(String[] args) {
