@@ -42,7 +42,7 @@ public class InsertDeleteGetRandomDuplicates {
             locs.get(lastone).add(loc);
         }
         nums.remove(nums.size() - 1);
-        if (locs.get(val).isEmpty()) locs.remove(val); // val doesn't exist in nums any more
+        if (locs.get(val).isEmpty()) locs.remove(val); // val doesn't exist in nums anymore
         return true;
     }
 

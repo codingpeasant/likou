@@ -50,7 +50,7 @@ public class AlienDic {
             for (char neighbor : adjMap.get(curNode)) {
                 int indegree = indegreeMap.get(neighbor);
                 indegree -= 1;
-                // indegreeMap.put(neighbor, indegreeMap.get(neighbor));
+                indegreeMap.put(neighbor, indegree);
 
                 // @note: key is here.
                 // for A->B, B->C, A->C: C will not be counted until its indgree is 0

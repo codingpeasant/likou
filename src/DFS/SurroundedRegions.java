@@ -18,22 +18,24 @@ public class SurroundedRegions {
         int n = board[0].length;
 
         for (int i = 0; i < m; i++) {
+            // left most col
             if (board[i][0] == 'O') {
                 markNotSurrounded(i, 0, board);
             }
-
+            // right most col
             if (board[i][n - 1] == 'O') {
-                markNotSurrounded(i, n -1, board);
+                markNotSurrounded(i, n - 1, board);
             }
         }
 
         for (int i = 0; i < n; i++) {
+            // top row
             if (board[0][i] == 'O') {
                 markNotSurrounded(0, i, board);
             }
-
-            if (board[m-1][i] == 'O') {
-                markNotSurrounded(m-1, i, board);
+            // bottom row
+            if (board[m - 1][i] == 'O') {
+                markNotSurrounded(m - 1, i, board);
             }
         }
 
@@ -54,7 +56,7 @@ public class SurroundedRegions {
     // Mark 'O' not surrounded by 'X' as '*'
     private void markNotSurrounded(int x, int y, char[][] board) {
         board[x][y] = '*';
-        for(int[] dir: dirs) {
+        for (int[] dir : dirs) {
             int nextX = x + dir[0];
             int nextY = y + dir[1];
 
@@ -67,7 +69,7 @@ public class SurroundedRegions {
     public static void main(String[] args) {
         SurroundedRegions s = new SurroundedRegions();
         char[][] board = {
-                {'X','X','X','X'},{'X','O','O','X'},{'X','X','O','X'},{'X','O','X','X'}
+                {'X', 'X', 'X', 'X'}, {'X', 'O', 'O', 'X'}, {'X', 'X', 'O', 'X'}, {'X', 'O', 'X', 'X'}
         };
 
         s.solve(board);

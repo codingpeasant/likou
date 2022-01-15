@@ -8,7 +8,7 @@ public class CountUniqueCharactersAllSubstringsGivenString {
     public int uniqueLetterString(String s) {
         int sum = 0, curr = 0, n = s.length();
 
-        int[] last = new int[26];
+        int[] last = new int[26]; // last time saw this char
         int[] prev = new int[26];
 
         Arrays.fill(last, -1);
@@ -31,6 +31,6 @@ public class CountUniqueCharactersAllSubstringsGivenString {
 
     public static void main(String[] args) {
         CountUniqueCharactersAllSubstringsGivenString c = new CountUniqueCharactersAllSubstringsGivenString();
-        System.out.println(c.uniqueLetterString("ABABBB"));
+        System.out.println(c.uniqueLetterString("ABABB"));
     }
 }

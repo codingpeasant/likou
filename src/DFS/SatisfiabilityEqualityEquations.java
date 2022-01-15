@@ -26,7 +26,6 @@ public class SatisfiabilityEqualityEquations {
             }
         }
 
-
         for (char[] nodePair : notEqual) {
             if (isConflict(nodePair[1], nodePair[0], graph, new boolean[26])) {
                 return false;
@@ -36,6 +35,7 @@ public class SatisfiabilityEqualityEquations {
         return true;
     }
 
+    // if conflicted, the 2 nodes in the pair should not have a path to reach each other
     private boolean isConflict(char node2, char cur, Map<Character, List<Character>> graph, boolean[] visited) {
         if (cur == node2) {
             return true;

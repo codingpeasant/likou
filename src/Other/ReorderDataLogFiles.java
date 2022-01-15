@@ -42,7 +42,7 @@ public class ReorderDataLogFiles {
 
     public static void main(String[] args) {
         ReorderDataLogFiles r = new ReorderDataLogFiles();
-        String[] logs = {"dig1 8 1 5 1","let1 art can","dig2 3 6","let2 own kit dig","let3 art zero"};
+        String[] logs = {"dig1 8 1 5 1", "let1 art can", "dig2 3 6", "let2 own kit dig", "let3 art zero"};
         System.out.println(Arrays.toString(r.reorderLogFiles(logs)));
     }
 }

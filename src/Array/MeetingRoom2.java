@@ -57,6 +57,7 @@ public class MeetingRoom2 {
 
         // If a time is the end time of one meeting and the start time of another meeting,
         // the mapping value is decreased first and then increased and remains at 0, no new room is allocated
+        // similar with CarPooling and CorporateFlightBookings
         for (int v: m.values()) {
             active += v;
             result = Math.max(result, active);

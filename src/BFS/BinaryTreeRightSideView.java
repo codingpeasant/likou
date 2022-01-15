@@ -34,10 +34,10 @@ public class BinaryTreeRightSideView {
         queue.add(root);
 
         while(!queue.isEmpty()) {
-            int size = queue.size();
+            int size = queue.size(); // total number of nodes in this level
             for (int i = 0; i < size; i++) {
                 TreeNode cur = queue.poll();
-                if (i == size - 1) {
+                if (i == size - 1) { // when encountering the last in this level
                     visibleNodes.add(cur.val);
                 }
                 if (cur.left != null) {

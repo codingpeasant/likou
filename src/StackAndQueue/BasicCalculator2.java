@@ -22,14 +22,11 @@ public class BasicCalculator2 {
                 // So, we must store the currentNumber to be used later. Let's push the currentNumber in the Stack.
                 if (operation == '-') {
                     stack.push(-currentNumber);
-                }
-                else if (operation == '+') {
+                } else if (operation == '+') {
                     stack.push(currentNumber);
-                }
-                else if (operation == '*') {
+                } else if (operation == '*') {
                     stack.push(stack.pop() * currentNumber);
-                }
-                else if (operation == '/') {
+                } else if (operation == '/') {
                     stack.push(stack.pop() / currentNumber);
                 }
                 operation = currentChar;

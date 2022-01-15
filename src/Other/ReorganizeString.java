@@ -54,7 +54,7 @@ public class ReorganizeString {
 
     public static void main(String[] args) {
         ReorganizeString r = new ReorganizeString();
-        String input = "aasssbccc";
+        String input = "aasssbbbbbbbccc";
         System.out.println("Reordered: " + r.reorganizeString(input));
     }
 }

@@ -1,6 +1,7 @@
 package Binary;
 
 // https://leetcode.com/problems/find-peak-element/
+// Consider that each local maximum is one valid peak.
 public class FindPeakElement {
     public int findPeakElement(int[] nums) {
         int left = 0;

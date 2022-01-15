@@ -22,7 +22,7 @@ public class SplitBST {
     }
     // how to understand this? Suppose V = -1 which is smaller than any value in the BST, then res[0] = null res[1] = BST...
     public TreeNode[] splitBST(TreeNode root, int V) {
-        TreeNode[] res = new TreeNode[]{null, null};
+        TreeNode[] res = new TreeNode[]{null, null}; // res[0] is the smaller tree, res[1] is the larger tree
         if (root == null) {
             return res;
         }

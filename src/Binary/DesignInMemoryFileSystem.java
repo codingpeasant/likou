@@ -7,6 +7,23 @@ import java.util.Map;
 
 // https://leetcode.ca/2017-07-10-588-Design-In-Memory-File-System/
 class DesignInMemoryFileSystem {
+    class Node {
+        String path;
+        boolean isFile;
+        List<Node> children;
+
+        public Node() {
+            this("", false);
+        }
+
+        public Node(String path, boolean isFile) {
+            this.path = path;
+            this.isFile = isFile;
+            if (!isFile)
+                children = new ArrayList<>();
+        }
+    }
+
     Node root;
     Map<String, String> fileContentMap;
 
@@ -101,21 +118,3 @@ class DesignInMemoryFileSystem {
         return -low - 1;
     }
 }
-
-class Node {
-    String path;
-    boolean isFile;
-    List<Node> children;
-
-    public Node() {
-        this("", false);
-    }
-
-    public Node(String path, boolean isFile) {
-        this.path = path;
-        this.isFile = isFile;
-        if (!isFile)
-            children = new ArrayList<>();
-    }
-}
-

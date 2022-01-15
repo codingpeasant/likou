@@ -73,7 +73,7 @@ public class DesignTwitter {
             feed.add(t.tweetId);
             int next = count.get(t.userId); // refill the heap - greedy
             count.put(t.userId, next + 1);
-            if (next < tweets.get(t.userId).size()) {
+            if (next < tweets.get(t.userId).size()) { // if there is still more tweets from this userId
                 q.add(tweets.get(t.userId).get(next));
             }
         }

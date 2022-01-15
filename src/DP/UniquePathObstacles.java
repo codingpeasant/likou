@@ -7,7 +7,7 @@ public class UniquePathObstacles {
         int[][] path = new int[m][n];
 
         for (int i = 0; i < m; i++) {
-            if (obstacleGrid[i][0] == 1)  {
+            if (obstacleGrid[i][0] == 1) {
                 path[i][0] = 0;
                 //on the first column, if there is an obstacle, the rest are blocked.
                 //no need to continue.
@@ -17,7 +17,7 @@ public class UniquePathObstacles {
         }
 
         for (int j = 0; j < n; j++) {
-            if (obstacleGrid[0][j] == 1)  {
+            if (obstacleGrid[0][j] == 1) {
                 path[0][j] = 0;
                 //First row, once obstacle found, the rest are blocked.
                 break;
@@ -30,18 +30,18 @@ public class UniquePathObstacles {
                 if (obstacleGrid[i][j] == 1)
                     path[i][j] = 0;
                 else
-                    path[i][j] = path[i-1][j] + path[i][j-1];
+                    path[i][j] = path[i - 1][j] + path[i][j - 1];
             }
         }
-        return path[m-1][n-1];
+        return path[m - 1][n - 1];
     }
 
     public static void main(String[] args) {
         UniquePathObstacles u = new UniquePathObstacles();
         int[][] matrix = {
-                {0,0,0},
-                {1,0,0},
-                {0,0,0}
+                {0, 0, 0},
+                {1, 0, 0},
+                {0, 0, 0}
         };
         System.out.println("Unique Path: " + u.uniquePathsWithObstacles(matrix));
     }

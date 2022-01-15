@@ -6,7 +6,7 @@ import java.util.Arrays;
 public class TheMaze2 {
     public int shortestDistance(int[][] maze, int[] start, int[] dest) {
         int[][] distance = new int[maze.length][maze[0].length];
-        for (int[] row: distance)
+        for (int[] row : distance)
             Arrays.fill(row, Integer.MAX_VALUE);
         distance[start[0]][start[1]] = 0;
         dfs(maze, start, distance);
@@ -14,8 +14,8 @@ public class TheMaze2 {
     }
 
     public void dfs(int[][] maze, int[] start, int[][] distance) {
-        int[][] dirs={{0,1}, {0,-1}, {-1,0}, {1,0}};
-        for (int[] dir: dirs) {
+        int[][] dirs = {{0, 1}, {0, -1}, {-1, 0}, {1, 0}};
+        for (int[] dir : dirs) {
             int x = start[0] + dir[0];
             int y = start[1] + dir[1];
             int count = 0;
@@ -26,7 +26,7 @@ public class TheMaze2 {
             }
             if (distance[start[0]][start[1]] + count < distance[x - dir[0]][y - dir[1]]) { // only worth proceeding when finding a shorter one - greedy/DP works here
                 distance[x - dir[0]][y - dir[1]] = distance[start[0]][start[1]] + count;
-                dfs(maze, new int[]{x - dir[0],y - dir[1]}, distance);
+                dfs(maze, new int[]{x - dir[0], y - dir[1]}, distance);
             }
         }
     }

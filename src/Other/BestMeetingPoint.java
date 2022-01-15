@@ -9,7 +9,6 @@ public class BestMeetingPoint {
     public int minTotalDistance(int[][] grid) {
 
         // empty, null check
-
         List<Integer> ipos = new ArrayList<>();
         List<Integer> jpos = new ArrayList<>();
 

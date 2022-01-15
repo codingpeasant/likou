@@ -6,7 +6,7 @@ import java.util.TreeMap;
 // https://leetcode.com/problems/range-module/
 // extension of InsertInterval
 public class RangeModule {
-    TreeMap<Integer, Integer> first = new TreeMap<>();
+    TreeMap<Integer, Integer> first = new TreeMap<>(); // left:right
 
     public RangeModule() {
     }
@@ -15,7 +15,7 @@ public class RangeModule {
         while (true) {
             // Try to merge with existing ones.
             Map.Entry<Integer, Integer> entry = first.floorEntry(right);
-            if (entry == null || entry.getValue() < left)
+            if (entry == null || entry.getValue() < left) // null means the interval to add is on the left
                 break;
             left = Math.min(left, entry.getKey());
             right = Math.max(right, entry.getValue());
@@ -26,7 +26,7 @@ public class RangeModule {
 
     public boolean queryRange(int left, int right) {
         Map.Entry<Integer, Integer> entry = first.floorEntry(left);
-        return entry != null && entry.getValue() >= right;
+        return entry != null && entry.getValue() >= right; // the entry can include [left,right)
     }
 
     public void removeRange(int left, int right) {

@@ -13,7 +13,7 @@ public class CountGoodMeal {
         for (int num : arr) {
             int power = 1;
             for (int i = 0; i < 22; i++) {
-                if (map.containsKey(power - num)) {
+                if (map.containsKey(power - num)) { // similar to 2Sum
                     res += map.get(power - num);
                     res %= mod;
                 }

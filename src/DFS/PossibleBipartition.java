@@ -34,7 +34,7 @@ public class PossibleBipartition {
             return color == colors[node];
         }
         colors[node] = color;
-        for (Integer next:graph.get(node)) {
+        for (Integer next : graph.get(node)) {
             if (!dfs(graph, colors, -color, next)) {
                 return false;
             }
@@ -47,9 +47,9 @@ public class PossibleBipartition {
         PossibleBipartition p = new PossibleBipartition();
         int n = 4;
         int[][] dislikes = new int[][]{
-                {1,2},
-                {1,3},
-                {2,4}
+                {1, 2},
+                {1, 3},
+                {2, 4}
         };
 
         System.out.println(p.possibleBipartition(n, dislikes));

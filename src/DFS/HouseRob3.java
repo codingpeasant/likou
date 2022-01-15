@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 // https://leetcode.com/problems/house-robber-iii/
+// BFS doesn't work as it's not by odd or even level, could be any level
 public class HouseRob3 {
     class TreeNode {
         int val;
@@ -42,7 +43,7 @@ public class HouseRob3 {
             val += robSub(root.right.left, map) + robSub(root.right.right, map);
         }
 
-        val = Math.max(val + root.val, robSub(root.left, map) + robSub(root.right, map));
+        val = Math.max(val + root.val, robSub(root.left, map) + robSub(root.right, map)); // rob root or not
         map.put(root, val);
 
         return val;

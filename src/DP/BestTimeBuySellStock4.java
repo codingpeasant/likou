@@ -8,11 +8,11 @@ public class BestTimeBuySellStock4 {
     // Space complexity: O(kn)
     public int maxProfit(int k, int[] prices) {
         int n = prices.length;
-        if (k >= n/2) {
+        if (k >= n / 2) {
             // fast case because there are [0, n/2] continuous increases
             int maxProfit = 0;
             for (int i = 1; i < n; i++) {
-                int diff = prices[i] - prices[i-1];
+                int diff = prices[i] - prices[i - 1];
                 if (diff > 0) {
                     maxProfit += diff;
                 }
@@ -34,6 +34,6 @@ public class BestTimeBuySellStock4 {
 
     public static void main(String[] args) {
         BestTimeBuySellStock4 b = new BestTimeBuySellStock4();
-        System.out.println(b.maxProfit(2, new int[]{3,2,6,5,0,3}));
+        System.out.println(b.maxProfit(2, new int[]{3, 2, 6, 5, 0, 3}));
     }
 }

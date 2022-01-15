@@ -17,7 +17,7 @@ public class ValidSudoku {
                 if (board[j][i] != '.' && !columns.add(board[j][i]))
                     return false;
                 int RowIndex = 3 * (i / 3); // original coordinate
-                int ColIndex = 3 * (j / 3);
+                int ColIndex = 3 * (i % 3);
                 if (board[RowIndex + j / 3][ColIndex + j % 3] != '.' && !cube.add(board[RowIndex + j / 3][ColIndex + j % 3]))
                     return false;
             }

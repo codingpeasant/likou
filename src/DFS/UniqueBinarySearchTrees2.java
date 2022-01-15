@@ -25,19 +25,19 @@ public class UniqueBinarySearchTrees2 {
     }
 
     public List<TreeNode> generateTrees(int n) {
-        return genTreeList(1,n);
+        return genTreeList(1, n);
     }
 
-    private List<TreeNode> genTreeList (int start, int end) {
+    private List<TreeNode> genTreeList(int start, int end) {
         List<TreeNode> list = new ArrayList<>();
         if (start > end) {
             list.add(null); // the caller is a leaf node; cannot just return here, otherwise the double for loop won't have anything to iterate on
         }
-        for(int idx = start; idx <= end; idx++) {
+        for (int idx = start; idx <= end; idx++) {
             List<TreeNode> leftList = genTreeList(start, idx - 1);
             List<TreeNode> rightList = genTreeList(idx + 1, end);
             for (TreeNode left : leftList) { // all combination of left and right
-                for(TreeNode right: rightList) {
+                for (TreeNode right : rightList) {
                     TreeNode root = new TreeNode(idx);
                     root.left = left;
                     root.right = right;

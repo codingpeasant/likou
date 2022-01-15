@@ -22,13 +22,13 @@ public class CourseSchedule {
         // How many courses don't need prerequisites.
         int canFinishCount = queue.size();
         while (!queue.isEmpty()) {
-            int prerequisite = queue.remove(); // Already finished this prerequisite course.
-            for (int i = 0; i < prerequisites.length; i++) {
-                if (prerequisites[i][1] == prerequisite) {
-                    indegree[prerequisites[i][0]]--;
-                    if (indegree[prerequisites[i][0]] == 0) {
+            int prerequisite = queue.poll(); // Already finished this prerequisite course.
+            for (int[] ints : prerequisites) {
+                if (ints[1] == prerequisite) {
+                    indegree[ints[0]]--;
+                    if (indegree[ints[0]] == 0) {
                         canFinishCount++;
-                        queue.add(prerequisites[i][0]);
+                        queue.add(ints[0]);
                     }
                 }
             }

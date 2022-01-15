@@ -17,9 +17,9 @@ public class MergeIntervals {
         result.add(curInterval);
 
         for (int[] interval: intervals) {
-            if (curInterval[1] >= interval[0]) {
+            if (curInterval[1] >= interval[0]) { // overlap, merge the 2 intervals
                 curInterval[1] = Math.max(curInterval[1], interval[1]); // adjust the existing range in the result
-            } else {
+            } else { // no overlap, directly add it
                 curInterval = interval;
                 result.add(curInterval);
             }

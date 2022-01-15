@@ -74,7 +74,7 @@ public class FindFirstAndLastPosition {
     public static void main(String[] args) {
         FindFirstAndLastPosition f = new FindFirstAndLastPosition();
         int[] nums = {5,7,7,8,8,10};
-        System.out.println(Arrays.toString(f.searchRange(nums, 5)));
+        System.out.println(Arrays.toString(f.searchRange(nums, 4)));
         System.out.println(f.binarySearchLeftOrFloor(nums, 9));
     }
 }

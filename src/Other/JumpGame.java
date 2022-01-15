@@ -17,17 +17,18 @@ public class JumpGame {
         return true;
     }
 
+    // Time Limit Exceeded
     public boolean bfs(int[] A) {
         Queue<Integer> bfsQueue = new LinkedList<>();
-        bfsQueue.add(A[0]);
+        bfsQueue.add(0);
         while (!bfsQueue.isEmpty()) {
             int curIndex = bfsQueue.poll();
 
-            for (int i = 1; i <= A[curIndex]; i++) {
+            for (int i = 0; i <= A[curIndex]; i++) {
                 if (curIndex + i >= A.length - 1) {
                     return true;
                 }
-                bfsQueue.add(A[curIndex + i]);
+                bfsQueue.add(curIndex + i);
             }
         }
 

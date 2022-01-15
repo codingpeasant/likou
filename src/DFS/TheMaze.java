@@ -15,6 +15,7 @@ public class TheMaze {
             return true;
         }
 
+        // this path won't work as it's not the first time reaching this location
         if (visited[cur[0]][cur[1]]) {
             return false;
         }

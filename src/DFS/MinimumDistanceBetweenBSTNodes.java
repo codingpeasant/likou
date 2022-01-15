@@ -30,7 +30,7 @@ public class MinimumDistanceBetweenBSTNodes {
         inorder(root);
         return res;
     }
-// why in order?
+// why in order? in BST, the min difference can only happen between adjacent values, which could be presented by in order
 //    7
 //    /\
 //    4 8
@@ -48,7 +48,6 @@ public class MinimumDistanceBetweenBSTNodes {
         prev = root.val;
         inorder(root.right);
     }
-
 
     public void initialize() {
         TreeNode node1 = new TreeNode(3);

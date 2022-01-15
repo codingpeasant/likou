@@ -32,7 +32,7 @@ public class KokoEatingBananas {
 
     public static void main(String[] args) {
         KokoEatingBananas k = new KokoEatingBananas();
-        int[] piles = {3,6,7,11};
+        int[] piles = {3, 6, 7, 11};
         System.out.println(k.minEatingSpeed(piles, 8));
     }
 }

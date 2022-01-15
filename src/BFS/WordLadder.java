@@ -36,7 +36,7 @@ public class WordLadder {
                 steps = wordStep.step;
                 break;
             }
-            System.out.print(wordStep.word+" -> ");
+            System.out.print(wordStep.word + " -> ");
 
             for (int i = 0; i < wordList.size(); i++) {
                 if (!visited[i] && isNeighbor(wordStep.word, wordList.get(i))) {
@@ -66,9 +66,9 @@ public class WordLadder {
                 String word = bfsQueue.poll();
                 if (endWord.equals(word)) {
                     System.out.print(word + "\n");
-                    return steps  + 1;
+                    return steps + 1;
                 }
-                System.out.print(word+" -> ");
+                System.out.print(word + " -> ");
 
                 for (int i = 0; i < wordList.size(); i++) {
                     if (!visited[i] && isNeighbor(word, wordList.get(i))) {
@@ -95,7 +95,7 @@ public class WordLadder {
 
     // Driver method
     public static void main(String[] args) throws java.lang.Exception {
-        ArrayList<String> wordList = new ArrayList<>(Arrays.asList("hot","dot","dog","lot","log","cog"));
+        ArrayList<String> wordList = new ArrayList<>(Arrays.asList("hot", "dot", "dog", "lot", "log", "cog"));
         String beginWord = "hit";
         String endWord = "cog";
 

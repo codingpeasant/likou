@@ -12,7 +12,7 @@ public class MinimumDominoRotations {
                 same[A[i]]++;
         }
         for (int i = 1; i < 7; ++i)
-            if (countA[i] + countB[i] - same[i] == n)
+            if (countA[i] + countB[i] - same[i] == n) // for the number at i, we could make it the same on one side
                 return n - Math.max(countA[i], countB[i]); // either first row or the second
         return -1;
     }

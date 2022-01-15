@@ -2,6 +2,7 @@ package DP;
 
 import java.util.*;
 
+// https://leetcode.com/problems/minimum-path-sum/
 public class MinimumPathSum {
     public int minPathSum(int[][] grid) {
         // allow change the input grid
@@ -29,11 +30,11 @@ public class MinimumPathSum {
                 }
 
                 if (i != 0 && j == 0) {
-                    minSumTo[i][j] = minSumTo[i-1][j] + grid[i][j];
+                    minSumTo[i][j] = minSumTo[i - 1][j] + grid[i][j];
                 }
 
                 if (i != 0 && j != 0) {
-                    minSumTo[i][j] = grid[i][j] + Math.min(minSumTo[i][j-1], minSumTo[i-1][j]);
+                    minSumTo[i][j] = grid[i][j] + Math.min(minSumTo[i][j - 1], minSumTo[i - 1][j]);
                 }
             }
         }
@@ -48,12 +49,12 @@ public class MinimumPathSum {
             return neighbors;
         }
 
-        if (coordinate[0] == m - 1  && coordinate[1] < n - 1) {
+        if (coordinate[0] == m - 1 && coordinate[1] < n - 1) {
             neighbors.add(new int[]{coordinate[0], coordinate[1] + 1});
             return neighbors;
         }
 
-        if (coordinate[0] == m - 1 && coordinate[1]==n-1) {
+        if (coordinate[0] == m - 1 && coordinate[1] == n - 1) {
             return neighbors;
         }
 
@@ -67,7 +68,7 @@ public class MinimumPathSum {
         int n = grid[0].length;
         boolean[][] visited = new boolean[m][n];
         Queue<int[]> minHeap = new PriorityQueue<>(Comparator.comparingInt(a -> a[2]));
-        minHeap.add(new int[]{0,0,grid[0][0]}); // [i,j,dist] from dummy original node
+        minHeap.add(new int[]{0, 0, grid[0][0]}); // [i,j,dist] from dummy original node
 
         while (!minHeap.isEmpty()) {
             int[] currentNode = minHeap.poll();
@@ -80,7 +81,7 @@ public class MinimumPathSum {
             }
             visited[row][col] = true;
 
-            for (int[] neighbor: getNeighbors(m, n, new int[]{row, col})) {
+            for (int[] neighbor : getNeighbors(m, n, new int[]{row, col})) {
                 int newRow = neighbor[0];
                 int newCol = neighbor[1];
                 int newDist = curDist + grid[newRow][newCol];
@@ -92,9 +93,9 @@ public class MinimumPathSum {
 
     public static void main(String[] args) {
         int M[][] = new int[][]{
-                {1,2,3},
-                {4,5,6},
-                {7,8,9}
+                {1, 2, 3},
+                {4, 5, 6},
+                {7, 8, 9}
         };
 
         MinimumPathSum w = new MinimumPathSum();

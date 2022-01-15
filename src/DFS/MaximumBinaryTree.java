@@ -1,6 +1,7 @@
 package DFS;
 
 // https://leetcode.com/problems/maximum-binary-tree/
+// similar with building BST from preorder and inorder
 public class MaximumBinaryTree {
     class TreeNode {
         int val;

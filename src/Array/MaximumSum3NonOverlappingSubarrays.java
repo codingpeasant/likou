@@ -15,6 +15,7 @@ public class MaximumSum3NonOverlappingSubarrays {
             windowSums[i] = curSum;
         }
 
+        // the largest index so far counting from left
         int[] left = new int[windowSums.length];
         int best = 0;
         for (int i = 0; i < windowSums.length; i++) {
@@ -22,10 +23,11 @@ public class MaximumSum3NonOverlappingSubarrays {
             left[i] = best;
         }
 
+        // the largest index so far counting from right
         int[] right = new int[windowSums.length];
         best = windowSums.length - 1;
         for (int i = windowSums.length - 1; i >= 0; i--) {
-            if (windowSums[i] >= windowSums[best]) {
+            if (windowSums[i] >= windowSums[best]) { // >= to find the smallest index that has the largest
                 best = i;
             }
             right[i] = best;

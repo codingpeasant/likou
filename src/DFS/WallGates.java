@@ -20,10 +20,10 @@ public class WallGates {
     }
 
     private void dfs(int[][] rooms, int i, int j, int distance) {
-        if (i < 0 || j < 0 || i >= rooms.length || j >= rooms.length || rooms[i][j] < distance) {
+        if (i < 0 || j < 0 || i >= rooms.length || j >= rooms.length || rooms[i][j] < distance) { // found a smaller one before
             return;
         }
-
+        // current distance is smaller
         rooms[i][j] = distance;
         for (int[] dir: DIRS) {
             dfs(rooms, i + dir[0], j + dir[1], distance + 1);
