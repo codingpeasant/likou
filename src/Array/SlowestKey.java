@@ -1,5 +1,6 @@
 package Array;
 
+// https://leetcode.com/problems/slowest-key/
 public class SlowestKey {
     public char slowestKey(int[] releaseTimes, String keysPressed) {
         int n = releaseTimes.length;

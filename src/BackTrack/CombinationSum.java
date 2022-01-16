@@ -7,13 +7,14 @@ import java.util.List;
 public class CombinationSum {
     public List<List<Integer>> combinationSum(int[] candidates, int target) {
         List<List<Integer>> list = new ArrayList<>();
-        backtrack(candidates, target, list, new ArrayList<Integer>(), 0, 0);
+        backtrack(candidates, target, list, new ArrayList<>(), 0, 0);
         return list;
     }
 
     public void backtrack(int[] candidate, int target, List<List<Integer>> list, List<Integer> curList, int curSum, int start) {
         if (curSum == target) {
             list.add(new ArrayList<>(curList));
+            return;
         }
 
         if (curSum > target) {

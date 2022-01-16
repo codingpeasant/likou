@@ -15,7 +15,7 @@ public class RangeAddition {
             int inc = update[2];
 
             ans[start] += inc;
-            if (end + 1 < length) {
+            if (end < length - 1) {
                 ans[end + 1] -= inc;
             }
 

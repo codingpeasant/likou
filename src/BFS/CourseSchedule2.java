@@ -34,7 +34,7 @@ public class CourseSchedule2 {
         int i = 0;
         // Process until the Q becomes empty
         while (!q.isEmpty()) {
-            int node = q.remove();
+            int node = q.poll();
             topologicalOrder[i++] = node;
 
             // Reduce the in-degree of each neighbor by 1

@@ -24,8 +24,10 @@ public class Permutations2 {
 
         for (int i = 0; i < nums.length; i++) {
             if (used[i]) continue;
-            // we can make sure that 1b cannot be chosen before 1a; when a number has the same value with its previous, we can use this number only if his previous is used
-            // why used[] is needed while combinationSum2 doesn't? the latter doesn't need to start from 0, no concern of picking a previous element or not
+            // we can make sure that 1b cannot be chosen before 1a; when a number has the same value with its previous,
+            // we can use this number only if his previous is used
+            // why used[] is needed while combinationSum2 doesn't? the latter doesn't need to start from 0,
+            // no concern of picking a previous element or not
             if (i > 0 && nums[i - 1] == nums[i] && !used[i - 1]) continue;
             used[i] = true;
             curList.add(nums[i]);

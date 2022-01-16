@@ -3,6 +3,7 @@ package Array;
 import java.util.HashMap;
 import java.util.Map;
 
+// https://leetcode.com/problems/subarray-sums-divisible-by-k/
 public class SubarraySumsDivisibleK {
     public int subarraysDivByK(int[] A, int K) {
         Map<Integer, Integer> map = new HashMap<>();

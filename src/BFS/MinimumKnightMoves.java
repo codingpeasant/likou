@@ -23,7 +23,7 @@ public class MinimumKnightMoves {
         while (!queue.isEmpty()) {
             int size = queue.size();
             for (int i = 0; i < size; i++) {
-                int[] cur = queue.remove();
+                int[] cur = queue.poll();
                 int curX = cur[0];
                 int curY = cur[1];
                 if (curX == x && curY == y) {

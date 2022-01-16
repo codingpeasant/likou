@@ -52,7 +52,7 @@ public class IsGraphBipartite {
         int n = graph.length;
         int[] colors = new int[n];
 
-        for (int i = 0; i < n; i++) {              //This graph might be a disconnected graph. So check each unvisited node.
+        for (int i = 0; i < n; i++) { //This graph might be a disconnected graph. So check each unvisited node.
             if (colors[i] == 0 && !dfs(graph, colors, 1, i)) {
                 return false;
             }

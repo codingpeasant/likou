@@ -22,6 +22,29 @@ public class MaxLengthConcatenatedString {
         return maxLen;
     }
 
+    private boolean isOkay(String a, String b) {
+        Map<String, Integer> charCount = new HashMap<>();
+
+        for (int i = 0; i < a.length(); i++) {
+            String cha = String.valueOf(a.charAt(i));
+            if (charCount.containsKey(cha)) {
+                return false;
+            } else {
+                charCount.put(cha, 1);
+            }
+        }
+
+        for (int i = 0; i < b.length(); i++) {
+            String cha = String.valueOf(b.charAt(i));
+            if (charCount.containsKey(cha)) {
+                return false;
+            } else {
+                charCount.put(cha, 1);
+            }
+        }
+        return true;
+    }
+
     int dfsMax = 0;
 
     public int maxLengthDFS(List<String> arr) {
@@ -49,29 +72,6 @@ public class MaxLengthConcatenatedString {
                 return false;
             }
             set.add(ch);
-        }
-        return true;
-    }
-
-    private boolean isOkay(String a, String b) {
-        Map<String, Integer> charCount = new HashMap<>();
-
-        for (int i = 0; i < a.length(); i++) {
-            String cha = String.valueOf(a.charAt(i));
-            if (charCount.containsKey(cha)) {
-                return false;
-            } else {
-                charCount.put(cha, 1);
-            }
-        }
-
-        for (int i = 0; i < b.length(); i++) {
-            String cha = String.valueOf(b.charAt(i));
-            if (charCount.containsKey(cha)) {
-                return false;
-            } else {
-                charCount.put(cha, 1);
-            }
         }
         return true;
     }

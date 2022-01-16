@@ -5,7 +5,7 @@ public class PairsSongsWithTotalDurationsDivisible60 {
     public int numPairsDivisibleBy60(int[] time) {
         int c[] = new int[60], res = 0;
         for (int t : time) {
-            res += c[(60 - t % 60) % 60]; // (t + x) % 60 = 0 -> x % 60 = 60 - t % 60
+            res += c[(60 - t % 60) % 60]; // (t + x) % 60 = 0 -> x % 60 = 60 - t % 60; when t % 60 == 0, res+=c[0]
             c[t % 60] += 1;
         }
         return res;

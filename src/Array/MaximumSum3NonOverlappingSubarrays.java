@@ -19,7 +19,9 @@ public class MaximumSum3NonOverlappingSubarrays {
         int[] left = new int[windowSums.length];
         int best = 0;
         for (int i = 0; i < windowSums.length; i++) {
-            if (windowSums[i] > windowSums[best]) best = i;
+            if (windowSums[i] > windowSums[best]) {
+                best = i;
+            }
             left[i] = best;
         }
 

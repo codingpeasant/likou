@@ -13,6 +13,7 @@ public class RangeModule {
 
     public void addRange(int left, int right) {
         while (true) {
+            // 2 - 4; 5 - 10; 2 - 3
             // Try to merge with existing ones.
             Map.Entry<Integer, Integer> entry = first.floorEntry(right);
             if (entry == null || entry.getValue() < left) // null means the interval to add is on the left

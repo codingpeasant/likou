@@ -15,13 +15,13 @@ public class ProductArrayExceptSelf {
         // left[i] = left[i-1] * nums[i-1]
         left[0] = 1;
         for (int i = 1; i < nums.length; i++) {
-            left[i] = left[i-1] * nums[i-1];
+            left[i] = left[i - 1] * nums[i - 1];
         }
 
         // right[i] = right[i+1] * nums[i+1]
         right[nums.length - 1] = 1;
         for (int i = nums.length - 2; i >= 0; i--) {
-            right[i] = right[i+1] * nums[i+1];
+            right[i] = right[i + 1] * nums[i + 1];
         }
 
         int[] product = new int[nums.length];
@@ -34,10 +34,10 @@ public class ProductArrayExceptSelf {
 
     public static void main(String[] args) {
         ProductArrayExceptSelf p = new ProductArrayExceptSelf();
-        int[] input = {1,2,3,4,5,6,7,8};
+        int[] input = {1, 2, 3, 4, 5, 6, 7, 8};
         int[] products = p.productExceptSelf(input);
-        for (int product:
-             products) {
+        for (int product :
+                products) {
             System.out.print(product + ", ");
         }
     }
