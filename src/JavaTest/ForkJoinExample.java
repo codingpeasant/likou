@@ -3,11 +3,9 @@ package JavaTest;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ForkJoinPool;
-import java.util.concurrent.ForkJoinTask;
 import java.util.concurrent.RecursiveTask;
-import java.util.stream.LongStream;
 
-public class JavaTest {
+public class ForkJoinExample {
     public static void main(String[] args) {
         MyRecursiveTask myRecursiveTask = new MyRecursiveTask(128);
         ForkJoinPool mainPool = new ForkJoinPool(10);
@@ -26,18 +24,18 @@ class MyRecursiveTask extends RecursiveTask<Long> {
 
     protected Long compute() {
         //if work is above threshold, break tasks up into smaller tasks
-        if(this.workLoad > 16) {
+        if (this.workLoad > 16) {
             System.out.println("Splitting workLoad : " + this.workLoad);
 
             List<MyRecursiveTask> subtasks = new ArrayList<>();
             subtasks.addAll(createSubtasks());
 
-            for(MyRecursiveTask subtask : subtasks){
+            for (MyRecursiveTask subtask : subtasks) {
                 subtask.fork();
             }
 
             long result = 0;
-            for(MyRecursiveTask subtask : subtasks) {
+            for (MyRecursiveTask subtask : subtasks) {
                 result += subtask.join();
             }
             return result;
