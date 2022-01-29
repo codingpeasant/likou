@@ -30,6 +30,7 @@ public class ThreadPoolMain {
         threadPool.stop();
         System.out.println("The final value of the integer: " + atomicInteger.get());
 
+        ///////////////////////////////////////////////////////////////////////////
         ExecutorService executor = Executors.newFixedThreadPool(5);
         List<Callable<Integer>> callables = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
