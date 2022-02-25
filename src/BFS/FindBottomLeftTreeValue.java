@@ -34,7 +34,7 @@ public class FindBottomLeftTreeValue {
         int lastValue = 0;
         while (!q.isEmpty()) {
             TreeNode cur = q.poll();
-            if (cur.right != null) { // add right first so the right most will be last element
+            if (cur.right != null) { // add right first so the left most will be last element
                 q.offer(cur.right);
             }
 

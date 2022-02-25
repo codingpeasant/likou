@@ -34,6 +34,26 @@ public class NonOverlappingIntervals {
         return intervals.length - count;
     }
 
+    public int eraseOverlapIntervals1(Interval[] intervals) {
+        if (intervals.length == 0) return 0;
+
+        Arrays.sort(intervals, Comparator.comparingInt(a -> a.start));
+
+        int prevEnd = intervals[0].end;
+        int count = 0;
+
+        for (int i = 1; i < intervals.length; i++) {
+            if (intervals[i].start >= prevEnd) {
+                prevEnd = intervals[i].end;
+            } else {
+                prevEnd = Math.min(prevEnd, intervals[i].end); // remove the larger end and keep the smaller
+                count++;
+            }
+        }
+
+        return count;
+    }
+
     public static void main(String[] args) {
         NonOverlappingIntervals non = new NonOverlappingIntervals();
         Interval[] intervals = new Interval[]{
@@ -44,5 +64,6 @@ public class NonOverlappingIntervals {
         };
 
         System.out.println(non.eraseOverlapIntervals(intervals));
+        System.out.println(non.eraseOverlapIntervals1(intervals));
     }
 }

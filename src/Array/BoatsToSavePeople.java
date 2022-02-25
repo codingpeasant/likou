@@ -9,7 +9,7 @@ import java.util.Arrays;
 //        If the sum of weight is over the limit, we have to let the heaviest go alone.
 //        No one can take the same boat with him.
 //
-//        At the end of for loop, it may happend that i = j.
+//        At the end of for loop, it may happen that i = j.
 //        But it won't change the result so don't worry about it.
 public class BoatsToSavePeople {
     // Greedy is optimal here

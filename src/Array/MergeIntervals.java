@@ -27,9 +27,28 @@ public class MergeIntervals {
         return result.toArray(new int[result.size()][]);
     }
 
+    public int[][] merge1(int[][] intervals) {
+        Arrays.sort(intervals, Comparator.comparingInt(el -> el[0])); // (el1, el2) -> (el1[0] - el2[0])
+        List<int[]> result = new ArrayList<>();
+        int[] toAdd = intervals[0];
+
+        for (int i = 1; i < intervals.length; i++) {
+            int[] cur = intervals[i];
+            if (toAdd[1] < cur[0]) {
+                result.add(toAdd);
+                toAdd = cur;
+            } else {
+                toAdd[1] = Math.max(cur[1], toAdd[1]);
+            }
+        }
+        result.add(toAdd);
+        return result.toArray(new int[result.size()][]);
+    }
+
     public static void main(String[] args) {
         MergeIntervals m = new MergeIntervals();
         int[][] input = {{1,3}, {2,6}, {15,18}, {3, 5}};
         System.out.println("intervals after merge: " + Arrays.deepToString(m.merge(input)));
+        System.out.println("intervals after merge: " + Arrays.deepToString(m.merge1(input)));
     }
 }

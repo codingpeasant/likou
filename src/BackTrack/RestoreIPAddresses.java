@@ -35,18 +35,16 @@ public class RestoreIPAddresses {
 
     private void backtrack(String s, String cur, int starting, int n, List<String> res) { // n to track how many parts so far
         if (n == 4 && cur.length() == s.length() + 4) {
-            res.add(cur.substring(0, cur.length() - 1)); // remove '.'
-            return;
+            res.add(cur.substring(0, cur.length() - 1)); // removing the last .
         }
 
-        if (n > 4) return; // e.g. 2.5.5.25511135
+        if (n > 4) return;
 
-        for (int i = 1; i <= 3; i++) { // try to include 1 or 2 or 3 digits
-            if (starting + i > s.length()) break;
-            String substring = s.substring(starting, starting + i); // include the first char not the last
-            int val = Integer.parseInt(substring);
-            if (val > 255 || String.valueOf(val).length() != i) continue; // e.g. 265 or 02
-            backtrack(s, cur + substring + ".", starting + i, n + 1, res); // valid so far,
+        for (int i = starting; i < starting + 3; i++) {
+            if (i > s.length() - 1) break;
+            int val = Integer.parseInt(s.substring(starting, i + 1));
+            if (val > 255 || i + 1 - starting != String.valueOf(val).length()) continue;
+            backtrack(s, cur + val + ".", i + 1, n + 1, res);
         }
     }
 

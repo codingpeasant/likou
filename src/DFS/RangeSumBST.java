@@ -36,22 +36,23 @@ public class RangeSumBST {
     }
 
     int sum = 0;
-    public void rangeSumBST2(TreeNode root, int left, int right) {
-            if (root == null) {
-                return;
-            }
 
-            if (root.val > right) {
-                rangeSumBST2(root.left, left, right);
-            }
-            if (root.val < left) {
-                rangeSumBST2(root.right, left, right);
-            }
-            if (root.val <= right && root.val >= left) {
-                sum += root.val;
-                rangeSumBST2(root.left, left, right);
-                rangeSumBST2(root.right, left, right);
-            }
+    public void rangeSumBST2(TreeNode root, int left, int right) {
+        if (root == null) {
+            return;
+        }
+
+        if (root.val > right) {
+            rangeSumBST2(root.left, left, right);
+        }
+        if (root.val < left) {
+            rangeSumBST2(root.right, left, right);
+        }
+        if (root.val <= right && root.val >= left) {
+            sum += root.val;
+            rangeSumBST2(root.left, left, right);
+            rangeSumBST2(root.right, left, right);
+        }
     }
 
     public void initialize() {

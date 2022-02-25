@@ -13,7 +13,7 @@ public class WordSearch {
     private TrieNode buildTrie(String word) {
         TrieNode root = new TrieNode();
         TrieNode p = root;
-        for (char ch: word.toCharArray()) {
+        for (char ch : word.toCharArray()) {
             if (p.children.get(ch) == null) {
                 TrieNode newNode = new TrieNode();
                 newNode.letter = ch;
@@ -38,7 +38,7 @@ public class WordSearch {
         return false;
     }
 
-    boolean searchTrieDFS(char[][]board, int i, int j, TrieNode p) {
+    boolean searchTrieDFS(char[][] board, int i, int j, TrieNode p) {
         if (p.word != null) {
             return true;
         }
@@ -62,7 +62,7 @@ public class WordSearch {
 
     public boolean exist(char[][] board, String word) {
         for (int i = 0; i < board.length; i++) {
-            for (int j = 0; j < board[i].length; j ++) {
+            for (int j = 0; j < board[i].length; j++) {
                 if (word.charAt(0) == board[i][j] && searchDFS(board, i, j, word, 0)) {
                     return true;
                 }
@@ -71,7 +71,7 @@ public class WordSearch {
         return false;
     }
 
-    boolean searchDFS(char[][]board, int i, int j, String word, int length) {
+    boolean searchDFS(char[][] board, int i, int j, String word, int length) {
         if (length == word.length()) {
             return true;
         }
@@ -95,13 +95,13 @@ public class WordSearch {
     // Driver method
     public static void main(String[] args) throws java.lang.Exception {
         char M[][] = new char[][]{
-                {'A','B','C','E'},
-                {'S','F','C','S'},
-                {'A','D','E','E'}
+                {'A', 'B', 'C', 'E'},
+                {'S', 'F', 'C', 'S'},
+                {'A', 'D', 'E', 'E'}
         };
 
         WordSearch w = new WordSearch();
-        System.out.println("Word exists: " +w.exist(M, "FCSE"));
+        System.out.println("Word exists: " + w.exist(M, "FCSE"));
         System.out.println(w.existTrie(M, "FCSE"));
     }
 }

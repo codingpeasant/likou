@@ -21,20 +21,20 @@ public class PacificAtlanticWaterFlow {
         boolean[][] atlantic = new boolean[n][m];
 
         // starts from 4 edges inwards
-        for(int i=0; i<n; i++){
+        for (int i = 0; i < n; i++) {
             dfs(matrix, pacific, Integer.MIN_VALUE, i, 0);
-            dfs(matrix, atlantic, Integer.MIN_VALUE, i, m-1);
+            dfs(matrix, atlantic, Integer.MIN_VALUE, i, m - 1);
         }
-        for(int i=0; i<m; i++){
+        for (int i = 0; i < m; i++) {
             dfs(matrix, pacific, Integer.MIN_VALUE, 0, i);
-            dfs(matrix, atlantic, Integer.MIN_VALUE, n-1, i);
+            dfs(matrix, atlantic, Integer.MIN_VALUE, n - 1, i);
         }
 
         // cells flowed by both oceans
         for (int i = 0; i < n; i++)
             for (int j = 0; j < m; j++)
                 if (pacific[i][j] && atlantic[i][j]) {
-                    res.add(new int[] {i, j});
+                    res.add(new int[]{i, j});
                 }
         return res;
     }
@@ -58,11 +58,11 @@ public class PacificAtlanticWaterFlow {
     public static void main(String args[]) {
         PacificAtlanticWaterFlow p = new PacificAtlanticWaterFlow();
         int[][] input = {
-                {1,2,2,3,5},
-                {3,2,3,4,4},
-                {2,4,5,3,1},
-                {6,7,1,4,5},
-                {5,1,1,2,4}
+                {1, 2, 2, 3, 5},
+                {3, 2, 3, 4, 4},
+                {2, 4, 5, 3, 1},
+                {6, 7, 1, 4, 5},
+                {5, 1, 1, 2, 4}
         };
         p.pacificAtlantic(input).forEach(arr -> System.out.println(arr[0] + "," + arr[1]));
     }

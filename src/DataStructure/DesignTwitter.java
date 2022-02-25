@@ -60,7 +60,7 @@ public class DesignTwitter {
             return feed;
         }
         HashSet<Integer> followed = follows.get(userId);
-        HashMap<Integer, Integer> count = new HashMap<>();
+        HashMap<Integer, Integer> count = new HashMap<>(); // track the current userId's position - where to fetch the next
         for (Integer followedUserId : followed) {
             if (tweets.containsKey(followedUserId)) {
                 Tweet t = tweets.get(followedUserId).get(0);
