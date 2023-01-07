@@ -2,3 +2,5 @@
 out/
 java_test.iml
 ScratchPad.java
+Test.py
+__pycache__

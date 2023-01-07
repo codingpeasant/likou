@@ -12,11 +12,11 @@ public class CountSmallerNumbersAfterSelf {
         List<Integer> res = new ArrayList<>();
 
         count = new int[nums.length];
-        int[] indexes = new int[nums.length];
+        int[] indices = new int[nums.length];
         for (int i = 0; i < nums.length; i++) {
-            indexes[i] = i;
+            indices[i] = i;
         }
-        mergesort(nums, indexes, 0, nums.length - 1);
+        mergesort(nums, indices, 0, nums.length - 1);
         for (int i = 0; i < count.length; i++) {
             res.add(count[i]);
         }
@@ -36,35 +36,35 @@ public class CountSmallerNumbersAfterSelf {
 
     private void merge(int[] nums, int[] indexes, int start, int end) {
         int mid = (start + end) / 2;
-        int left_index = start;
-        int right_index = mid + 1;
-        int rightcount = 0;
-        int[] new_indexes = new int[end - start + 1];
+        int leftIndex = start;
+        int rightIndex = mid + 1;
+        int smallerElementOnRightCount = 0;
+        int[] newIndexes = new int[end - start + 1];
 
-        int sort_index = 0;
-        while (left_index <= mid && right_index <= end) {
-            if (nums[indexes[right_index]] < nums[indexes[left_index]]) {
-                new_indexes[sort_index] = indexes[right_index];
-                rightcount++;
-                right_index++;
+        int sortedIndex = 0;
+        while (leftIndex <= mid && rightIndex <= end) {
+            if (nums[indexes[rightIndex]] < nums[indexes[leftIndex]]) {
+                newIndexes[sortedIndex] = indexes[rightIndex];
+                smallerElementOnRightCount++;
+                rightIndex++;
             } else {
-                new_indexes[sort_index] = indexes[left_index];
-                count[indexes[left_index]] += rightcount;
-                left_index++;
+                newIndexes[sortedIndex] = indexes[leftIndex];
+                count[indexes[leftIndex]] += smallerElementOnRightCount;
+                leftIndex++;
             }
-            sort_index++;
+            sortedIndex++;
         }
-        while (left_index <= mid) {
-            new_indexes[sort_index] = indexes[left_index];
-            count[indexes[left_index]] += rightcount;
-            left_index++;
-            sort_index++;
+        while (leftIndex <= mid) {
+            newIndexes[sortedIndex] = indexes[leftIndex];
+            count[indexes[leftIndex]] += smallerElementOnRightCount;
+            leftIndex++;
+            sortedIndex++;
         }
-        while (right_index <= end) {
-            new_indexes[sort_index++] = indexes[right_index++];
+        while (rightIndex <= end) {
+            newIndexes[sortedIndex++] = indexes[rightIndex++];
         }
         for (int i = start; i <= end; i++) {
-            indexes[i] = new_indexes[i - start];
+            indexes[i] = newIndexes[i - start];
         }
     }
 

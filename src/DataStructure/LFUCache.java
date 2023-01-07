@@ -13,7 +13,7 @@ public class LFUCache {
     HashMap<Integer, Integer> counts;
 
     // 频率和一个里面所有key都是当前频率的list之间的映射
-    HashMap<Integer, LinkedHashSet<Integer>> lists;
+    HashMap<Integer, LinkedHashSet<Integer>> freqToKey;
 
     int capacity;
 
@@ -24,7 +24,7 @@ public class LFUCache {
         capacity = cap;
         vals = new HashMap<>();
         counts = new HashMap<>();
-        lists = new HashMap<>();
+        freqToKey = new HashMap<>();
     }
 
     public int get(int key) {
@@ -33,18 +33,18 @@ public class LFUCache {
 
         int count = counts.get(key);
         counts.put(key, count + 1);
-        lists.get(count).remove(key);
+        freqToKey.get(count).remove(key);
 
         // Determine whether min should add 1
-        if (count == min && lists.get(count).size() == 0) {
+        if (count == min && freqToKey.get(count).size() == 0) {
             min++;
         }
 
-        if (!lists.containsKey(count + 1)) {
-            lists.put(count + 1, new LinkedHashSet<>());
+        if (!freqToKey.containsKey(count + 1)) {
+            freqToKey.put(count + 1, new LinkedHashSet<>());
         }
 
-        lists.get(count + 1).add(key);
+        freqToKey.get(count + 1).add(key);
         return vals.get(key);
     }
 
@@ -59,8 +59,8 @@ public class LFUCache {
         }
 
         if (vals.size() >= capacity) {
-            int minFreKey = lists.get(min).iterator().next(); // first element in the set is the oldest
-            lists.get(min).remove(minFreKey);
+            int minFreKey = freqToKey.get(min).iterator().next(); // first element in the set is the oldest
+            freqToKey.get(min).remove(minFreKey);
             vals.remove(minFreKey);
             counts.remove(minFreKey);
         }
@@ -68,10 +68,10 @@ public class LFUCache {
         vals.put(key, value);
         counts.put(key, 1);
         min = 1;
-        if (!lists.containsKey(1)) {
-            lists.put(1, new LinkedHashSet<>());
+        if (!freqToKey.containsKey(1)) {
+            freqToKey.put(1, new LinkedHashSet<>());
         }
-        lists.get(1).add(key);
+        freqToKey.get(1).add(key);
     }
 }
 

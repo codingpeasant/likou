@@ -16,9 +16,9 @@ public class MergeSortedArray {
 
     public static void main(String[] args) {
         MergeSortedArray m = new MergeSortedArray();
-        int[] num1 = {0};
-        int[] num2 = {1};
-        m.merge(num1, 0, num2, 1);
+        int[] num1 = {1,2,3,0,0,0};
+        int[] num2 = {2,5,6};
+        m.merge(num1, 3, num2, 3);
         System.out.println(Arrays.toString(num1));
     }
 }

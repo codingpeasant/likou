@@ -6,18 +6,17 @@ from typing import List
 
 
 class Solution:
+    max_len = 0
+
     def maxLength(self, arr: List[str]) -> int:
-        max_len = 0
         if len(arr) == 0:
-            return max_len
+            return self.max_len
 
         def backtrack(start, cur):  # start is to not repeat previous combinations
-            nonlocal max_len
-
             if not is_unique(cur):
                 return
 
-            max_len = max(max_len, len(cur))
+            self.max_len = max(self.max_len, len(cur))
 
             for i in range(start, len(arr)):
                 backtrack(start + 1, cur + arr[i])
@@ -26,11 +25,11 @@ class Solution:
             return len(s) == len(set(s))
 
         backtrack(0, "")
-        return max_len
+        return self.max_len
 
 
 s = Solution()
 
-input = ["abcdefghijklmnopqrstuvwxyz"]
+input = ["a", "b", "c"]
 
 print(s.maxLength(input))
