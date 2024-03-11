@@ -13,7 +13,7 @@ class Solution:
             cols[j].append(i)
 
         def dfs(i, j):
-            for jj in rows[i]:
+            for jj in rows[i]:  # other stones on the same row
                 if (i, jj) not in seen:
                     seen.add((i, jj))
                     dfs(i, jj)

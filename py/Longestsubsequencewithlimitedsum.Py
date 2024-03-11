@@ -16,12 +16,12 @@ class Solution:
 
         for i, query in enumerate(queries):
             if query >= prefixSum[0]:
-                res[i] = bisect.bisect(prefixSum, query)
+                res[i] = bisect.bisect_right(prefixSum, query)
 
         return res
 
 
 s = Solution()
-nums = [2, 3, 4, 5]
-queries = [1]
+nums = [4, 5, 2, 1]
+queries = [3, 10, 21]
 print(s.answerQueries(nums, queries))

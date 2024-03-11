@@ -20,7 +20,27 @@ class Solution:
         dfs(root, root.val, root.val)
         return self.max_diff
 
+    def maxAncestorDiff1(self, root: TreeNode):  # post order
+        self.maxDiff = 0
+
+        def dfs(node: TreeNode):
+            if not node:
+                return float("inf"), -1
+            lowLeft, highLeft = dfs(node.left)
+            lowRight, highRight = dfs(node.right)
+            low = min(lowLeft, lowRight)
+            high = max(highLeft, highRight)
+            if low != float("inf") and high != -1:
+                self.maxDiff = max(
+                    self.maxDiff, abs(node.val - low), abs(high - node.val)
+                )
+            return min(low, node.val), max(high, node.val)
+
+        dfs(root)
+        return self.maxDiff
+
 
 s = Solution()
 tree = getSampleTree()
 print(s.maxAncestorDiff(tree))
+print(s.maxAncestorDiff1(tree))

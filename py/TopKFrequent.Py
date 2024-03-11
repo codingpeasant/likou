@@ -2,7 +2,7 @@
 
 from collections import Counter
 import heapq
-from typing import Dict, List
+from typing import List
 
 
 class Solution:

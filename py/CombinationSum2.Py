@@ -15,7 +15,10 @@ class Solution:
             if cur_sum > target:
                 return
             for i in range(start, len(candidates)):
-                if i > start and candidates[i] == candidates[i - 1]:
+                if (
+                    i > start and candidates[i] == candidates[i - 1]
+                ):  # to prevent same number at different index is repetitively picked causing non-unique cur;
+                    # if i==start, it means the first same number is yet to be picked so it's okay
                     continue
                 cur_sum += candidates[i]
                 cur.append(candidates[i])

@@ -12,10 +12,8 @@ class Solution:
             if i < 0 or i >= m or j < 0 or j >= n or grid[i][j] == "0":
                 return
             grid[i][j] = "0"
-            merge(i, j + 1)
-            merge(i + 1, j)
-            merge(i, j - 1)
-            merge(i - 1, j)
+            for x, y in ((i, j + 1), (i + 1, j), (i - 1, j), (i, j - 1)):
+                merge(x, y)
 
         for i in range(m):
             for j in range(n):

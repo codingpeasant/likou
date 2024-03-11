@@ -1,6 +1,5 @@
 # https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/
 
-from turtle import right
 from tree_node import TreeNode
 
 

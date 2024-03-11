@@ -17,13 +17,12 @@ class Solution:
             if node == destination:
                 return True
             visited.add(node)
-            if len(visited) == n:
-                return False
+
             for nextNode in graph[node]:
                 if nextNode not in visited:
                     if dfs(nextNode, visited):
                         return True
-            return False
+            return False  # every node in source group is visited
 
         return dfs(source, set())
 

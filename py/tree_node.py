@@ -10,19 +10,21 @@ def getSampleTree():
             1
           /   \      
          2     3
-          \     \
-           6     4   
+          \   /  \
+           6 5    4   
     """
     node1 = TreeNode(1)
     node2 = TreeNode(2)
     node3 = TreeNode(3)
     node4 = TreeNode(4)
     node5 = TreeNode(6)
+    node6 = TreeNode(5)
 
     node1.left = node2
     node1.right = node3
     node2.right = node5
     node3.right = node4
+    node3.left = node6
 
     return node1
 
@@ -55,8 +57,8 @@ def getCompleteTree():
     return node1
 
 
-def preorder(root: TreeNode):
+def preOrder(root: TreeNode):
     if root:
         print(root.val)
-        preorder(root.left)
-        preorder(root.right)
+        preOrder(root.left)
+        preOrder(root.right)

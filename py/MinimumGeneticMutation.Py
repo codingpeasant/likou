@@ -18,7 +18,7 @@ class Solution:
                 if cur == end:
                     return step
 
-                for i in range(len(cur)):
+                for i in range(len(cur)):  # 8 * 4 per cur
                     for c in "AGCT":
                         mutation = cur[:i] + c + cur[i + 1 :]
                         if mutation in bankSet:

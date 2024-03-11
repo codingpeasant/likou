@@ -22,5 +22,5 @@ class MyCalendar:
 
 s = MyCalendar()
 print(s.book(10, 20))
-print(s.book(15, 25))
 print(s.book(20, 30))
+print(s.book(21, 23))

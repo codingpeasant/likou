@@ -28,5 +28,5 @@ class Solution:
 
 
 s = Solution()
-candidates = [2, 3, 6, 7]
-print(s.combinationSum(candidates=candidates, target=7))
+candidates = [1, 2, 3]
+print(s.combinationSum(candidates=candidates, target=4))

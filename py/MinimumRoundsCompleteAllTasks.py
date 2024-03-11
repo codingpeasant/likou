@@ -12,13 +12,13 @@ class Solution:
                 return -1
             if count % 3 == 0:
                 res += count // 3
-            if count % 3 == 1:
+            if count % 3 == 1:  # n*3 + 2*2
                 res += (count - 1) // 3 + 1
-            if count % 3 == 2:
+            if count % 3 == 2:  # n *3 + 2
                 res += (count + 1) // 3
         return res
 
 
 s = Solution()
-tasks = [2, 3, 3]
+tasks = [2, 2, 2, 2, 2, 2, 2, 2, 2, 2]
 print(s.minimumRounds(tasks))

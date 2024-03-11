@@ -18,7 +18,9 @@ class Solution:
             while target_len == 0:  # all needed letters are included
                 window_len = end - start + 1
 
-                if not min_window or window_len < len(min_window):
+                if not min_window or window_len < len(
+                    min_window
+                ):  # first time reach target or found a shorter one
                     min_window = s[start : end + 1]
 
                 target_count[s[start]] += 1

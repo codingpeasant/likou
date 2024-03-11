@@ -5,16 +5,18 @@ from typing import List
 
 class Solution:
     def maxProfit(self, prices: List[int]) -> int:
-        sold, bought, rest = 0, -float("inf"), 0
+        sold, bought, rest = 0, float("inf"), 0 # At the start, you don't have any stock if you just rest
 
         for price in prices:
-            bought = max(
-                bought, rest - price
-            )  # need to buy to be the first state, otherwise there won't be sold
-            rest = max(rest, sold)
-            sold = max(sold, bought + price)
+            previousSold = sold
+            bought = min(
+                bought, price - rest
+            )  # need to buy to be the first state, otherwise there won't be sold; bought need to be after rest
 
-        return max(sold, rest)  # sold and rest should always be larger than bought at i
+            sold = max(sold, price - bought)
+            rest = max(rest, previousSold) # rest can only based on previous sold state
+
+        return max(sold, rest)  # the largest state can be at bought or rest state
 
 
 s = Solution()

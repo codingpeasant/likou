@@ -1,8 +1,8 @@
 # https://leetcode.com/problems/combination-sum-iv/
 
-from curses.ascii import SO
 
 # similar with flipper coin
+# comb[4] = comb[4-1] + comb[4-2] + comb[4-3] = comb[3] + comb[2] + comb[1]
 class Solution:
     def combinationSum4(self, nums, target):
         nums, combs = sorted(nums), [0] * (target + 1)

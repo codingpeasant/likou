@@ -23,7 +23,7 @@ class Solution:
 
 
 s = Solution()
-node1 = TreeNode(1)
+node1 = TreeNode(0)
 node2 = TreeNode(2)
 node3 = TreeNode(0)
 node4 = TreeNode(0)
@@ -35,4 +35,4 @@ node2.right = node5
 node3.right = node4
 
 res = s.pruneTree(node1)
-preorder(res)
+preOrder(res)

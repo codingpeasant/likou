@@ -40,6 +40,6 @@ class Solution:
 s = Solution()
 
 nums = [5, 7, 7, 8, 8, 10]
-target = 8
+target = 5
 
 print(s.searchRange(nums, target))

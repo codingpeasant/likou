@@ -12,15 +12,13 @@ class Solution:
         p_visited = set()
         a_visited = set()
         rows, cols = len(heights), len(heights[0])
-        directions = ((0, 1), (0, -1), (1, 0), (-1, 0))
 
         def traverse(i, j, visited):
             if (i, j) in visited:
                 return
             visited.add((i, j))
             # Traverse neighbors.
-            for direction in directions:
-                next_i, next_j = i + direction[0], j + direction[1]
+            for next_i, next_j in ((i, j - 1), (i, j + 1), (i + 1, j), (i - 1, j)):
                 if 0 <= next_i < rows and 0 <= next_j < cols:
                     # Add in your question-specific checks.
                     if heights[next_i][next_j] >= heights[i][j]:

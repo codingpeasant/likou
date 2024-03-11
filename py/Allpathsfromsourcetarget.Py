@@ -6,19 +6,19 @@ from typing import List
 
 class Solution:
     def allPathsSourceTarget(self, graph: List[List[int]]) -> List[List[int]]:
-        graphMap, n, res = defaultdict(list), len(graph) - 1, []
+        graphMap, target, res = defaultdict(list), len(graph) - 1, []
         for i, el in enumerate(graph):
             graphMap[i] += el
 
         def dfs(node: int, path: List):
             path.append(node)
-            if node == n:
+            if node == target:
                 res.append(path.copy())
                 return
 
             for next in graphMap[node]:
                 dfs(next, path)
-                path.pop()
+                path.pop() # backtrace
 
         dfs(0, [])
         return res

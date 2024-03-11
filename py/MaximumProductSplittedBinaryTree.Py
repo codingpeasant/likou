@@ -17,12 +17,11 @@ class Solution:
             if not node:
                 return 0
             left, right = dfs(node.left), dfs(node.right)
-            self.maxProd = max(
-                self.maxProd, left * (treeSum - left), right * (treeSum - right)
-            )
-            return left + right + node.val
+            sumSoFar = left + right + node.val
+            if node != root:
+                self.maxProd = max(self.maxProd, (treeSum - (sumSoFar)) * sumSoFar)
+            return sumSoFar
 
-        # when you need to update a variable in a function, you need self.variable, readonly doesn't need self
         self.maxProd, treeSum = 0, getSum(root)
         dfs(root)
         return self.maxProd % (10**9 + 7)

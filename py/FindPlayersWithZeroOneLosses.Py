@@ -6,14 +6,12 @@ from typing import List
 
 class Solution:
     def findWinners(self, matches: List[List[int]]) -> List[List[int]]:
-        ans1, ans2 = [], []
+        ans2 = []
         winners = set(match[0] for match in matches)
         losersWithCount = Counter(match[1] for match in matches)
         losers = set(losersWithCount.keys())
 
-        for winner in winners:
-            if winner not in losers:
-                ans1.append(winner)
+        ans1 = list(winners.difference(losers))
 
         for loser, count in losersWithCount.items():
             if count == 1:
@@ -23,5 +21,5 @@ class Solution:
 
 
 s = Solution()
-matches = [[2, 3], [1, 3], [5, 4], [6, 4]]
+matches = [[1,3],[2,3],[3,6],[5,6],[5,7],[4,5],[4,8],[4,9],[10,4],[10,9]]
 print(s.findWinners(matches))

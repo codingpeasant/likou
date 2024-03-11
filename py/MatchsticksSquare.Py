@@ -1,6 +1,7 @@
 # https://leetcode.com/problems/matchsticks-to-square/
 
-from typing import List
+from collections import Counter
+from typing import Deque, List
 
 
 class Solution:
@@ -10,8 +11,10 @@ class Solution:
             return False
         possible_side = perimeter / 4
 
-        matchsticks.sort(reverse=True)
-        sums = [0, 0, 0, 0]
+        matchsticks.sort(
+            reverse=True
+        )  # sort in reverse so if biggest value is greater than possible_side we can return False in backtrack
+        sums = [0] * 4
 
         def backtrack(cur):
             if cur == len(matchsticks):

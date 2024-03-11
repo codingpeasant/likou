@@ -11,11 +11,13 @@ class Solution:
             return -1
 
         @lru_cache(None)
-        def dfs(i, d):
-            if d == 1:
+        def dfs(i, d):  # if start work at ith job with d days left.
+            if d == 1:  # if there is only 1 day left
                 return max(jobDifficulty[i:])
             res, maxd = float("inf"), 0
-            for j in range(i, n - d + 1):
+            for j in range(
+                i, n - d + 1
+            ):  # try to finish 1 or more jobs on the current day (d)
                 maxd = max(maxd, jobDifficulty[j])
                 res = min(res, maxd + dfs(j + 1, d - 1))
             return res

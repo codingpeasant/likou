@@ -25,4 +25,7 @@ class Solution:
 
 
 s = Solution()
+print(s.countAndSay(2))
+print(s.countAndSay(3))
+print(s.countAndSay(4))
 print(s.countAndSay(5))

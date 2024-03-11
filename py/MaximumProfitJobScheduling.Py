@@ -1,8 +1,10 @@
 # https://leetcode.com/problems/maximum-profit-in-job-scheduling/
 
-from bisect import bisect_left
+from bisect import bisect_left, bisect_right
+from collections import defaultdict
 from functools import lru_cache
 from typing import List
+
 
 # Let create jobs array which zip startTime, endTime, profit together.
 # Let sort our jobs in increasing order of startTime.
@@ -20,7 +22,6 @@ class Solution:
     ) -> int:
         n = len(startTime)
         jobs = sorted(list(zip(startTime, endTime, profit)), key=lambda v: v[0])
-        startTime = [jobs[i][0] for i in range(n)]
 
         @lru_cache(None)
         def dp(i):
@@ -36,7 +37,4 @@ class Solution:
 
 
 s = Solution()
-startTime = [1, 2, 3, 4, 6]
-endTime = [3, 5, 10, 6, 9]
-profit = [20, 20, 100, 70, 60]
-print(s.jobScheduling(startTime, endTime, profit))
+print(s.jobScheduling([1, 2, 3, 4, 6], [3, 5, 10, 6, 9], [20, 20, 100, 70, 60]))

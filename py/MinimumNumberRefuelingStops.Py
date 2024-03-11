@@ -6,14 +6,17 @@
 # if the current distance dp[t] >= s[i][0], we can refuel:
 # dp[t + 1] = max(dp[t + 1], dp[t] + s[i][1])
 
+
 # In the end, we'll return the first t with dp[t] >= target,
 # otherwise we'll return -1.
 class Solution:
     def minRefuelStops(self, target, startFuel, s):
         dp = [startFuel] + [0] * len(s)
         for i in range(len(s)):
-            for t in range(i, -1, -1):
-                if dp[t] >= s[i][0]:
+            for t in range(i, -1, -1):  # check all previous refuel points
+                if (
+                    dp[t] >= s[i][0]
+                ):  #  to find out if any of them could reach current station - similar with https://leetcode.com/problems/longest-increasing-subsequence/
                     dp[t + 1] = max(
                         dp[t + 1], dp[t] + s[i][1]
                     )  # try to add fuel at i and see if it could increase the previous distance

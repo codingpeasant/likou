@@ -4,7 +4,8 @@ import heapq
 from typing import List
 
 """
-For the PriorityQueue solution, a trick is that each time when you add a new engineer and then lay off the engineer with the least speed, it could be the newly added one. So the new res of the second parameter of Math.max is actually incorrect!
+For the PriorityQueue solution, a trick is that each time when you add a new engineer and then lay off the engineer with
+the least speed, it could be the newly added one. So the new res of the second parameter of Math.max is actually incorrect!
 
 res = max(res, speed_sum * e)
 
@@ -21,10 +22,14 @@ class Solution:
     ) -> int:
         workers_queue = []
         res = speed_sum = 0
-        for e, s in sorted(zip(efficiency, speed), reverse=1):  # efficiency high to low
+        for e, s in sorted(
+            zip(efficiency, speed), reverse=True
+        ):  # efficiency high to low
             heapq.heappush(workers_queue, s)
             speed_sum += s
-            if len(workers_queue) > k:
+            if (
+                len(workers_queue) > k
+            ):  # Over k engineers -> remove the lowest speed engineer
                 speed_sum -= heapq.heappop(workers_queue)
             res = max(res, speed_sum * e)
         return res % (10**9 + 7)

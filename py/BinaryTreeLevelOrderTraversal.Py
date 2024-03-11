@@ -1,7 +1,5 @@
 # https://leetcode.com/problems/binary-tree-level-order-traversal/
 
-from curses.ascii import SO
-import queue
 from typing import List, Optional
 
 from tree_node import TreeNode

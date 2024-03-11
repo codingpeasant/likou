@@ -1,7 +1,6 @@
 # https://leetcode.com/problems/partition-list/
 
 
-from tkinter.messagebox import NO
 from typing import Optional
 from list_node import ListNode
 

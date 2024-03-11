@@ -12,7 +12,7 @@ class Solution:
         # update prefix sum on each row
         for y in range(h):
             for x in range(1, w):
-                matrix[y][x] += [y][x - 1]
+                matrix[y][x] = matrix[y][x] + matrix[y][x - 1]
 
         # number of submatrices that sum to target
         counter = 0
@@ -22,7 +22,8 @@ class Solution:
             for right in range(left, w):
 
                 # accumulation of area so far
-                accumulation = {0: 1}
+                accumulation = collections.defaultdict(int)
+                accumulation[0] = 1
 
                 # area of current submatrices, bounded by [left, right] with height y
                 area = 0
@@ -37,10 +38,10 @@ class Solution:
                         area += matrix[y][right]
 
                     # if ( area - target ) exist, then target must exist in submatrices
-                    counter += accumulation.get(area - target, 0)
+                    counter += accumulation[area - target]
 
                     # update dictionary with current accumulation area
-                    accumulation[area] = accumulation.get(area, 0) + 1
+                    accumulation[area] = accumulation[area] + 1
 
         return counter
 

@@ -16,18 +16,18 @@ class Solution:
             return max_profit
 
         # sell is all 0 (don't buy or sell at all);
-        buy = [inf] * (k + 1)
-        sell = [0] * (k + 1)
+        bought = [inf] * (k + 1)
+        sold = [0] * (k + 1)
         for price in prices:
             for i in range(1, k + 1):
-                buy[i] = min(
-                    buy[i], price - sell[i - 1]
+                bought[i] = min(
+                    bought[i], price - sold[i - 1]
                 )  # find the min to make the next buy after selling the previous
-                sell[i] = max(
-                    sell[i], price - buy[i]
+                sold[i] = max(
+                    sold[i], price - bought[i]
                 )  # max the profit if sell here the ith time - worst case sell[i] == sell[i] previous transaction
 
-        return sell[k]
+        return sold[k]
 
 
 s = Solution()

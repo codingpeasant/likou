@@ -16,6 +16,7 @@ class Solution:
 
         q = deque()
         q.append(root)
+        # collect all the nodes in parent level
         for _ in range(depth - 2):
             size = len(q)
             for _ in range(size):
@@ -39,4 +40,4 @@ class Solution:
 s = Solution()
 root = getSampleTree()
 root = s.addOneRow(root, 1, 2)
-preorder(root)
+preOrder(root)

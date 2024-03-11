@@ -1,5 +1,6 @@
 # https://leetcode.com/problems/minimum-average-difference/
 
+import math
 from typing import List
 
 

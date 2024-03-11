@@ -5,7 +5,7 @@ from typing import List
 
 class Solution:
     def palindromePairs(self, words: List[str]) -> List[List[int]]:
-        def is_palindrome(check):
+        def is_palindrome(check):  # empty string is also true
             return check == check[::-1]
 
         words = {word: i for i, word in enumerate(words)}  # convert to a map

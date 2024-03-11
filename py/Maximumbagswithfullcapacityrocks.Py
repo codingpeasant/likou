@@ -17,7 +17,9 @@ class Solution:
                 additionalRocks -= rocksNeeded[i]
                 rocksNeeded[i] = 0
 
-        return rocksNeeded.count(0)
+        return sum(
+            1 for rock in rocksNeeded if rock == 0
+        )  #  return rocksNeeded.count(0)
 
 
 s = Solution()

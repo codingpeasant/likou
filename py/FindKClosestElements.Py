@@ -10,25 +10,18 @@ class Solution:
         if x >= arr[-1]:
             return arr[-k:]
 
-        left = 0
-        right = len(arr) - k  # max start point
-        while left < right:
-            mid = left + (right - left) // 2
+        left, right = 0, len(arr) - 1
 
-            # mid + k is closer to x, discard mid by assigning left = mid + 1
-            if x - arr[mid] > arr[mid + k] - x:
-                left = mid + 1
-
-            # mid is equal or closer to x than mid + k, remains mid as candidate
+        while right - left >= k: # exclude the further numbers until there are k left
+            if abs(arr[right] - x) >= abs(arr[left] - x):
+                right -= 1
             else:
-                right = mid
-
-        # left == right, which makes both left and left + k have same diff with x
-        return arr[left : left + k]
+                left += 1
+        return arr[left : right + 1]
 
 
 s = Solution()
-arr = [1, 2, 3, 4, 5]
+arr = [1, 1, 1, 4, 5]
 k = 4
 x = 3
 print(s.findClosestElements(arr, k, x))
