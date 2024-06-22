@@ -1,4 +1,5 @@
 # https://leetcode.com/problems/shortest-path-with-alternating-colors/description/
+# BFS,Graph
 
 from collections import defaultdict, deque
 from typing import List

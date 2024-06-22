@@ -1,4 +1,5 @@
 # https://leetcode.com/problems/search-insert-position/description/
+# Binary Search
 
 from typing import List
 
@@ -19,5 +20,5 @@ class Solution:
 
 s = Solution()
 nums = [1, 3, 5, 6]
-target = 5
+target = 7
 print(s.searchInsert(nums, target))

@@ -1,4 +1,5 @@
 # https://leetcode.com/problems/pseudo-palindromic-paths-in-a-binary-tree/
+# DFS,Post Order
 
 from typing import Optional
 from tree_node import *

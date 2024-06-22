@@ -1,4 +1,5 @@
 # https://leetcode.com/problems/unique-morse-code-words/
+# Hash Table
 
 from typing import List, Set
 

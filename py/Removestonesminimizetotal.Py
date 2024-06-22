@@ -1,4 +1,5 @@
 # https://leetcode.com/problems/remove-stones-to-minimize-the-total/description/
+# Heap,Greedy
 
 import heapq
 from typing import List

@@ -1,4 +1,5 @@
 # https://leetcode.com/problems/reducing-dishes/description/?orderBy=most_votes
+# Pre Sum,Greedy
 
 from typing import List
 

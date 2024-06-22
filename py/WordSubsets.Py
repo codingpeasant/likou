@@ -1,6 +1,6 @@
 # https://leetcode.com/problems/word-subsets/
+# String,Hash Table
 
-from collections import Counter
 from typing import List
 
 

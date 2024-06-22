@@ -1,10 +1,12 @@
 # https://leetcode.com/problems/sort-an-array/description/
+# Sorting
 
 import random
 from typing import List
 
 
 class Solution:
+    # quick sort
     def sortArray(self, nums: List[int]) -> List[int]:
         if len(nums) <= 1:
             return nums

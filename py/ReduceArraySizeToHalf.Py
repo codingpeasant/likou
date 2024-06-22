@@ -1,5 +1,5 @@
 # https://leetcode.com/problems/reduce-array-size-to-the-half
-
+# Greedy,Hash Table,Counting
 from typing import Counter, List
 
 

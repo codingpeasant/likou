@@ -1,5 +1,5 @@
 # https://leetcode.com/problems/wiggle-subsequence/
-
+# DP
 
 from typing import List
 
@@ -8,8 +8,8 @@ class Solution:
     def wiggleMaxLength(self, nums: List[int]) -> int:
         n = len(nums)
         # dp_low[i] is the longest wiggle subsequence of nums[0..i] which has the last element is in the low position. The other way around for dp_high[i]
-        dp_low = [1] * 10
-        dp_high = [1] * 10
+        dp_low = [1] * n
+        dp_high = [1] * n
 
         for i in range(1, n):
             if nums[i - 1] < nums[i]:

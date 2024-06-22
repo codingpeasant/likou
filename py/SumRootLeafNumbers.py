@@ -1,4 +1,5 @@
 # https://leetcode.com/problems/sum-root-to-leaf-numbers/description/
+# DFS,Tree,Pre Order
 
 from typing import Optional
 from tree_node import *

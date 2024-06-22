@@ -1,4 +1,5 @@
 # https://leetcode.com/problems/validate-binary-search-tree/
+# DFS,Pre Order
 
 from cmath import inf
 from typing import Optional

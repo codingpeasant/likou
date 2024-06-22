@@ -1,4 +1,5 @@
 # https://leetcode.com/problems/word-pattern/
+# Hash Table
 
 from collections import defaultdict
 

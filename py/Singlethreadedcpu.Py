@@ -1,6 +1,6 @@
 # https://leetcode.com/problems/single-threaded-cpu/description/
+# Simulation,Sorting
 
-from collections import defaultdict
 import heapq
 from typing import List
 
@@ -13,7 +13,7 @@ class Solution:
                 (start, task_length, index)
                 for index, (start, task_length) in enumerate(tasks)
             ],
-            reverse=True,
+            reverse=True,  # add the earliest to the last for pop() to work
         )
         ans = []
         current_time = 0

@@ -1,4 +1,5 @@
 # https://leetcode.com/problems/sliding-window-maximum/description/
+# Monotonic Queue,Sliding Window
 
 import collections
 from typing import List
@@ -6,7 +7,7 @@ from typing import List
 
 class Solution:
     def maxSlidingWindow(self, nums: List[int], k: int) -> List[int]:
-        d = collections.deque()
+        d = collections.deque()  # d[0] is always the largest in the window
         out = []
         for i, n in enumerate(nums):
             print("i = {}, curr element = {}, d = {} and out = {}".format(i, n, d, out))
@@ -30,5 +31,5 @@ class Solution:
 
 s = Solution()
 nums = [1, 3, -1, -3, 5, 3, 6, 7]
-k = 2
+k = 3
 print(s.maxSlidingWindow(nums, k))

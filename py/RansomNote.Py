@@ -1,4 +1,5 @@
 # https://leetcode.com/problems/ransom-note/
+# Hash Table,Counting
 
 from typing import Counter
 
@@ -13,8 +14,17 @@ class Solution:
                 return False
         return True
 
+    def canConstruct1(self, ransomNote: str, magazine: str) -> bool:
+        magazineCount = Counter(magazine)
+
+        for letter in ransomNote:
+            if not magazineCount[letter]:
+                return False
+            magazineCount[letter] -= 1
+        return True
+
 
 s = Solution()
-input = "aaq"
+input = "aaac"
 magazine = "acab"
-print(s.canConstruct(input, magazine))
+print(s.canConstruct1(input, magazine))

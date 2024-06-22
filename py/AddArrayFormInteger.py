@@ -1,4 +1,5 @@
 # https://leetcode.com/problems/add-to-array-form-of-integer/description/
+# Math
 
 from typing import List
 
@@ -17,7 +18,7 @@ class Solution:
                 sum += num[n]
                 n -= 1
             res.append(sum % 10)
-            carry = sum // 10 # carry > 0 when sum is larger than 10
+            carry = sum // 10  # carry > 0 when sum is larger than 10
         if carry > 0:
             res.append(carry)
         return res[::-1]

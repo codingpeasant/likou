@@ -1,4 +1,5 @@
 # https://leetcode.com/problems/search-a-2d-matrix-ii/
+# Matrix,Binary Search
 
 from typing import List
 
@@ -6,7 +7,7 @@ from typing import List
 class Solution:
     def searchMatrix(self, matrix: List[List[int]], target: int) -> bool:
         x, y = 0, len(matrix[0]) - 1
-        while y >= 0 and x < len(matrix):
+        while y >= 0 and x < len(matrix):  # start from the top right OR bottom left
             if matrix[x][y] > target:
                 y -= 1
             elif matrix[x][y] < target:

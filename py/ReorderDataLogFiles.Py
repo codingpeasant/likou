@@ -1,11 +1,12 @@
 # https://leetcode.com/problems/reorder-data-in-log-files/
+# Sorting,String
 from typing import List
 
 
 class Solution:
     def reorderLogFiles(self, logs: List[str]) -> List[str]:
         digits = []
-        letters = []
+        letters: List[str] = []
         # divide logs into two parts, one is digit logs, the other is letter logs
         for log in logs:
             if log.split()[1].isdigit():

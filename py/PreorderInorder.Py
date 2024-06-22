@@ -1,4 +1,5 @@
 # https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/
+# DFS, Pre Order
 
 from typing import List, Optional
 from tree_node import TreeNode
@@ -13,7 +14,9 @@ class Solution:
             return TreeNode(preorder[0])
 
         root = TreeNode(preorder[0])
-        root_index = inorder.index(preorder[0])
+        root_index = inorder.index(
+            preorder[0]
+        )  # preorder and inorder consist of unique values.
 
         root.left = self.buildTree(preorder[1 : root_index + 1], inorder[:root_index])
         root.right = self.buildTree(

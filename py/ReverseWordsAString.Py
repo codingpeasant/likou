@@ -1,9 +1,10 @@
 # https://leetcode.com/problems/reverse-words-in-a-string/
+# String
 
 
 class Solution:
     def reverseWords(self, s: str) -> str:
-        return " ".join(reversed(s.strip().split()))
+        return " ".join(s.strip().split()[::-1])
 
 
 s = Solution()

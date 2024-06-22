@@ -1,4 +1,5 @@
 # https://leetcode.com/problems/verifying-an-alien-dictionary/
+# Hash Table,Simulation
 
 from collections import defaultdict
 from typing import List

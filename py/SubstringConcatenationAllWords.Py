@@ -1,7 +1,7 @@
 # https://leetcode.com/problems/substring-with-concatenation-of-all-words/
+# Sliding Window,Hash Table
 
-from collections import defaultdict
-from typing import List
+from typing import Counter, List
 
 
 class Solution:
@@ -10,17 +10,13 @@ class Solution:
         words_size = len(words)
         word_len = len(words[0])
 
-        word_counts = {}
-        for word in words:
-            word_counts[word] = (
-                1 if not word_counts.get(word) else word_counts[word] + 1
-            )
+        word_counts = Counter(words)
 
         def concatStartsAt(concatStart: int) -> bool:
             copy = word_counts.copy()
 
             for iW in range(words_size):
-                wordStart: int = concatStart + iW * word_len
+                wordStart: int = concatStart + iW * word_len  # move word_len at a time
                 word: str = s[wordStart : wordStart + word_len]
 
                 if not copy.get(word):
@@ -30,7 +26,9 @@ class Solution:
             return True
 
         return [
-            iS for iS in range(s_len - words_size * word_len + 1) if concatStartsAt(iS)
+            iS
+            for iS in range(s_len - words_size * word_len + 1)
+            if concatStartsAt(iS)  # move one index at a time
         ]
 
 

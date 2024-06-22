@@ -1,4 +1,5 @@
 # https://leetcode.com/problems/where-will-the-ball-fall/
+# Matrix,Simulation
 
 from typing import List
 

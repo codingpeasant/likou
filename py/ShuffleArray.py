@@ -1,4 +1,5 @@
 # https://leetcode.com/problems/shuffle-the-array/
+# Simulation
 
 from typing import List
 

@@ -1,4 +1,5 @@
 # https://leetcode.com/problems/restore-ip-addresses/description/
+# Backtrack,String
 
 from typing import List
 
@@ -18,7 +19,9 @@ class Solution:
                 if i >= n:
                     break
                 toAppend = int(s[start : i + 1])
-                if toAppend > 255 or len(str(toAppend)) != i + 1 - start:
+                if (
+                    toAppend > 255 or len(str(toAppend)) != i + 1 - start
+                ):  # larger than 255 or leading 0
                     continue
                 dfs(cur + str(toAppend) + ".", i + 1, parts + 1)
 

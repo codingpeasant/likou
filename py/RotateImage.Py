@@ -1,4 +1,5 @@
 # https://leetcode.com/problems/rotate-image/
+# Array,Matrix
 
 from typing import List
 
@@ -10,12 +11,13 @@ class Solution:
         """
         m = len(matrix)
 
+        # flip horizontally
         for i in range(m):
             for j in range(m // 2):
                 tmp = matrix[i][j]
                 matrix[i][j] = matrix[i][m - 1 - j]
                 matrix[i][m - 1 - j] = tmp
-
+        # then transpose
         for i in range(m):
             for j in range(m - i):
                 tmp = matrix[i][j]

@@ -1,4 +1,5 @@
 # https://leetcode.com/problems/single-element-in-a-sorted-array/
+# Two Pointers,Binary Search
 
 from typing import List
 

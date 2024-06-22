@@ -1,4 +1,5 @@
 # https://leetcode.com/problems/sum-of-subarray-minimums/
+# Stack,Monotonic Stack
 
 from typing import List
 
@@ -52,5 +53,5 @@ class Solution:
 
 
 s = Solution()
-input = [1, 1, 1]
+input = [3, 1, 2, 4]
 print(s.sumSubarrayMins(input))

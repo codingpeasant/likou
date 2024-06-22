@@ -1,22 +1,21 @@
 # https://leetcode.com/problems/time-based-key-value-store/
+# Binary Search
 import bisect
-from collections import defaultdict
-from email.policy import default
+import collections
 
 
 class TimeMap:
     def __init__(self):
-        self.d = defaultdict(list)
+        self.times = collections.defaultdict(list)
+        self.values = collections.defaultdict(list)
 
-    def set(self, key, value, timestamp):
-        self.d[key].append([timestamp, value])
+    def set(self, key: str, value: str, timestamp: int) -> None:
+        self.times[key].append(timestamp)
+        self.values[key].append(value)
 
-    def get(self, key, timestamp):
-        v = self.d.get(key, [])
-        i = bisect.bisect(
-            v, [timestamp, chr(ord("z") + 1)]
-        )  # needs to be larger: next element of z
-        return v[i - 1][1] if i else ""
+    def get(self, key: str, timestamp: int) -> str:
+        i = bisect.bisect(self.times[key], timestamp)
+        return self.values[key][i - 1] if i else ""
 
 
 time = TimeMap()

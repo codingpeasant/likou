@@ -1,20 +1,23 @@
 # https://leetcode.com/problems/push-dominoes/
-
+# Simulation,Two Pointers
 # L...L, in this case, we need to fill everything with L
 # R...R, in this case, we need to fill everything with R
 # L...R, we need to keep it as it is
 # R...L, then we need to fill first half with R and second with L, handling odd and even cases.
 class Solution:
     def pushDominoes(self, dominoes: str) -> str:
-        dominoes = "L" + dominoes + "R"
+        dominoes = (
+            "L" + dominoes + "R"
+        )  # padding so that the 4 cases can be simulated regardless of beginning or end - dummy node
         res = ""
         i = 0
         for j in range(1, len(dominoes)):
             if dominoes[j] == ".":
                 continue
-            interval = j - i - 1
+            interval = j - i - 1  # dominos between i and j
             if i:
                 res += dominoes[i]
+
             if dominoes[i] == dominoes[j]:
                 res += dominoes[i] * interval
             elif dominoes[i] == "L" and dominoes[j] == "R":

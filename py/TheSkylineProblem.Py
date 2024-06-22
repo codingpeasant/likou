@@ -1,4 +1,5 @@
 # https://leetcode.com/problems/the-skyline-problem/
+# Simulation,Heap
 
 from heapq import heappop, heappush
 

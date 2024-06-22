@@ -2,6 +2,8 @@
 
 from typing import List
 
+# DFS,String
+
 
 class Solution:
     def numSimilarGroups(self, strs: List[str]) -> int:

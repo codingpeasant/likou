@@ -1,5 +1,5 @@
 # https://leetcode.com/problems/remove-duplicates-from-sorted-array/
-
+# Two Pointers
 from typing import List
 
 

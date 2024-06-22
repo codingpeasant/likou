@@ -1,4 +1,5 @@
 # https://leetcode.com/problems/solving-questions-with-brainpower/description/
+# DP
 
 from functools import cache
 from typing import List

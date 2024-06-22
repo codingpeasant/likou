@@ -1,4 +1,5 @@
 # https://leetcode.com/problems/valid-sudoku/
+# Matrix,Hash Table
 
 from typing import List
 

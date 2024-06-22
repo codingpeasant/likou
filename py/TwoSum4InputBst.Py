@@ -1,4 +1,5 @@
 # https://leetcode.com/problems/two-sum-iv-input-is-a-bst/
+# Hash Table
 
 import tarfile
 from typing import Optional

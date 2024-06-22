@@ -1,7 +1,9 @@
 # https://leetcode.com/problems/word-search-ii/
+# Trie,DFS,Back Tracking
 
 
 from collections import defaultdict
+from typing import List
 
 
 class TrieNode:
@@ -43,10 +45,10 @@ class Solution(object):
                 self.dfs(board, node, i, j, "", res)
         return res
 
-    def dfs(self, board, node, i, j, path, res):
+    def dfs(self, board, node: TrieNode, i, j, path, res: List[str]):
         if node.isWord:
             res.append(path)
-            node.isWord = False  # dedupelicate
+            node.isWord = False  # deduplicate
         if i < 0 or i >= len(board) or j < 0 or j >= len(board[0]):
             return
         tmp = board[i][j]

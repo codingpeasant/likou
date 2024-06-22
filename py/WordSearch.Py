@@ -1,4 +1,5 @@
 # https://leetcode.com/problems/word-search/
+# DFS,Back Tracking
 
 from typing import List
 
@@ -7,17 +8,22 @@ class Solution:
     def exist(self, board: List[List[str]], word: str) -> bool:
         dirs = [(0, -1), (0, 1), (-1, 0), (1, 0)]
         m, n = len(board), len(board[0])
+        visited = [[False for _ in range(n)] for _ in range(m)]
 
         def dfs(wordLeft: str, i: int, j: int) -> bool:
             if not wordLeft:
                 return True
-            if i < 0 or i > m - 1 or j < 0 or j > n - 1 or wordLeft[0] != board[i][j]:
+            if (
+                not 0 <= i < m
+                or not 0 <= j < n
+                or wordLeft[0] != board[i][j]
+                or visited[i][j]
+            ):
                 return False
 
-            temp = board[i][j]
-            board[i][j] = "."
+            visited[i][j] = True
             found = any(dfs(wordLeft[1:], i + dir[0], j + dir[1]) for dir in dirs)
-            board[i][j] = temp
+            visited[i][j] = False
             return found
 
         for i in range(m):

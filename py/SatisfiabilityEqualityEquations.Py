@@ -1,4 +1,5 @@
 # https://leetcode.com/problems/satisfiability-of-equality-equations/
+# String,Graph,DFS
 
 import collections
 from typing import List
@@ -18,7 +19,7 @@ class Solution:
                     return True
             return False
 
-        for eq in equations:
+        for eq in equations:  # != means v and u should not be connected in the graph
             if eq[1:3] == "!=":
                 a, b = eq.split("!=")
                 notEquals.append((a, b))
@@ -34,5 +35,5 @@ class Solution:
 
 
 s = Solution()
-input = ["a==b", "b!=a"]
+input = ["a==b", "b==a", "c!=a"]
 print(s.equationsPossible(input))

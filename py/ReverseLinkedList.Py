@@ -1,7 +1,7 @@
 # https://leetcode.com/problems/reverse-linked-list-ii/
+# Linked List
 # https://leetcode.com/problems/reverse-linked-list-ii/discuss/30709/Talk-is-cheap-show-me-the-code-(and-DRAWING)
 
-from multiprocessing import dummy
 from typing import Optional
 
 from list_node import ListNode

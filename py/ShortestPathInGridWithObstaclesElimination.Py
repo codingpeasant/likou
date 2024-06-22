@@ -1,4 +1,5 @@
 # https://leetcode.com/problems/shortest-path-in-a-grid-with-obstacles-elimination/
+# BFS
 
 import collections
 from typing import List
@@ -13,7 +14,7 @@ class Solution:
         m, n = len(grid), len(grid[0])
         visited = (
             set()
-        )  # reduce repetively consider the same coordinate with the same cost
+        )  # reduce repetitively consider the same coordinate with the same cost
 
         while q:
             x, y, obstacle, path = q.popleft()

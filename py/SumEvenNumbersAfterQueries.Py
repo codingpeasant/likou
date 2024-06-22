@@ -1,4 +1,5 @@
 # https://leetcode.com/problems/sum-of-even-numbers-after-queries/
+# Simulation
 
 from tkinter import E
 from typing import List
@@ -14,11 +15,11 @@ class Solution:
         for val, index in queries:
             prev = nums[index]
             nums[index] += val
-            if prev % 2 == 0 and val % 2 == 0:
+            if prev % 2 == 0 and val % 2 == 0:  # even -> even
                 even_total += val
-            elif prev % 2 == 0 and val % 2 != 0:
+            elif prev % 2 == 0 and val % 2 != 0:  # even -> odd
                 even_total -= prev
-            elif prev % 2 != 0 and val % 2 != 0:
+            elif prev % 2 != 0 and val % 2 != 0:  # odd -> even
                 even_total += nums[index]
             res.append(even_total)
         return res

@@ -1,4 +1,5 @@
 # https://leetcode.com/problems/all-paths-from-source-to-target/description/
+# DFS,Backtracking
 
 from collections import defaultdict
 from typing import List
@@ -18,7 +19,7 @@ class Solution:
 
             for next in graphMap[node]:
                 dfs(next, path)
-                path.pop() # backtrace
+                path.pop()  # backtrace
 
         dfs(0, [])
         return res

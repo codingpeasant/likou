@@ -1,4 +1,6 @@
 # https://leetcode.com/problems/trapping-rain-water/
+# Two Pointers
+# https://leetcode.com/problems/trapping-rain-water/solutions/4486633/python3-stack-and-two-pointers-solutions/
 
 from typing import List
 
@@ -25,7 +27,7 @@ class Solution:
             right_max[i] = cur_max
 
         res = 0
-        for i in range(1, n - 1): # agin
+        for i in range(1, n - 1):  # again
             water_level = min(left_max[i], right_max[i]) - height[i]
             if water_level > 0:
                 res += water_level

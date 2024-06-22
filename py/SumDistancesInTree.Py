@@ -1,5 +1,6 @@
 # https://leetcode.com/problems/sum-of-distances-in-tree/description/?orderBy=most_votes
-# https://leetcode.com/problems/sum-of-distances-in-tree/solutions/130611/sum-of-distances-in-tree/?orderBy=most_votes
+# DFS,Graph,Tree,Post Order
+# https://leetcode.com/problems/sum-of-distances-in-tree/solutions/130583/c-java-python-pre-order-and-post-order-dfs-o-n/
 
 import collections
 
@@ -11,7 +12,7 @@ class Solution(object):
             graph[u].add(v)
             graph[v].add(u)
 
-        count = [1] * N
+        count = [1] * N  # count all nodes in it's subtree (including the root)
         ans = [0] * N
 
         def dfs(node=0, parent=None):
@@ -26,7 +27,9 @@ class Solution(object):
         def dfs2(node=0, parent=None):
             for child in graph[node]:
                 if child != parent:
-                    ans[child] = ans[node] - count[child] + N - count[child]
+                    ans[child] = (
+                        ans[node] - count[child] + (N - count[child])
+                    )  # ans[node] - count[child]: Get 1 step closer to its subtree nodes; (N - count[child]): Every node other than it's subtree node: become 1 step more far away
                     dfs2(child, node)
 
         dfs()

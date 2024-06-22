@@ -1,4 +1,5 @@
 # https://leetcode.com/problems/string-compression/
+# Two Pointer,Simulation
 
 from typing import List
 

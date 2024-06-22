@@ -1,4 +1,5 @@
 # https://leetcode.com/problems/remove-nth-node-from-end-of-list/
+# Linked List,Two Pointers
 
 from typing import Optional
 from list_node import *

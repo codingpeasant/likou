@@ -1,4 +1,5 @@
 # https://leetcode.com/problems/reverse-integer/
+# Math,Simulation
 
 
 class Solution:

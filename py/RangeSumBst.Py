@@ -1,4 +1,5 @@
 # https://leetcode.com/problems/range-sum-of-bst/
+# DFS,Pre Order
 
 from typing import Optional
 from tree_node import *
