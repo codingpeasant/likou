@@ -1,5 +1,6 @@
 # https://leetcode.com/problems/unique-paths/
 # DP
+# Blind
 
 
 from functools import lru_cache

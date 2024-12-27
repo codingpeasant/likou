@@ -1,4 +1,5 @@
 # https://leetcode.com/problems/longest-consecutive-sequence/
+# Hashtable,Blind
 
 from typing import List
 

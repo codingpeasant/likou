@@ -1,4 +1,5 @@
 # https://leetcode.com/problems/insert-interval/
+# Blind
 
 from typing import List
 

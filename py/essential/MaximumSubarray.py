@@ -1,16 +1,19 @@
 # https://leetcode.com/problems/maximum-subarray/description/
+# Blind
 
 from typing import List
 
 
 class Solution:
     def maxSubArray(self, nums: List[int]) -> int:
-        res, curPreSum, minPreSum = float("-inf"), 0, 0
+        curSum, res = 0, nums[0]
 
         for num in nums:
-            curPreSum += num
-            res = max(res, curPreSum - minPreSum)
-            minPreSum = min(minPreSum, curPreSum)
+            if curSum < 0:  # there is no value to add curSum as it decreases the res
+                curSum = 0
+            curSum += num
+            res = max(res, curSum)
+
         return res
 
 

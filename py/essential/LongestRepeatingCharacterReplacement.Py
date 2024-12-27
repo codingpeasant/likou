@@ -1,5 +1,5 @@
 # https://leetcode.com/problems/longest-repeating-character-replacement/
-
+# Blind
 
 from collections import defaultdict
 

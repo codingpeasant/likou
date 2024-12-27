@@ -1,4 +1,5 @@
 # https://leetcode.com/problems/house-robber/
+# Blind
 
 from functools import lru_cache
 from typing import List

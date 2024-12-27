@@ -1,4 +1,5 @@
 # https://leetcode.com/problems/merge-k-sorted-lists/
+# Blind
 
 import heapq
 from typing import List, Optional
@@ -22,8 +23,7 @@ class Solution:
 
 
 s = Solution()
-input = getSampleLinkedList()
-head = s.mergeKLists([input])
+head = s.mergeKLists([getSampleLinkedList(), getSampleLinkedList()])
 while head:
     print(head.val)
     head = head.next

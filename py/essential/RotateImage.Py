@@ -1,5 +1,6 @@
 # https://leetcode.com/problems/rotate-image/
 # Array,Matrix
+# Blind
 
 from typing import List
 

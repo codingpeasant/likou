@@ -1,4 +1,5 @@
 # https://leetcode.com/problems/jump-game/description/
+# Blind
 
 from functools import lru_cache
 from typing import List
@@ -18,11 +19,11 @@ class Solution:
                     return True
             return False
 
-        maxDistance = 0
-        for i in range(n):
-            if i > maxDistance:
+        maxIndex = 0
+        for i in range(n):  # Greedy
+            if i > maxIndex:
                 return False
-            maxDistance = max(maxDistance, i + nums[i])
+            maxIndex = max(maxIndex, i + nums[i])
 
         return True
 

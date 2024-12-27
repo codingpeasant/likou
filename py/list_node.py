@@ -22,3 +22,4 @@ def printLinkedList(head: ListNode):
     while head:
         print(head.val)
         head = head.next
+    print("-----------")

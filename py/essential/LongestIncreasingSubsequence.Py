@@ -1,4 +1,5 @@
 # https://leetcode.com/problems/longest-increasing-subsequence/
+# Blind
 
 from functools import lru_cache
 from typing import List
@@ -13,7 +14,7 @@ class Solution:
                 if nums[i] > nums[j]:
                     dp[i] = max(dp[i], dp[j] + 1)
         return max(dp)
-    
+
     def lengthOfLIS1(self, nums: List[int]) -> int:
         @lru_cache(None)
         def dfs(i):
@@ -21,15 +22,15 @@ class Solution:
                 return 1
             longest = 1
 
-            for j in range(i-1, -1,-1):
+            for j in range(i - 1, -1, -1):
                 if nums[j] < nums[i]:
-                    longest = max(longest, dfs(j)+1)
+                    longest = max(longest, dfs(j) + 1)
             return longest
+
         return max(dfs(i) for i in range(len(nums)))
-            
 
 
 s = Solution()
-print(s.lengthOfLIS([1,3,6,7,9,4,10,5]))
-print(s.lengthOfLIS1([4,10,4,3,8,9]))
+print(s.lengthOfLIS([1, 3, 6, 7, 9, 4, 10, 5]))
+print(s.lengthOfLIS1([4, 10, 4, 3, 8, 9]))
 # 1,2,3,4,5,3,6,4

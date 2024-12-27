@@ -1,5 +1,6 @@
 # https://leetcode.com/problems/valid-parentheses/
 # Stack
+# Blind
 
 
 class Solution:
@@ -8,7 +9,7 @@ class Solution:
         dict = {")": "(", "}": "{", "]": "["}
 
         for letter in s:
-            if letter in dict.values():
+            if letter in dict.values():  # {[(
                 stack.append(letter)
             elif letter in dict.keys():
                 if not stack or stack.pop() != dict[letter]:

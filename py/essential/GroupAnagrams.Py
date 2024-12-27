@@ -1,17 +1,17 @@
 # https://leetcode.com/problems/group-anagrams/
+# Blind
 
+from collections import defaultdict
 from typing import List
 
 
 class Solution:
     def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
-        res = {}
+        resMap = defaultdict(list)
         for word in strs:
-            key = "".join(sorted(word))  # join all chars splitted by empty string
-            res[key] = res.get(key, []) + [
-                word
-            ]  # merge the word as a list to the existing one
-        return list(res.values())
+            wordKey = "".join(sorted(word))
+            resMap[wordKey].append(word)
+        return list(resMap.values())
 
 
 s = Solution()
