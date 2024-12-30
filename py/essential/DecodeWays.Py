@@ -1,4 +1,5 @@
 # https://leetcode.com/problems/decode-ways/
+# Blind
 
 from functools import lru_cache
 
@@ -9,11 +10,9 @@ class Solution:
         def dfs(s: str) -> int:
             if not s:
                 return 1
-            if s == "0":
-                return 0
             if len(s) == 1:
-                return dfs(s[1:])
-            if len(s) > 1 and int(s[:2]) < 27:
+                return 0 if s == "0" else 1
+            if int(s[:2]) < 27:
                 if int(s[:2]) < 10:
                     return 0
                 return dfs(s[1:]) + dfs(s[2:])
@@ -23,5 +22,5 @@ class Solution:
 
 
 s = Solution()
-str = "06"
-print(s.numDecodings(str))
+strInput = "06"
+print(s.numDecodings(strInput))

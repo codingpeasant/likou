@@ -1,5 +1,6 @@
 # https://leetcode.com/problems/top-k-frequent-elements/
 # Heap
+# Blind
 
 from collections import Counter
 import heapq
@@ -24,14 +25,14 @@ class Solution:
                     return res
 
     def topKFrequent1(self, nums: List[int], k: int) -> List[int]:
-        freq_table = Counter(nums)
-        heap = []
-        for num, count in freq_table.items():
-            heapq.heappush(heap, (-count, num))  # - is for building a max heap
+        freqTable = Counter(nums)
+        heapMax = []
+        for num, count in freqTable.items():
+            heapq.heappush(heapMax, (-count, num))  # - is for building a max heap
         ans = []
         while k > 0:
             k -= 1
-            val = heapq.heappop(heap)
+            val = heapq.heappop(heapMax)
             ans.append(val[1])
         return ans
 

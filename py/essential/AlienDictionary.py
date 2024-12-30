@@ -23,7 +23,7 @@ class Solution:
 
         def dfs(char):
             if char in res:
-                return  # skip already sorted letter
+                return  # skip already sorted letter (memory)
             if char in visited:
                 return True  # cycle found
 

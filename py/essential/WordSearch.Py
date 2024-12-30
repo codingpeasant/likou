@@ -1,5 +1,6 @@
 # https://leetcode.com/problems/word-search/
 # DFS,Back Tracking
+# Blind
 
 from typing import List
 
