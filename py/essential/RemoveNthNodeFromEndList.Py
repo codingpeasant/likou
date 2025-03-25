@@ -1,6 +1,7 @@
 # https://leetcode.com/problems/remove-nth-node-from-end-of-list/
 # Linked List,Two Pointers
 # Blind
+# Neet
 
 from typing import Optional
 from list_node import *

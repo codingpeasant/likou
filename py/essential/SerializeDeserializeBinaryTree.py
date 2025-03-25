@@ -1,4 +1,5 @@
 # Blind
+# Grind
 # https://leetcode.com/problems/serialize-and-deserialize-binary-tree/?envType=problem-list-v2&envId=oizxjoit
 
 from typing import List
@@ -8,6 +9,7 @@ from tree_node import *
 class Codec:
     empty, splitter = "X", ","
 
+    # preorder
     def serialize(self, root: TreeNode):
         def buildString(curNode: TreeNode, serializedStr: List[str]):
             if not curNode:
@@ -26,6 +28,7 @@ class Codec:
     def deserialize(self, data: str):
         splittedData = data.split(self.splitter)
 
+        # preorder too
         def buildTree():
             val = splittedData.pop(0)
             if val == Codec.empty:

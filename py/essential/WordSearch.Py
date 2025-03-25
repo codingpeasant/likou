@@ -1,6 +1,8 @@
 # https://leetcode.com/problems/word-search/
 # DFS,Back Tracking
 # Blind
+# Grind
+# Neet
 
 from typing import List
 

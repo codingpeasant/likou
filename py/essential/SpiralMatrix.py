@@ -1,6 +1,7 @@
 # https://leetcode.com/problems/spiral-matrix/description/
 # Matrix,Simulation
 # Blind
+# Grind
 
 from typing import List
 

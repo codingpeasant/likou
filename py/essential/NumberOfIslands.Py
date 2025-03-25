@@ -1,5 +1,6 @@
 # https://leetcode.com/problems/number-of-islands/
 # Blind
+# Grind
 
 from typing import List
 

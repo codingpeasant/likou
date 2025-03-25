@@ -1,5 +1,7 @@
 # https://leetcode.com/problems/merge-k-sorted-lists/
 # Blind
+# Grind
+# Neet
 
 import heapq
 from typing import List, Optional

@@ -1,3 +1,8 @@
+# https://leetcode.com/problems/word-break/description/?envType=problem-list-v2&envId=rab78cw1
+# Blind
+# Grind
+# Neet
+
 from typing import List
 
 
@@ -16,3 +21,4 @@ class Solution:
 
 s = Solution()
 print(s.maxArea([1, 8, 6, 2, 5, 4, 8, 3, 7]))
+print(s.maxArea([1, 1, 1, 100, 5, 100, 1, 1, 1]))

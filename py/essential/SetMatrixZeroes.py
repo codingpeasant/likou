@@ -1,5 +1,6 @@
 # https://leetcode.com/problems/set-matrix-zeroes/?envType=problem-list-v2&envId=oizxjoit
 # Blind
+# Neet
 
 from typing import List
 
@@ -23,4 +24,6 @@ class Solution:
 
 
 s = Solution()
-print(s.setZeroes([[0, 1, 2, 0], [3, 4, 5, 2], [1, 3, 1, 5]]))
+inputMatrix = [[0, 1, 2, 0], [3, 4, 5, 2], [1, 3, 1, 5]]
+s.setZeroes(inputMatrix)
+print(inputMatrix)

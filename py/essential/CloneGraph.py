@@ -1,5 +1,8 @@
 # https://leetcode.com/problems/clone-graph/description/?envType=problem-list-v2&envId=oizxjoit
 # Blind
+# Grind
+
+
 class Node:
     def __init__(self, val: int = 0, neighbors: list = None):
         self.val = val

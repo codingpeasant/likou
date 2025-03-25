@@ -1,5 +1,7 @@
 # https://leetcode.com/problems/maximum-subarray/description/
 # Blind
+# Grind
+# Neet
 
 from typing import List
 

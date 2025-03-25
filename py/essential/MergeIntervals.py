@@ -1,4 +1,6 @@
 # Blind
+# Grind
+# Neet
 # https://leetcode.com/problems/merge-intervals/description/?envType=problem-list-v2&envId=oizxjoit
 
 from typing import List
@@ -9,10 +11,10 @@ class Solution:
         intervals.sort(key=lambda interval: interval[0])
         res, prevInterval = [], intervals[0]
         for i in range(1, len(intervals)):
-            if intervals[i][0] <= prevInterval[1]:
+            if intervals[i][0] <= prevInterval[1]:  # overlapping with preInterval
                 prevInterval[1] = max(
                     prevInterval[1], intervals[i][1]
-                )  # extend the right
+                )  # extend the right; preInterval[0] is always <= interval[i][0] so no need to extend left
             else:
                 res.append(prevInterval)
                 prevInterval = intervals[i]

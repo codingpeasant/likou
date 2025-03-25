@@ -1,4 +1,6 @@
 # Blind
+# Grind
+# Neet
 # https://leetcode.com/problems/merge-two-sorted-lists/description/?envType=problem-list-v2&envId=oizxjoit
 
 from typing import Optional

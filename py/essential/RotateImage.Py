@@ -1,6 +1,7 @@
 # https://leetcode.com/problems/rotate-image/
 # Array,Matrix
 # Blind
+# Neet
 
 from typing import List
 
@@ -15,15 +16,14 @@ class Solution:
         # flip horizontally
         for i in range(m):
             for j in range(m // 2):
-                tmp = matrix[i][j]
-                matrix[i][j] = matrix[i][m - 1 - j]
-                matrix[i][m - 1 - j] = tmp
+                matrix[i][j], matrix[i][m - 1 - j] = matrix[i][m - 1 - j], matrix[i][j]
         # then transpose
         for i in range(m):
             for j in range(m - i):
-                tmp = matrix[i][j]
-                matrix[i][j] = matrix[m - 1 - j][m - 1 - i]
-                matrix[m - 1 - j][m - 1 - i] = tmp
+                matrix[i][j], matrix[m - 1 - j][m - 1 - i] = (
+                    matrix[m - 1 - j][m - 1 - i],
+                    matrix[i][j],
+                )
 
 
 s = Solution()
