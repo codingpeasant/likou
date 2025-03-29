@@ -1,11 +1,12 @@
 # https://leetcode.com/problems/valid-palindrome/description/?envType=problem-list-v2&envId=oizxjoit
 # Blind
 # Grind
+# Neet
 
 
 class Solution:
     def isPalindrome(self, s: str) -> bool:
-        processedString = "".join(filter(str.isalnum, s)).lower()
+        processedString = "".join([letter if letter.isalnum() else "" for letter in s]).lower()
         return processedString == processedString[::-1]
 
 

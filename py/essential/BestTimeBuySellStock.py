@@ -1,6 +1,7 @@
 # https://leetcode.com/problems/best-time-to-buy-and-sell-stock/
 # Blind
 # Grind
+# Neet
 
 from typing import List
 

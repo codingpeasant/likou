@@ -1,4 +1,5 @@
 # Blind
+# Neet
 # https://leetcode.com/problems/reorder-list/description/?envType=problem-list-v2&envId=oizxjoit
 
 from typing import Optional
@@ -37,7 +38,25 @@ class Solution:
             head1 = head2
             head2 = nextt
         printLinkedList(head)
+    
+    def reorderList1(self, head: Optional[ListNode]) -> None:
+        arr = []
+        while head:
+            arr.append(head)
+            head = head.next
+        n = len(arr)
+        left,right = 0, n - 1
+        while left < right:
+            arr[left].next = arr[right]
+            left += 1
+            if left == right:
+                break
+            arr[right].next = arr[left]
+            right -= 1
+        arr[left].next = None # or arr[right].next = None
+        printLinkedList(arr[0])
 
 
 s = Solution()
 s.reorderList(getSampleLinkedList())
+s.reorderList1(getSampleLinkedList())

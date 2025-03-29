@@ -1,5 +1,6 @@
 # https://leetcode.com/problems/palindromic-substrings/description/?envType=problem-list-v2&envId=oizxjoit
 # Blind
+# Neet
 
 
 class Solution:
@@ -13,7 +14,7 @@ class Solution:
                 self.res += 1
 
         for i in range(len(s)):
-            expandCount(i, i)
+            expandCount(i, i) # Count odd length palindromes
             expandCount(i, i + 1)
 
         return self.res

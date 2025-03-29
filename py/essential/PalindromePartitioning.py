@@ -1,4 +1,5 @@
 # https://leetcode.com/problems/palindrome-partitioning/description/
+# Neet
 
 from typing import List
 
@@ -26,5 +27,5 @@ class Solution:
 
 
 s = Solution()
-input = "aab"
+input = "aabbaab"
 print(s.partition(input))

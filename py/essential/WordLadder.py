@@ -1,5 +1,6 @@
 # https://leetcode.com/problems/word-ladder/description/?envType=problem-list-v2&envId=rab78cw1
 # Grind
+# Neet
 
 from collections import deque
 from itertools import product
@@ -17,7 +18,7 @@ class Solution:
 
         n = len(beginWord)
         res = 0
-        visited = set()
+        visited = set() # to avoid a circle
         q = deque([beginWord])
         while q:
             qSize = len(q)

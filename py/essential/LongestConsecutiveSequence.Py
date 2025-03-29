@@ -1,5 +1,7 @@
 # https://leetcode.com/problems/longest-consecutive-sequence/
-# Hashtable,Blind
+# Hashtable
+# Blind
+# Neet
 
 from typing import List
 
