@@ -56,13 +56,16 @@ class Solution:
         while head:
             i += 1
             if i % k == 0:
-                begin = reverse(begin, head.next)
+                begin = reverse(
+                    begin, head.next
+                )  # begin is the prev node of the first node in the next group to reverse
                 head = begin.next
+                print(f"head: {head.val}")
             else:
                 head = head.next
         return dummy.next
 
 
 s = Solution()
-printLinkedList(s.reverseKGroup(getSampleLinkedList(), 2))
-printLinkedList(s.reverseKGroup1(getSampleLinkedList(), 3))
+printLinkedList(s.reverseKGroup1(getSampleLinkedList(), 2))
+# printLinkedList(s.reverseKGroup(getSampleLinkedList(), 3))

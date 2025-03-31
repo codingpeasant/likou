@@ -1,5 +1,6 @@
 # https://leetcode.com/problems/lru-cache/description/
 # Grind
+# Neet
 
 from collections import OrderedDict
 
@@ -36,8 +37,9 @@ class ListNode:
 
 
 class LRUCache2:
+    # head => node1 (old) => node2 => node3 (new/refreshed) => tail
     def __init__(self, capacity: int):
-        self.dic = dict()  # key to node
+        self.dic = {}  # key to node
         self.capacity = capacity
         self.head = ListNode(0, 0)
         self.tail = ListNode(-1, -1)
@@ -61,7 +63,7 @@ class LRUCache2:
             node.value = value  # replace the value len(dic)
         else:
             if len(self.dic) >= self.capacity:
-                self.removeFromHead()
+                self.removeFromHeadAndDict()
             node = ListNode(key, value)
             self.dic[key] = node
             self.insertIntoTail(node)
@@ -77,7 +79,7 @@ class LRUCache2:
         node.next = self.tail
         tailPrev.next = node
 
-    def removeFromHead(self):
+    def removeFromHeadAndDict(self):
         if len(self.dic) == 0:
             return
         headNode = self.head.next

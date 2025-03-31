@@ -1,26 +1,31 @@
 # https://leetcode.com/problems/max-area-of-island/
+# Neet
 
 from typing import List
 
 
 class Solution:
     def maxAreaOfIsland(self, grid: List[List[int]]) -> int:
-        m = len(grid)
-        n = len(grid[0])
+        m, n = len(grid), len(grid[0])
+        dirs = [(1, 0), (-1, 0), (0, 1), (0, -1)]
+        res = 0
 
-        max_area = 0
+        def dfs(i: int, j: int):
+            grid[i][j] = 0
+            area = 1
+            for dir in dirs:
+                nextI = i + dir[0]
+                nextJ = j + dir[1]
+                if 0 <= nextI < m and 0 <= nextJ < n and grid[nextI][nextJ]:
+                    area += dfs(nextI, nextJ)
+            return area
 
-        def dfs(i, j):
-            if 0 <= i < m and 0 <= j < n and grid[i][j]:
-                grid[i][j] = 0
-                return 1 + dfs(i - 1, j) + dfs(i, j - 1) + dfs(i + 1, j) + dfs(i, j + 1)
-            return 0
-
-        for i in range(0, m):
-            for j in range(0, n):
+        for i in range(m):
+            for j in range(n):
                 if grid[i][j]:
-                    max_area = max(max_area, dfs(i, j))
-        return max_area
+                    res = max(res, dfs(i, j))
+
+        return res
 
 
 s = Solution()

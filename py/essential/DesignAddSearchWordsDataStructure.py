@@ -1,4 +1,6 @@
 # https://leetcode.com/problems/design-add-and-search-words-data-structure/
+# Neet
+# Grind
 
 from collections import defaultdict
 
@@ -21,7 +23,7 @@ class WordDictionary:
 
     def searchPrefix(self, word: str) -> bool:
         return self.dfs(self.root, word, True)
-    
+
     def search(self, word: str) -> bool:
         return self.dfs(self.root, word, False)
 
@@ -32,7 +34,8 @@ class WordDictionary:
             return False
         if word[0] == ".":
             return any(
-                self.dfs(child_node, word[1:], is_prefix) for child_node in node.children.values()
+                self.dfs(child_node, word[1:], is_prefix)
+                for child_node in node.children.values()
             )
         else:
             node = node.children.get(word[0])
