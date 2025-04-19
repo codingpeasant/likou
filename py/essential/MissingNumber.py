@@ -1,4 +1,5 @@
 # Blind
+# Neet
 # https://leetcode.com/problems/missing-number/?envType=problem-list-v2&envId=oizxjoit
 
 from typing import List

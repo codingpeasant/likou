@@ -1,6 +1,7 @@
 # https://leetcode.com/problems/jump-game/description/
 # Blind
 # Neet
+# Grind
 
 from functools import lru_cache
 from typing import List

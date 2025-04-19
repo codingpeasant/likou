@@ -1,6 +1,7 @@
 # https://leetcode.com/problems/coin-change/?envType=problem-list-v2&envId=oizxjoit
 # Blind
 # Grind
+# Neet
 
 from functools import lru_cache
 from typing import List
@@ -35,7 +36,7 @@ class Solution:
                 if i == coins[j]:
                     dp[i] = 1
                 if i - coins[j] > 0:
-                    dp[i] = min(dp[i], dp[i - coins[j]] + 1)
+                    dp[i] = min(dp[i], dp[i - coins[j]] + 1) # pick the current coin[j] + the min of the rest (i - coins[j])
         return dp[-1] if dp[-1] != float("inf") else -1
 
 

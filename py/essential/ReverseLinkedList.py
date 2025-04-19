@@ -1,6 +1,7 @@
 # https://leetcode.com/problems/reverse-linked-list/description/?envType=problem-list-v2&envId=oizxjoit
 # Blind
 # Neet
+# Grind
 
 from typing import Optional
 from list_node import *

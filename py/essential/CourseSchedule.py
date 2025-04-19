@@ -57,7 +57,6 @@ class Solution:
                     canFinish += 1
         return canFinish == numCourses
 
-
 s = Solution()
 print(s.canFinish1(5, [[3, 0], [3, 2], [1, 3], [1, 4], [4, 3]]))
 print(s.canFinish1(2, [[1, 0]]))

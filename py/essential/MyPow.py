@@ -1,6 +1,6 @@
 # https://leetcode.com/problems/powx-n/description/?envType=problem-list-v2&envId=rr2ss0g5
 # Neet
-
+# Grind
 
 class Solution:
     # x^n = x^(n/2) * x^(n/2) if n is even

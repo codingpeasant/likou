@@ -1,5 +1,6 @@
 # https://neetcode.io/problems/meeting-schedule
 # Blind
+# Neet
 
 from collections import defaultdict
 from typing import List

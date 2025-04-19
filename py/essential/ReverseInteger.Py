@@ -1,6 +1,7 @@
 # https://leetcode.com/problems/reverse-integer/
 # Math,Simulation
 # Neet
+# Grind
 
 
 class Solution:

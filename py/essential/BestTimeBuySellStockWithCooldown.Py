@@ -1,4 +1,5 @@
 # https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/
+# Neet
 
 from typing import List
 
@@ -26,4 +27,6 @@ class Solution:
 
 s = Solution()
 prices = [1, 2, 3, 0, 2]
+print(s.maxProfit(prices))
+prices = [5,4,3,2,1]
 print(s.maxProfit(prices))

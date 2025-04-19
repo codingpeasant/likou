@@ -16,7 +16,6 @@ class Solution:
                     count += 1
             return count == 1
 
-        n = len(beginWord)
         res = 0
         visited = set() # to avoid a circle
         q = deque([beginWord])

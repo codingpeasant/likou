@@ -1,5 +1,6 @@
 # https://leetcode.com/problems/course-schedule-ii/description/?envType=problem-list-v2&envId=rr2ss0g5
 # Neet
+# Grind
 
 from collections import defaultdict, deque
 from typing import List

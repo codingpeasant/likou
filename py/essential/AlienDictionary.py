@@ -1,4 +1,5 @@
 # Blind
+# Neet
 # https://neetcode.io/problems/foreign-dictionary
 
 from collections import defaultdict
@@ -28,14 +29,14 @@ class Solution:
                 return True  # cycle found
 
             visited.add(char)
-            for nei in graph[char]:
+            for nei in graph.get(char, []):
                 if dfs(nei):
                     return True
 
             visited.remove(char)
             res.append(char)
 
-        for char in list(graph):
+        for char in graph.keys():
             if dfs(char):
                 return ""
 

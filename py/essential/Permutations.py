@@ -6,6 +6,7 @@ from typing import List
 
 
 class Solution:
+    # time complexity: O(n!)
     def permute(self, nums: List[int]) -> List[List[int]]:
         res = []
         n = len(nums)

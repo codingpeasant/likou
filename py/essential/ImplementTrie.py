@@ -4,8 +4,6 @@
 # Neet
 
 from collections import defaultdict
-
-
 class TrieNode:
     def __init__(self) -> None:
         self.children = defaultdict(TrieNode)

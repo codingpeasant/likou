@@ -21,7 +21,7 @@ class Solution:
             # if current_height is smaller than the previous seen heights, we cannot use the previous seen heights anymore in further calculation because including the previous seen max will not form a rectangle with the current_height included. So we have to calculate now by popping previous taller heights; if current_height is larger than the previous seen heights, we can still use the previous seen heights in further calculation because including the previous seen max will form a rectangle with the current_height included. So using a stack to keep the previous seen heights that can contribute to further calculations is a good idea. And this stack needs to be sorted or at least the top of the stack needs to be previous max to effectively compare with current_height.
             while stack and heights[stack[-1]] > current_height:
                 height = heights[stack.pop()]
-                width = i if not stack else i - stack[-1] - 1
+                width = i if not stack else i - stack[-1] - 1 # not stack when the heights are in decreasing order
                 print([heights[i] if i < n else -1 for i in stack])
                 print(
                     f"current_height: {current_height}, height: {height}, width: {width}"

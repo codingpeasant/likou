@@ -17,9 +17,9 @@ class Solution:
         def dfs(cur: str):
             if len(res) == len(tickets) + 1: # all the tickets are used
                 return True
-            if cur not in graph: # dead end but not all tickets are used
+            if cur not in graph: # dead end but not all tickets are used - doesn't exist in the current setting (all tickets form at least one valid itinerary) but good to check the edge case
                 return False
-            for i in range(len(graph[cur])):
+            for i in range(len(graph[cur])): # the for loop with limited iterations to avoid infinite recursion on the same node again
                 next = graph[cur].pop(0) # try to remove the first destination to make sure it's only used once
                 res.append(next) # try to add it
                 if dfs(next):

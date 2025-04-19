@@ -1,6 +1,6 @@
 # https://leetcode.com/problems/median-of-two-sorted-arrays/solutions/4070371/94-96-binary-search-two-pointers/?envType=problem-list-v2&envId=rr2ss0g5
 # Neet
-
+# Grind
 
 from typing import List
 
@@ -15,7 +15,7 @@ class Solution:
             nums1, nums2 = nums2, nums1
 
         m, n = len(nums1), len(nums2)
-        low, high = 0, m
+        low, high = 0, m # low has to be 0 because the length can be 0
 
         while low <= high:
             partitionX = (low + high) // 2

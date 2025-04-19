@@ -1,5 +1,6 @@
 # Blind
 # Grind
+# Neet
 # https://leetcode.com/problems/serialize-and-deserialize-binary-tree/?envType=problem-list-v2&envId=oizxjoit
 
 from typing import List
@@ -25,12 +26,15 @@ class Codec:
         buildString(root, stringArr)
         return "".join(stringArr)
 
+    # preorder
+    pointer = 0
     def deserialize(self, data: str):
         splittedData = data.split(self.splitter)
 
         # preorder too
         def buildTree():
-            val = splittedData.pop(0)
+            val = splittedData[Codec.pointer]
+            Codec.pointer += 1
             if val == Codec.empty:
                 return None
             else:

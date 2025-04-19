@@ -1,5 +1,6 @@
 # https://leetcode.com/problems/single-number/description/?envType=problem-list-v2&envId=plakya4j
 # Neet
+# Grind
 
 from typing import List
 

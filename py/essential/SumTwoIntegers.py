@@ -1,6 +1,6 @@
 # https://leetcode.com/problems/sum-of-two-integers/description/?envType=problem-list-v2&envId=oizxjoit
 # Blind
-
+# Neet
 
 class Solution:
     #         1.Why carry is a&b:
@@ -28,5 +28,6 @@ class Solution:
 
 
 s = Solution()
-print(s.getSum(1, 2))
+print(s.getSum(1, 3))
 print(s.getSum(-1, 3))
+print(0 & 0)

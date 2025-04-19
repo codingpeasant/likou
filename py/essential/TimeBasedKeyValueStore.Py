@@ -1,6 +1,7 @@
 # https://leetcode.com/problems/time-based-key-value-store/
 # Binary Search
 # Grind
+# Neet
 
 import bisect
 import collections
@@ -16,7 +17,7 @@ class TimeMap:
         self.values[key].append(value)
 
     def get(self, key: str, timestamp: int) -> str:
-        i = bisect.bisect(self.times[key], timestamp)
+        i = bisect.bisect_right(self.times[key], timestamp)
         return self.values[key][i - 1] if i else ""
 
 

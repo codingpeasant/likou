@@ -1,5 +1,6 @@
 # https://leetcode.com/problems/k-closest-points-to-origin/description/?envType=problem-list-v2&envId=rab78cw1
 # Grind
+# Neet
 
 from typing import List
 

@@ -1,5 +1,6 @@
 # https://leetcode.com/problems/n-queens/description/?envType=problem-list-v2&envId=rr2ss0g5
 # Neet
+# Grind
 
 from typing import List
 

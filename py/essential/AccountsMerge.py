@@ -6,13 +6,15 @@ from typing import List
 
 
 class Solution:
+    visited = set()
     # Traverse dfs of the graph to find emails that are connected to this email
-    def dfs(self, graph, node, visit):
-        visit.add(node)
-        for nei in graph[node]:
-            if nei not in visit:
-                self.dfs(graph, nei, visit)
+    def dfs(self, graph, node):
         self.res.append(node)
+        self.visited.add(node)
+        for nei in graph[node]:
+            if nei not in self.visited:
+                self.dfs(graph, nei)
+        
 
     def accountsMerge(self, accounts: List[List[str]]) -> List[List[str]]:
         # stores doubly directed email linked to head of the email list
@@ -22,14 +24,13 @@ class Solution:
                 graph[account[1]].add(email)
                 graph[email].add(account[1])
 
-        visit = set()
         ans = []
         for account in accounts:
             name = account[0]
             for email in account[1:]:
-                if email not in visit:
+                if email not in self.visited:
                     self.res = []
-                    self.dfs(graph, email, visit)
+                    self.dfs(graph, email)
                     ans.append([name] + sorted(self.res))
         return ans
 

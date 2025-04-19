@@ -1,5 +1,6 @@
 # Blind
 # Neet
+# Grind
 # https://leetcode.com/problems/maximum-product-subarray/?envType=problem-list-v2&envId=oizxjoit
 
 from typing import List

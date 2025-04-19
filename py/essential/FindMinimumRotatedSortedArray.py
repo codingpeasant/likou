@@ -1,5 +1,6 @@
 # Blind
 # Neet
+# Grind
 # https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/description/?envType=problem-list-v2&envId=oizxjoit
 
 from typing import List
