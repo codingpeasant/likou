@@ -1,5 +1,6 @@
 # Blind
 # Neet
+# Grind
 # https://leetcode.com/problems/missing-number/?envType=problem-list-v2&envId=oizxjoit
 
 from typing import List
@@ -7,8 +8,8 @@ from typing import List
 
 class Solution:
     def missingNumber(self, nums: List[int]) -> int:
-        n, numSum = len(nums) + 1, sum(nums)
-        return int(n * (n - 1) / 2 - numSum)
+        n, numSum = len(nums), sum(nums)
+        return int(n * (n + 1) / 2 - numSum)
 
 
 s = Solution()

@@ -1,5 +1,6 @@
 # Blind
 # Neet
+# Grind
 # https://neetcode.io/problems/string-encode-and-decode
 
 from typing import List
@@ -9,7 +10,7 @@ class Solution:
     def encode(self, strs: List[str]) -> str:
         res = ""
         for s in strs:
-            res += str(len(s)) + "#" + s
+            res += str(len(s)) + "#" + s # 5#hello
         return res
 
     def decode(self, s: str) -> List[str]:

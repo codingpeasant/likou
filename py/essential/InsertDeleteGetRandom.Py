@@ -1,4 +1,5 @@
 # https://leetcode.com/problems/insert-delete-getrandom-o1/
+# Grind
 
 from collections import defaultdict
 import random
@@ -14,7 +15,7 @@ class RandomizedSet:
     def insert(self, val: int) -> bool:
         if val in self.dataMap:
             return False
-        self.dataMap[val] = len(self.data)
+        self.dataMap[val] = len(self.data)  # record the index of the value in self.data
         self.data.append(val)
         return True
 
@@ -24,7 +25,7 @@ class RandomizedSet:
 
         lastEle = self.data[-1]
         indexToRemove = self.dataMap[val]
-
+        # swap the last element with the element to be removed
         self.data[indexToRemove] = lastEle
         self.dataMap[lastEle] = indexToRemove
         self.data.pop()

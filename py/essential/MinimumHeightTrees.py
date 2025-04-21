@@ -20,7 +20,7 @@ class Solution:
 
         leaves = deque([i for i in range(n) if degree[i] == 1])
         remainingNodes = n
-        while remainingNodes > 2:
+        while remainingNodes > 2: # why 2? because if there are only 1 or 2 nodes left, they are the roots of the min height trees
             leaveCount = len(leaves)
             remainingNodes -= leaveCount
             for _ in range(leaveCount):  # level by level BFS

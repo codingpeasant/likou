@@ -1,8 +1,7 @@
 # https://leetcode.com/problems/maximum-profit-in-job-scheduling/
 # Grind
 
-from bisect import bisect_left, bisect_right
-from collections import defaultdict
+from bisect import bisect_left
 from functools import lru_cache
 from typing import List
 

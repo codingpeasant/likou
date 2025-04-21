@@ -47,7 +47,7 @@ class Solution:
                 return True
             if numIndex == 0 or subTarget < 0:
                 return False
-            # pick or not pick
+            # not pick nums[numIndex] or pick
             return dfs(numIndex - 1, subTarget) or dfs(
                 numIndex - 1, subTarget - nums[numIndex]
             )

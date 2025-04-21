@@ -1,5 +1,6 @@
 # https://leetcode.com/problems/find-the-duplicate-number/description/?envType=problem-list-v2&envId=plakya4j
 # Neet
+# Grind
 
 from typing import List
 
@@ -13,7 +14,6 @@ class Solution:
         :return: int - The duplicate number
         """
         # Initialize two pointers for the cycle detection algorithm
-
         slow = fast = nums[0]
 
         # First phase: Finding the intersection point in the cycle
