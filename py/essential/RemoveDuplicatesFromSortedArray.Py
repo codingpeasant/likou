@@ -1,5 +1,6 @@
 # https://leetcode.com/problems/remove-duplicates-from-sorted-array/
 # Two Pointers
+# Neet
 from typing import List
 
 
@@ -17,4 +18,4 @@ class Solution:
 
 
 s = Solution()
-print(s.removeDuplicates([0, 0, 1, 1, 1, 2, 2, 3, 3, 4]))
+print(s.removeDuplicates([0, 0, 0, 1, 1, 1, 2, 2, 3, 3, 4]))

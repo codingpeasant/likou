@@ -1,8 +1,8 @@
 # https://leetcode.com/problems/sort-colors/description/?envType=problem-list-v2&envId=rab78cw1
 # Grind
+# Neet
 
-
-from collections import Counter, defaultdict
+from collections import Counter
 
 
 class Solution:

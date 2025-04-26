@@ -30,7 +30,7 @@ class Solution:
 
         res = 0
         for i in range(1, n - 1):  # again
-            water_level = min(left_max[i], right_max[i]) - height[i]
+            water_level = min(left_max[i], right_max[i]) - height[i] # water level could be negative
             if water_level > 0:
                 res += water_level
         return res

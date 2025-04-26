@@ -9,9 +9,9 @@ from typing import List
 class Solution:
     def isValidSudoku(self, board: List[List[str]]) -> bool:
 
-        rows = [set() for i in range(9)]
-        cols = [set() for i in range(9)]
-        grid = [set() for i in range(9)]
+        rows = [set() for _ in range(9)]
+        cols = [set() for _ in range(9)]
+        grid = [set() for _ in range(9)]
 
         for i in range(9):
             for j in range(9):

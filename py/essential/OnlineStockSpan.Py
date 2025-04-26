@@ -1,4 +1,6 @@
 # https://leetcode.com/problems/online-stock-span/
+# Neet
+
 class StockSpanner:
     def __init__(self):
         self.stack = []
@@ -8,6 +10,7 @@ class StockSpanner:
         while self.stack and self.stack[-1][0] <= price:
             res += self.stack.pop()[1]
         self.stack.append([price, res])
+        print(self.stack)
         return res
 
 
@@ -19,3 +22,4 @@ print(s.next(70))
 print(s.next(60))
 print(s.next(75))
 print(s.next(65))
+print(s.next(100))

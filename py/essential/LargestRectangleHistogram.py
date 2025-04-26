@@ -7,7 +7,7 @@ from typing import List
 
 class Solution:
     def largestRectangleArea(self, heights: List[int]) -> int:
-        stack = []
+        stack = [] # asc
         max_area = 0
         n = len(heights)
 

@@ -8,10 +8,12 @@ from typing import List
 class Solution:
     def dailyTemperatures(self, temperatures: List[int]) -> List[int]:
         n = len(temperatures)
-        monoStack, res = [], [0] * n
+        monoStack, res = [], [0] * n  # desc
 
         for i in range(n):
-            while monoStack and temperatures[monoStack[-1]] < temperatures[i]:
+            while (
+                monoStack and temperatures[monoStack[-1]] < temperatures[i]
+            ):  # only need to check -1 because the prev elements are larger
                 res[monoStack[-1]] = i - monoStack[-1]
                 monoStack.pop()
             monoStack.append(i)

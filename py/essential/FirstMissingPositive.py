@@ -1,5 +1,6 @@
 # https://leetcode.com/problems/first-missing-positive/description/?envType=problem-list-v2&envId=rabvlt31
 # Grind
+# Neet
 
 from typing import List
 
@@ -12,7 +13,7 @@ class Solution:
 
         n = len(nums)
 
-        # Place each positive integer i at index i-1 if possible
+        # Place each positive integer num[i] at index i-1 if possible
         for i in range(n):
             while 0 < nums[i] <= n and nums[i] != nums[nums[i] - 1]:
                 swap(nums, i, nums[i] - 1)
