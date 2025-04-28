@@ -25,6 +25,27 @@ class Solution:
             p.next.next = tmp
         return dummy.next
 
+    # preferred
+    def reverseBetween1(
+        self, head: Optional[ListNode], left: int, right: int
+    ) -> Optional[ListNode]:
+        if not head or left == right:
+            return head
+        p = dummy = ListNode(None)
+        dummy.next = head
+        for _ in range(left - 1):
+            p = p.next
+        prev, cur, oldStart = p, p.next, p.next
+        # regular reverse
+        for _ in range(right - left + 1):
+            nextN = cur.next
+            cur.next = prev
+            prev = cur
+            cur = nextN
+        oldStart.next = cur
+        p.next = prev
+        return dummy.next
+
 
 s = Solution()
 node1 = ListNode(1)

@@ -41,7 +41,7 @@ class LRUCache2:
     def __init__(self, capacity: int):
         self.dic = {}  # key to node
         self.capacity = capacity
-        self.head = ListNode(0, 0)
+        self.head = ListNode(-1, -1)
         self.tail = ListNode(-1, -1)
         self.head.next = self.tail
         self.tail.prev = self.head
@@ -83,7 +83,7 @@ class LRUCache2:
         if len(self.dic) == 0:
             return
         headNode = self.head.next
-        del self.dic[headNode.key]
+        self.dic.pop(headNode.key)
         self.removeFromList(headNode)
 
 

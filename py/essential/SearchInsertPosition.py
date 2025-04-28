@@ -1,6 +1,8 @@
 # https://leetcode.com/problems/search-insert-position/description/
 # Binary Search
+# Neet
 
+import bisect
 from typing import List
 
 
@@ -22,3 +24,4 @@ s = Solution()
 nums = [1, 3, 5, 6]
 target = 7
 print(s.searchInsert(nums, target))
+print(bisect.bisect_left(nums, 4))

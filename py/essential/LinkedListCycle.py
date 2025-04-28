@@ -2,7 +2,6 @@
 # Grind
 # Neet
 # https://leetcode.com/problems/linked-list-cycle/description/?envType=problem-list-v2&envId=oizxjoit
-import sys
 
 
 from typing import Optional
