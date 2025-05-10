@@ -1,5 +1,6 @@
 # https://leetcode.com/problems/verifying-an-alien-dictionary/
 # Hash Table,Simulation
+# Neet
 
 from collections import defaultdict
 from typing import List
@@ -24,7 +25,7 @@ class Solution:
                 if letterOrder[word1[j]] < letterOrder[word2[j]]:
                     increasing = True
                     break
-            if not increasing and word1Len > word2Len:
+            if not increasing and word1Len > word2Len: # all first letter are the same but word1 is longer
                 return False
         return True
 

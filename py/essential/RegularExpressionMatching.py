@@ -35,3 +35,4 @@ class Solution:
 s = Solution()
 print(s.isMatch("aaaaaa", "a*"))
 print(s.isMatch("a", ".*"))
+print(s.isMatch("", "a*"))

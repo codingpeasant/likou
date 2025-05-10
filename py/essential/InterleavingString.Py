@@ -11,6 +11,7 @@ class Solution:
 
         @lru_cache(None)
         def dfs(i, j, k):
+            print(i, j, k)
             if i > m - 1 and j > n - 1:  # both s1 and s2 are exhausted
                 return True
             if i < m and s1[i] == s3[k] and dfs(i + 1, j, k + 1):

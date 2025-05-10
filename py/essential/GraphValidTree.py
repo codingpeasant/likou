@@ -31,3 +31,4 @@ class Solution:
 
 s = Solution()
 print(s.validTree(5, [[0, 1], [0, 2], [0, 3], [1, 4]]))
+print(s.validTree(5, [[0, 1], [1, 2], [2, 3], [1, 3], [1, 4]]))

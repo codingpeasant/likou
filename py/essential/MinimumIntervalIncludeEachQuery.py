@@ -15,7 +15,7 @@ class Solution:
         size_heap = [] # (size, left)
         
         for qnum, pos in queries_asc:
-            while i < num_intervals:
+            while i < num_intervals: # add all the intervals that start before or at qnum
                 left, right = intervals[i]
                 if left > qnum:
                     break

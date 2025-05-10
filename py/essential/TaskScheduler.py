@@ -2,7 +2,8 @@
 # Grind
 # Neet
 
-from collections import Counter
+from collections import Counter, deque
+import heapq
 from typing import List
 
 
@@ -37,6 +38,25 @@ class Solution:
         num_longest = counts.count(most_repeats)
         return max(len(tasks), (most_repeats - 1) * (n + 1) + num_longest)
 
+    def leastInterval1(self, tasks: List[str], n: int) -> int:
+        count = Counter(tasks)
+        maxHeap = [-cnt for cnt in count.values()]
+        heapq.heapify(maxHeap)
+
+        time = 0
+        q = deque()  # pairs of [-cnt, executionTime]
+        while maxHeap or q:
+            time += 1
+
+            if not maxHeap:
+                time = q[0][1]
+            else: # execute the task with the most count greedily
+                cnt = 1 + heapq.heappop(maxHeap) # reduce the count by 1
+                if cnt != 0:
+                    q.append([cnt, time + n]) # if the task is not done, update it's time to execute and push back
+            if q and q[0][1] == time: # grab a task if it's the time to execute on it the tasks in q is already sorted by execution time asc
+                heapq.heappush(maxHeap, q.popleft()[0]) # do the task and push the reduced to heap
+        return time
 
 s = Solution()
 print(s.leastInterval(["A", "A", "A", "B", "B", "B"], 2))  # 8

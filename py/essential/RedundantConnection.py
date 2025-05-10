@@ -1,7 +1,6 @@
 # https://leetcode.com/problems/redundant-connection/description/?envType=problem-list-v2&envId=rr2ss0g5
 # Neet
 
-from collections import defaultdict
 import collections
 from typing import List
 
@@ -12,7 +11,7 @@ class Solution:
         graph_so_far = collections.defaultdict(list)
 
         # dfs function to check if path exists between nodes u and v
-        def path_exists(u, v):
+        def path_exists(u, v, visited: set):
             # we reached to v from u
             if u == v:
                 return True
@@ -23,17 +22,15 @@ class Solution:
             # iterate through all the neighbors of u and if they are not visited call dfs on them
             for neighbor in graph_so_far[u]:
                 if neighbor not in visited:
-                    if path_exists(neighbor, v):
+                    if path_exists(neighbor, v, visited):
                         return True
 
             return False
 
         # iterate through all the pairs of edges
         for u, v in edges:
-            # we make a fresh visited because we call dfs for every pair of edges
-            visited = set()
             # if path exists between u and v return that's the answer
-            if path_exists(u, v):
+            if path_exists(u, v, set()):
                 return [u, v]
             else:
                 # if path does not exist we add edges to graph

@@ -19,10 +19,11 @@ class Solution:
                 return nums[i - 1] * nums[i] * nums[i + 1]
             return max(
                 dp(i, k - 1) + dp(k + 1, j) + nums[i - 1] * nums[k] * nums[j + 1]
-                for k in range(i, j + 1) # try to burst each balloon between i and j
+                for k in range(i, j + 1) # try popping k the last
             )
 
         return dp(1, len(nums) - 2)
 
 s= Solution()
 print(s.maxCoins([3, 1, 5, 8])) # 167
+print(s.maxCoins([2,3,4]))

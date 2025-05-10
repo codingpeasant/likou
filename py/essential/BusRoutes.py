@@ -17,8 +17,6 @@ class Solution:
                 stop_to_routes[stop].append(i)
 
         # BFS to find the shortest path
-
-
         queue = deque([source])
         visited_stops = {source}
         visited_routes = set()

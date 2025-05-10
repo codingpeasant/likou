@@ -29,3 +29,4 @@ class Solution:
 s = Solution()
 input = "aabbaab"
 print(s.partition(input))
+print(s.partition("aaa"))

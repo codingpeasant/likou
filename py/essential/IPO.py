@@ -1,4 +1,5 @@
 # https://leetcode.com/problems/ipo/description/?orderBy=most_votes
+# Neet
 
 import heapq
 from typing import List
@@ -13,10 +14,10 @@ class Solution:
         i = 0
         for _ in range(k):
             while i < len(projects) and projects[i][1] <= w:
-                heapq.heappush(heap, -projects[i][0])
+                heapq.heappush(heap, -projects[i][0]) # find all the valid projects that can afford
                 i += 1
             if heap:
-                w -= heapq.heappop(heap)
+                w -= heapq.heappop(heap) # do the project and get the profit
         return w
 
 

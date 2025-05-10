@@ -9,7 +9,6 @@ from typing import List
 
 class Solution:
     def exist(self, board: List[List[str]], word: str) -> bool:
-        dirs = [(0, -1), (0, 1), (-1, 0), (1, 0)]
         m, n = len(board), len(board[0])
         visited = [[False for _ in range(n)] for _ in range(m)]
 
@@ -25,7 +24,10 @@ class Solution:
                 return False
 
             visited[i][j] = True
-            found = any(dfs(wordLeft[1:], i + dir[0], j + dir[1]) for dir in dirs)
+            found = any(
+                dfs(wordLeft[1:], iN, jN)
+                for (iN, jN) in [(i, j + 1), (i + 1, j), (i - 1, j), (i, j - 1)]
+            )
             visited[i][j] = False
             return found
 
@@ -40,3 +42,4 @@ s = Solution()
 board = [["A", "B", "C", "E"], ["S", "F", "C", "S"], ["A", "D", "E", "E"]]
 word = "SEE"
 print(s.exist(board, word))
+print(s.exist(board, "ACC"))

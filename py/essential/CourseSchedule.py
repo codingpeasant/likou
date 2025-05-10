@@ -1,6 +1,7 @@
 # https://leetcode.com/problems/course-schedule/?envType=problem-list-v2&envId=oizxjoit
 # Blind
 # Grind
+# Neet
 
 from collections import defaultdict, deque
 from typing import List

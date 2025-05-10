@@ -15,7 +15,7 @@ class Solution:
         a_visited = set()
         rows, cols = len(heights), len(heights[0])
 
-        def traverse(i, j, visited):
+        def traverse(i, j, visited: set):
             if (i, j) in visited:
                 return
             visited.add((i, j))
