@@ -21,7 +21,7 @@ class DetectSquares:
         for px, py in self.points:
             if (
                 px != x and py != y and abs(px - x) == abs(py - y)
-            ):  # found the diagonal point
+            ):  # found the diagonal point e.g. (1,2) and (2,1) are diagonal
                 ans += self.counts[(px, y)] * self.counts[(x, py)]  # another two points
         return ans
 
