@@ -18,3 +18,4 @@ class Solution:
 
 s = Solution()
 print(s.convertToTitle(701))
+print(s.convertToTitle(52))

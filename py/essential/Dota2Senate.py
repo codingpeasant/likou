@@ -17,7 +17,7 @@ class Solution:
         while radiant and dire:
             r = radiant.popleft()
             d = dire.popleft()
-            if r < d:
+            if r < d: # r can ban d
                 radiant.append(r + n) # keep the order of the index for the next round - n can be larger than n
             else:
                 dire.append(d + n)

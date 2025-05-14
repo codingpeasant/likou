@@ -28,7 +28,7 @@ class MyHashMap:
         if index < 0:
             return
         else:
-            bucket.remove(bucket[index])
+            bucket.pop(index)
     
     def hashKey(self, key):
         return key % self.size

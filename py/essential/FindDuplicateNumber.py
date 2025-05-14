@@ -14,7 +14,7 @@ class Solution:
         :return: int - The duplicate number
         """
         # Initialize two pointers for the cycle detection algorithm
-        slow = fast = nums[0]
+        slow = fast = 0
 
         # First phase: Finding the intersection point in the cycle
         while True:
@@ -24,7 +24,7 @@ class Solution:
                 break
 
         # Second phase: Finding the entrance to the cycle
-        slow = nums[0]
+        slow = 0
         while slow != fast:
             slow = nums[slow]
             fast = nums[fast]
@@ -36,4 +36,4 @@ print(s.findDuplicate([1, 3, 4, 2, 2]))  # Output: 2
 # 0 1 2 3 4
 # 1 3 4 2 2
 # 0 -> 1 -> 3 -> 2 <-> 4
-# nums[0] is used as the starting point and is the dummy node that is not part of the cycle
+# 0 (the index) is used as the starting point and is the dummy node that is not part of the cycle

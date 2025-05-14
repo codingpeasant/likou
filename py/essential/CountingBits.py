@@ -25,3 +25,4 @@ class Solution:
 s = Solution()
 print(s.countBits1(5))
 print(s.countBits(5))
+print(bin(5))

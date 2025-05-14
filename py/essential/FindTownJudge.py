@@ -1,7 +1,6 @@
 # https://leetcode.com/problems/find-the-town-judge/
 # Neet
 
-from collections import defaultdict
 from typing import List
 
 

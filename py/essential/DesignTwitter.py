@@ -6,33 +6,30 @@ from typing import List
 
 
 class Twitter:
-
     def __init__(self):
-        self.users=collections.defaultdict(list)
+        self.usersPosts=collections.defaultdict(list)
         self.time=1
-        self.followers=collections.defaultdict(set)
+        self.followersToFollowees=collections.defaultdict(set)
 
     def postTweet(self, userId: int, tweetId: int) -> None:
-        self.users[userId].append((self.time, tweetId))
+        self.usersPosts[userId].append((self.time, tweetId))
         self.time+=1
         
     def getNewsFeed(self, userId: int) -> List[int]:
-        if userId not in self.users:
-            return []
-        allTweets=self.users[userId].copy()
-        for followeeId in self.followers[userId]:
-            if followeeId in self.users:
-                allTweets+=self.users[followeeId]
+        allTweets=self.usersPosts[userId].copy()
+        for followeeId in self.followersToFollowees[userId]:
+            if followeeId in self.usersPosts:
+                allTweets+=self.usersPosts[followeeId]
         allTweets.sort(reverse=True, key=lambda x:x[0])
         return [tweetId for _, tweetId in allTweets[:10]]
 
     def follow(self, followerId: int, followeeId: int) -> None:
         if followerId!=followeeId:
-            self.followers[followerId].add(followeeId)
+            self.followersToFollowees[followerId].add(followeeId)
 
     def unfollow(self, followerId: int, followeeId: int) -> None:
-        if followeeId in self.followers[followerId]:
-            self.followers[followerId].remove(followeeId)
+        if followeeId in self.followersToFollowees[followerId]:
+            self.followersToFollowees[followerId].remove(followeeId)
 
 s=Twitter()
 s.postTweet(1, 5)

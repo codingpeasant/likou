@@ -1,6 +1,7 @@
 # https://leetcode.ca/2017-07-10-588-Design-In-Memory-File-System/
 # Grind
 
+from collections import defaultdict
 from typing import List
 
 
@@ -9,14 +10,12 @@ class Trie:
         self.name = None
         self.isFile = False
         self.content = []
-        self.children = {}
+        self.children = defaultdict(Trie)
 
     def insert(self, path: str, isFile: bool):
         node = self
         ps = path.split('/')
         for p in ps[1:]:
-            if p not in node.children:
-                node.children[p] = Trie()
             node = node.children[p]
         node.isFile = isFile
         if isFile:
@@ -29,7 +28,7 @@ class Trie:
             return node
         ps = path.split('/')
         for p in ps[1:]:
-            if p not in node.children:
+            if not node.children.get(p):
                 return None
             node = node.children[p]
         return node

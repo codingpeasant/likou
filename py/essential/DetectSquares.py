@@ -6,7 +6,6 @@ from typing import List
 
 
 class DetectSquares:
-
     def __init__(self):
         self.points = []
         self.counts = defaultdict(int)
