@@ -14,8 +14,8 @@ class Solution:
         dp = [0] * (total // 2 + 1)
 
         for i in range(n):
-            for j in range(total // 2, stones[i] - 1, -1):
-                dp[j] = max(dp[j], dp[j - stones[i]] + stones[i]) # take the current stone or not
+            for halfWeightSub in range(total // 2, stones[i] - 1, -1):
+                dp[halfWeightSub] = max(dp[halfWeightSub], dp[halfWeightSub - stones[i]] + stones[i]) # take the current stone or not
 
         return total - 2 * dp[total // 2]
 

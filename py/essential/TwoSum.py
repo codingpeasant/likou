@@ -7,7 +7,7 @@ from typing import List
 # Grind
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
-        numDict = {}
+        numDict = defaultdict(int)
         for i, num in enumerate(nums):
             if target - num in numDict:
                 return [numDict[target - num], i]

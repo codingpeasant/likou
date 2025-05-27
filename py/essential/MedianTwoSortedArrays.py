@@ -22,7 +22,7 @@ class Solution:
             partitionY = (
                 m + n + 1
             ) // 2 - partitionX  # partitionY + partitionX should be half of the total length of the two arrays so we can calculate the partitionY based on partitionX
-
+            print("partitionX:", partitionX, "partitionY:", partitionY)
             # Handling edge cases where partition is at 0 or end
             maxX = (
                 float("-inf") if partitionX == 0 else nums1[partitionX - 1]

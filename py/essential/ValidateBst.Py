@@ -11,7 +11,7 @@ from tree_node import *
 
 class Solution:
     def isValidBST(self, root: Optional[TreeNode]) -> bool:
-        def helper(root, low, high) -> bool:
+        def helper(root: TreeNode, low, high) -> bool:
             if not root:
                 return True
             if not (low < root.val < high):

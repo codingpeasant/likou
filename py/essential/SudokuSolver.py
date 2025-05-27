@@ -9,22 +9,22 @@ class Solution:
         """
         Do not return anything, modify board in-place instead.
         """
+        rows = [set() for _ in range(9)]
+        cols = [set() for _ in range(9)]
+        grid = [set() for _ in range(9)]
+
+        for i in range(9):
+            for j in range(9):
+                cur = board[i][j]
+                if cur != ".":
+                    rows[i].add(cur)
+                    cols[j].add(cur)
+                    k = (i // 3) * 3 + j // 3
+                    grid[k].add(cur)
         def is_valid(board, row, col, num):
-            # Check if the number is not in the current row
-            for i in range(9):
-                if board[row][i] == num:
-                    return False
-            # Check if the number is not in the current column
-            for i in range(9):
-                if board[i][col] == num:
-                    return False
-            # Check if the number is not in the current 3x3 box
-            start_row = row - row % 3
-            start_col = col - col % 3
-            for i in range(3):
-                for j in range(3):
-                    if board[i + start_row][j + start_col] == num:
-                        return False
+            k = (row // 3) * 3 + col // 3
+            if num in rows[row] or num in cols[col] or num in grid[k]:
+                return False
             return True
 
         def solve(board):
@@ -34,9 +34,16 @@ class Solution:
                         for num in '123456789':
                             if is_valid(board, i, j, num):
                                 board[i][j] = num
+                                rows[i].add(num)
+                                cols[j].add(num)
+                                k = (i // 3) * 3 + j // 3
+                                grid[k].add(num)
                                 if solve(board):
                                     return True
                                 board[i][j] = '.'
+                                rows[i].remove(num)
+                                cols[j].remove(num)
+                                grid[k].remove(num)
                         return False # No valid number found
             return True
 

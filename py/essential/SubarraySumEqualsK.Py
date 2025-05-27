@@ -16,10 +16,10 @@ class Solution:
 
         for num in nums:
             cur_sum += num
-            if sum_count:
-                res += sum_count[
-                    cur_sum - k
-                ]  # plus all the sub arrays that reached cur_sum - k
+ 
+            res += sum_count[
+                cur_sum - k
+            ]  # plus all the sub arrays that reached cur_sum - k
             sum_count[cur_sum] += 1
         return res
 

@@ -1,6 +1,7 @@
 # https://neetcode.io/problems/islands-and-treasure
 # Neet
 
+from collections import deque
 from typing import List
 
 
@@ -39,10 +40,29 @@ class Solution:
             visited.remove((i,j))
             return res
 
+        def bfs(i: int, j: int) -> int:
+            q = deque([(i,j)])
+            visited = set((i,j))
+            steps = 0
+
+            while q:
+                for _ in range(len(q)):
+                    r, c = q.popleft()
+                    if grid[r][c] == 0:
+                        return steps
+                    for dr, dc  in directions:
+                        nr, nc = r + dr, c + dc
+                        if (0<= nr< m and 0<=nc<n and (nr,nc) not in visited and grid[nr][nc]!=-1):
+                            q.append((nr,nc))
+                            visited.add((nr,nc))
+                steps+=1
+            return INF
+
         for i in range(m):
             for j in range(n):
                 if grid[i][j] == INF:
                     grid[i][j] = dfs2(i, j, 0)
+
 
 s=Solution()
 input=[

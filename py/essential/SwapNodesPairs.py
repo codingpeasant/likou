@@ -13,7 +13,7 @@ class Solution:
 
         while cur and cur.next:
             npn = cur.next.next # next pair node = 3 
-            second = cur.next # 2
+            second: ListNode = cur.next # 2
 
             second.next = cur # 2 -> 1
             cur.next = npn # 1 -> 3
