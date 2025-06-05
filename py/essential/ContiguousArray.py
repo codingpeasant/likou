@@ -8,8 +8,8 @@ class Solution:
     def findMaxLength(self, nums: List[int]) -> int:
         count = 0
         max_length=0
-        table = {0: 0}
-        for index, num in enumerate(nums, 1):
+        table = {0: -1}
+        for index, num in enumerate(nums):
             if num == 0:
                 count -= 1
             else:

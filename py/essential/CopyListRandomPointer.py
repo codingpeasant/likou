@@ -19,7 +19,7 @@ class Solution:
         if not head:
             return None
         
-        oldToNew = defaultdict(Node)
+        oldToNew = defaultdict(Node) # like cloneGraph
         cur = head
         while cur:
             oldToNew[cur] = Node(cur.val)

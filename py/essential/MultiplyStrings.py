@@ -7,10 +7,10 @@ class Solution:
         if num1 == "0" or num2 == "0":
             return "0"
 
-        def decode(num) -> int:
+        def decode(nums) -> int:
             ans = 0
-            for i in num:
-                ans = ans * 10 + (ord(i) - ord("0"))
+            for num in nums:
+                ans = ans * 10 + (ord(num) - ord("0"))
             return ans
 
         def encode(s) -> str:
