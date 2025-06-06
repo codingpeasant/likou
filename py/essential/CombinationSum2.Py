@@ -21,13 +21,11 @@ class Solution:
                 ):  # to prevent same number at different index is repetitively picked causing non-unique cur;
                     # if i==start, it means the first same number is yet to be picked so it's okay
                     continue
-                cur_sum += candidates[i]
                 cur.append(candidates[i])
                 backtrack(
-                    cur, cur_sum, i + 1
+                    cur, cur_sum + candidates[i], i + 1
                 )  # i + 1 guarantees that the next stack level doesn't pick the current candidate
                 cur.pop()
-                cur_sum -= candidates[i]
 
         backtrack([], 0, 0)
         return res
