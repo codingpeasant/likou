@@ -19,3 +19,8 @@ class Solution:
 
         # Return True if the maximum values match the target, False otherwise
         return max_values == target
+
+
+s = Solution()
+print(s.mergeTriplets([[1, 3, 2], [2, 2, 1], [3, 1, 2]], [2, 2, 2]))
+print(s.mergeTriplets([[1, 2, 3], [2, 5, 4], [1, 5, 3]], [2, 5, 4]))

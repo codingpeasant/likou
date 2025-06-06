@@ -12,10 +12,11 @@ class Solution:
                 stack.pop()
             elif ele != "..":
                 stack.append(ele)
+        print(stack)
         return "/" + "/".join(stack)
 
 
 s = Solution()
-print(s.simplifyPath('/home/user/Documents/../Pictures'))
-print(s.simplifyPath('/../'))
-print(s.simplifyPath('/.../a/../b/c/../d/./'))
+print(s.simplifyPath("/home/user/Documents/../Pictures"))
+print(s.simplifyPath("/../"))
+print(s.simplifyPath("/.../a/../b/c/../d/./"))

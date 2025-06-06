@@ -11,6 +11,7 @@ class Solution:
     # but there is repetition in the subsets, so we can use memoization to speed it up
     # For example, when we know that [1,5] can add up to 6, [1,5,5] is 6 ([1,5]) + 5
     # dp[2][6] = True so dp[3][11 - 5] = True
+    # like knapsack problem, we can use dp to solve it
     def canPartition(self, nums: List[int]) -> bool:
         n, target = len(nums), sum(nums) // 2
         if sum(nums) & 1 == 1:
@@ -38,7 +39,9 @@ class Solution:
     # easier to understand from the brute force solution below
     def canPartition2(self, nums: List[int]) -> bool:
         n, target = len(nums), sum(nums) // 2
-        if sum(nums) & 1 == 1:
+        if (
+            sum(nums) & 1 == 1
+        ):  # if the sum is odd, we can't partition it into two equal subsets
             return False
 
         @lru_cache(None)

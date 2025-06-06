@@ -1,9 +1,10 @@
 # https://leetcode.com/problems/online-stock-span/
 # Neet
 
+
 class StockSpanner:
     def __init__(self):
-        self.stack = []
+        self.stack = []  # desc
 
     def next(self, price):
         res = 1

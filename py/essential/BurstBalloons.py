@@ -19,11 +19,29 @@ class Solution:
                 return nums[i - 1] * nums[i] * nums[i + 1]
             return max(
                 dp(i, k - 1) + dp(k + 1, j) + nums[i - 1] * nums[k] * nums[j + 1]
-                for k in range(i, j + 1) # try popping k the last
+                for k in range(i, j + 1)  # try popping k the last
             )
 
         return dp(1, len(nums) - 2)
 
-s= Solution()
-print(s.maxCoins([3, 1, 5, 8])) # 167
-print(s.maxCoins([2,3,4]))
+    # TLE
+    def maxCoins1(self, nums: List[int]) -> int:
+        nums = [1] + nums + [1]
+
+        def dfs(nums):
+            if len(nums) == 2:
+                return 0
+
+            maxCoins = 0
+            for i in range(1, len(nums) - 1):
+                coins = nums[i - 1] * nums[i] * nums[i + 1]  # pop i first
+                coins += dfs(nums[:i] + nums[i + 1 :])
+                maxCoins = max(maxCoins, coins)
+            return maxCoins
+
+        return dfs(nums)
+
+
+s = Solution()
+print(s.maxCoins([3, 1, 5, 8]))  # 167
+print(s.maxCoins([2, 3, 4]))

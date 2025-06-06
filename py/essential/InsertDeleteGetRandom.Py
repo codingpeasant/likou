@@ -9,7 +9,7 @@ class RandomizedSet:
     def __init__(self):
         self.dataMap = defaultdict(
             int
-        )  # dictionary, aka map, aka hashtable, aka hashmap
+        )  # dictionary, value to index
         self.data = []  # list aka array
 
     def insert(self, val: int) -> bool:

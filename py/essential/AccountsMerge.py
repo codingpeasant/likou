@@ -12,8 +12,9 @@ class Solution:
         graph = collections.defaultdict(set)
         for account in accounts:
             for email in account[1:]:
-                graph[account[1]].add(email)
-                graph[email].add(account[1])
+                if email != account[1]: # prevent self-loop
+                    graph[account[1]].add(email)
+                    graph[email].add(account[1])
 
         visited = set()
         # Traverse dfs of the graph to find emails that are connected to this email

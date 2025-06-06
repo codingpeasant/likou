@@ -32,6 +32,7 @@ class Solution:
         backtrack([], 0, 0)
         return res
 
+
 s = Solution()
 candidates = [10, 1, 2, 7, 6, 1, 5]
 print(s.combinationSum2(candidates, 8))

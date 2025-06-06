@@ -7,6 +7,7 @@ from typing import List
 class Solution:
     def minExtraChar(self, s: str, dictionary: List[str]) -> int:
         max_val = len(s) + 1
+        # Define DP[i] as the min extra character if breaking up s[0:i] optimally.
         dp = [max_val] * (len(s) + 1)
         dp[0] = 0
         dictionary_set = set(dictionary)

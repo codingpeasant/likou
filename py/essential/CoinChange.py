@@ -31,12 +31,14 @@ class Solution:
         dp = [float("inf")] * (amount + 1)
         dp[0] = 0
 
-        for i in range(1, amount + 1):
+        for subAmount in range(1, amount + 1):
             for j in range(len(coins)):
-                if i == coins[j]:
-                    dp[i] = 1
-                if i - coins[j] > 0:
-                    dp[i] = min(dp[i], dp[i - coins[j]] + 1) # pick the current coin[j] + the min of the rest (i - coins[j])
+                if subAmount == coins[j]:
+                    dp[subAmount] = 1
+                if subAmount - coins[j] > 0:
+                    dp[subAmount] = min(
+                        dp[subAmount], dp[subAmount - coins[j]] + 1
+                    )  # pick the current coin[j] + the min of the rest (i - coins[j])
         return dp[-1] if dp[-1] != float("inf") else -1
 
 

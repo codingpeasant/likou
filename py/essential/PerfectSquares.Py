@@ -20,7 +20,7 @@ class Solution:
         for i in range(1, n + 1):
             dp[i] = min(dp[i - j * j] for j in range(1, int(i**0.5) + 1)) + 1
         return dp[n]
-    
+
     # this is wrong
     @lru_cache(None)
     def numSquaresBF(self, n: int) -> int:
@@ -29,9 +29,10 @@ class Solution:
         if n == 1:
             return 1
 
-        return self.numSquaresBF(n - int(n**0.5)**2) + 1
+        return self.numSquaresBF(n - int(n**0.5) ** 2) + 1
+
 
 s = Solution()
-print(s.numSquares(1550))
-print(s.numSquaresDP(1550))
-print(s.numSquaresBF(1550))
+print(s.numSquares(12))
+print(s.numSquaresDP(12))
+print(s.numSquaresBF(12))

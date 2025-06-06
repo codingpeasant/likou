@@ -69,7 +69,7 @@ class Solution:
                 indegree[nei] -= 1
                 if indegree[nei] == 0:
                     q.append(nei)
-        if len(res) != len(indegree):
+        if len(res) != len(indegree):  # not able to cover all letters because of cycle
             return False
         return "".join(res)
 

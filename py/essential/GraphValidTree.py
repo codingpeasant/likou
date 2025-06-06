@@ -16,17 +16,17 @@ class Solution:
             graph[edge[1]].add(edge[0])
 
         def dfs(node: int, prevNode: int) -> bool:
-            if node in visited:
+            if node in visited: # loop found
                 return False
             visited.add(node)
             for nei in graph[node]:
-                if nei == prevNode:
+                if nei == prevNode: # skip parent node
                     continue
                 if not dfs(node=nei, prevNode=node):
                     return False
             return True
 
-        return dfs(0, -1) and len(visited) == n
+        return dfs(0, -1) and len(visited) == n # disconnected node found
 
 
 s = Solution()

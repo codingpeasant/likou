@@ -22,7 +22,7 @@ class Solution:
 
         # this is where we pick the index
         N = random.uniform(0, 1)
-
+        print(N)
         flag = 1
         index = -1
 
