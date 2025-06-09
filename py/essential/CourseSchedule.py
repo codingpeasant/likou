@@ -37,16 +37,13 @@ class Solution:
 
     def canFinish1(self, numCourses: int, prerequisites: List[List[int]]) -> bool:
         graph = defaultdict(list)
-        q = deque()
         indegree = [0] * numCourses
 
         for pre in prerequisites:
             graph[pre[1]].append(pre[0])
             indegree[pre[0]] += 1
 
-        for i in range(numCourses):
-            if indegree[i] == 0:
-                q.append(i)
+        q = deque(i for i in range(numCourses) if indegree[i] == 0)
 
         canFinish = len(q)
         while q:
@@ -57,6 +54,7 @@ class Solution:
                     q.append(nei)
                     canFinish += 1
         return canFinish == numCourses
+
 
 s = Solution()
 print(s.canFinish1(5, [[3, 0], [3, 2], [1, 3], [1, 4], [4, 3]]))

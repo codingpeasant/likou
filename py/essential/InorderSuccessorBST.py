@@ -15,7 +15,8 @@ class Solution:
             else:
                 root = root.right
         return ans
-    
+
+
 s = Solution()
-res = s.inorderSuccessor(getSampleBST(), TreeNode(4))
+res = s.inorderSuccessor(getSampleBST(), TreeNode(3))
 print(res.val if res else None)

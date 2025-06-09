@@ -10,18 +10,9 @@ class Solution:
         res = []
         board = [["." for _ in range(n)] for _ in range(n)]
 
-        def isValid(row, col):
-            for i in range(n):
-                # same column
-                if board[i][col] == "Q":
-                    return False
-                # left up
-                if row - i >= 0 and col - i >= 0 and board[row - i][col - i] == "Q":
-                    return False
-                # right up
-                if row - i >= 0 and col + i < n and board[row - i][col + i] == "Q":
-                    return False
-            return True
+        diag1 = set()
+        diag2 = set()
+        usedCols = set()
 
         def backtrack(row):
             if row == n:
@@ -29,12 +20,19 @@ class Solution:
                 return
             # try every column
             for col in range(n):
-                if isValid(
-                    row, col
-                ):  # if it is valid to put a queen here and go to the next row
-                    board[row][col] = "Q"
-                    backtrack(row + 1)
-                    board[row][col] = "."
+                if col in usedCols or (row - col) in diag1 or (row + col) in diag2:
+                    continue
+                # if it is valid to put a queen here and go to the next row
+                board[row][col] = "Q"
+                usedCols.add(col)
+                diag1.add(row - col)
+                diag2.add(row + col)
+                # go to the next row
+                backtrack(row + 1)
+                board[row][col] = "."
+                usedCols.remove(col)
+                diag1.remove(row - col)
+                diag2.remove(row + col)
 
         backtrack(0)
         return res

@@ -8,15 +8,14 @@ class Solution:
         res, carry, m, n = [], 0, len(a) - 1, len(b) - 1
 
         while m >= 0 or n >= 0:
-            sum = carry
             if m >= 0:
-                sum += int(a[m])
+                carry += int(a[m])
                 m -= 1
             if n >= 0:
-                sum += int(b[n])
+                carry += int(b[n])
                 n -= 1
-            res.append(sum % 2)
-            carry = sum // 2
+            res.append(carry % 2)
+            carry = carry // 2
         if carry > 0:
             res.append(carry)
         return "".join(str(num) for num in res[::-1])

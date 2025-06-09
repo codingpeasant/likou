@@ -1,3 +1,6 @@
+# https://leetcode.com/problems/insert-greatest-common-divisors-in-linked-list/description/
+# Neet
+
 from math import gcd
 from typing import Optional
 from list_node import *

@@ -18,7 +18,7 @@ class Solution:
                 suf = word[j:]
                 if is_palindrome(
                     pref
-                ):  # aba|cb needs cb|aba|cb to be come a palindrome
+                ):  # aba|cb needs bc|aba|cb to be come a palindrome
                     back = suf[::-1]
                     if back != word and back in words:
                         valid_pals.append([words[back], k])

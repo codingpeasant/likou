@@ -26,7 +26,7 @@ class Solution:
                     dp[i][j] = dp[i][j - 2]  # '*' matches zero occurrence
                     if (
                         p[j - 2] == "." or p[j - 2] == s[i - 1]
-                    ):  # p[j - 2] == s[i - 1] is like "a*"" matches "aaa" so look at if the substring before "a" matches because "a" is already matched. If it's "ba" then "a*" can't match because "b" does match with "a*" (dp[i - 1][j] == False)
+                    ):  # p[j - 2] == s[i - 1] is like "a*"" matches "aa" so look at if the substring before "a" matches because "a" is already matched. If it's "ba" then "a*" can't match because "b" does match with "a*" (dp[i - 1][j] == False)
                         dp[i][j] = dp[i][j] or dp[i - 1][j]
 
         return dp[m][n]

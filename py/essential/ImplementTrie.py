@@ -4,26 +4,22 @@
 # Neet
 
 from collections import defaultdict
-class TrieNode:
-    def __init__(self) -> None:
-        self.children = defaultdict(TrieNode)
-        self.isWord = False
-
 
 class Trie:
     def __init__(self):
-        self.root = TrieNode()
+        self.children = defaultdict(Trie)
+        self.isWord = False
 
     def insert(self, word: str) -> None:
-        node = self.root
+        node = self
         for letter in word:
             node = node.children[
                 letter
-            ]  # if already exist, use it; else defaultdict creates TrieNode for you as the value
+            ]  # if already exist, use it; else defaultdict creates Trie for you as the value
         node.isWord = True
 
     def search(self, word: str) -> bool:
-        node = self.root
+        node = self
         for letter in word:
             node = node.children.get(
                 letter
@@ -33,7 +29,7 @@ class Trie:
         return node.isWord
 
     def startsWith(self, prefix: str) -> bool:
-        node = self.root
+        node = self
         for letter in prefix:
             node = node.children.get(letter)
             if not node:

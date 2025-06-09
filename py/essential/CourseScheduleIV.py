@@ -16,10 +16,8 @@ class Solution:
         def dfs(node, visited, start):
             # Mark the current node as visited
             visited[node] = True
-
-            # Add the pair (start, node) to the set if start != -1
-            if start != -1:
-                prerequisites.add((start, node))
+            # Add the pair (start, node) to the set
+            prerequisites.add((start, node))
 
             # Explore all neighbors of the current node
             for neighbor in adj[node]:

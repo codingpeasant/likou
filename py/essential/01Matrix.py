@@ -23,7 +23,7 @@ class Solution:
                 ny = y + dir[1]
                 if (
                     0 <= nx < m and 0 <= ny < n and mat[nx][ny] > mat[x][y] + 1
-                ):  # not visited
+                ):  # not visited or found a shorter path
                     q.append((nx, ny))
                     mat[nx][ny] = mat[x][y] + 1
         return mat

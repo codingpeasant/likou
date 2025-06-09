@@ -18,7 +18,8 @@ class Solution:
             elif op == "C":
                 scores.pop()
         return sum(scores)
-    
-s=Solution()
-print(s.calPoints(["5","2","C","D","+"]))
-print(s.calPoints(["5","-2","4","C","D","9","+","+"]))
+
+
+s = Solution()
+print(s.calPoints(["5", "2", "C", "D", "+"]))
+print(s.calPoints(["5", "-2", "4", "C", "D", "9", "+", "+"]))

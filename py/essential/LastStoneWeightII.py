@@ -16,6 +16,7 @@ class Solution:
         for i in range(n):
             for halfWeightSub in range(total // 2, stones[i] - 1, -1):
                 dp[halfWeightSub] = max(dp[halfWeightSub], dp[halfWeightSub - stones[i]] + stones[i]) # take the current stone or not
+            print(dp)
 
         return total - 2 * dp[total // 2]
 

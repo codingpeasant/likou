@@ -7,7 +7,6 @@ from typing import List
 class NumMatrix:
 
     def __init__(self, matrix: List[List[int]]):
-        self.m = matrix
         self.m = len(matrix)
         self.n = len(matrix[0]) if matrix else 0
         self.prefixSum = [[0] * (self.n + 1) for _ in range(self.m + 1)]
@@ -33,3 +32,4 @@ class NumMatrix:
 s = NumMatrix([[3, 0, 1], [5, 6, 3], [7, 8, 9]])
 print(s.sumRegion(0, 0, 2, 2))
 print(s.sumRegion(1, 1, 2, 2))
+print(s.sumRegion(0, 0, 1, 1))

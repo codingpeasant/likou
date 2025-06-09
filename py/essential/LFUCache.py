@@ -24,13 +24,11 @@ class LFUCache:
             return -1
 
         node: Node = self.key2node[key]
-        del self.count2key2node[node.count][
-            key
-        ]  # remove the element first to figure out if there are any other nodes with the same count
+        self.count2key2node[node.count].pop(key)  # remove the element first to figure out if there are any other nodes with the same count
 
         # clean memory if there is no node left for the count
         if not self.count2key2node[node.count]:
-            del self.count2key2node[node.count]
+            self.count2key2node.pop(node.count)
 
         node.count += 1  # add frequency
         self.count2key2node[node.count][key] = node  # add it back to the end
@@ -56,7 +54,7 @@ class LFUCache:
             # If there are multiple keys with the same least count
             # we just pop out the item from the head of the OrderedDict because it's the oldest.
             k, _ = self.count2key2node[self.minCount].popitem(last=False)
-            del self.key2node[k]
+            self.key2node.pop(k)
 
         self.count2key2node[1][key] = self.key2node[key] = Node(key, value, 1)
         self.minCount = 1

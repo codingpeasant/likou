@@ -17,6 +17,7 @@ class Solution:
             else:
                 nums1[k] = nums2[p2]
                 p2 -= 1
+            print(nums1[k])
             k -= 1
         while p2 >= 0:
             nums1[k] = nums2[p2]

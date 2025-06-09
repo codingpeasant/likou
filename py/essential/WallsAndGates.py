@@ -58,10 +58,27 @@ class Solution:
                 steps+=1
             return INF
 
-        for i in range(m):
-            for j in range(n):
-                if grid[i][j] == INF:
-                    grid[i][j] = dfs2(i, j, 0)
+        # multiple source same with 01Matrix
+        def bfs2():
+            m , n = len(grid), len(grid[0])
+            q=deque()
+            for i in range(m):
+                for j in range(n):
+                    if grid[i][j] == 0:
+                        q.append((i, j))
+            while q:
+                r, c = q.popleft()
+                for dr, dc in directions:
+                    nr, nc = r + dr, c + dc
+                    if 0 <= nr < m and 0 <= nc < n and grid[nr][nc] > grid[r][c] + 1 and grid[nr][nc] != -1:
+                        grid[nr][nc] = grid[r][c] + 1
+                        q.append((nr, nc))
+        
+        bfs2()
+        # for i in range(m):
+        #     for j in range(n):
+        #         if grid[i][j] == INF:
+        #             grid[i][j] = dfs2(i, j, 0)
 
 
 s=Solution()

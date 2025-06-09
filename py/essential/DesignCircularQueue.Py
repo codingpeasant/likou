@@ -12,7 +12,7 @@ class MyCircularQueue:
     def enQueue(self, value: int) -> bool:
         if self.size == self.max_size:
             return False
-        if self.tail == -1:
+        if self.tail == -1: # first element
             self.tail = self.head = 0
         else:
             self.tail = (self.tail + 1) % self.max_size

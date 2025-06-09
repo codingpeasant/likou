@@ -11,25 +11,28 @@ class Node:
 
 
 class Solution:
-    def dfs(self, node: Node, createdNodes: dict[int, Node]):
-        if node is None:
-            return None
-
-        newNode = Node(node.val)
-        createdNodes[node.val] = newNode
-
-        for adjNode in node.neighbors:
-            if (
-                adjNode.val not in createdNodes
-            ):  # create the clone of adjNode and add the adj of adjNode in the next iteration
-                newNode.neighbors.append(self.dfs(adjNode, createdNodes))
-            else:  # directly add the cloned node
-                newNode.neighbors.append(createdNodes[adjNode.val])
-
-        return newNode
 
     def cloneGraph(self, node: "Node") -> "Node":
-        return self.dfs(node, {})
+        createdNodes = {}
+
+        def dfs(node: Node):
+            if node is None:
+                return None
+
+            newNode = Node(node.val)
+            createdNodes[node.val] = newNode
+
+            for adjNode in node.neighbors:
+                if (
+                    adjNode.val not in createdNodes
+                ):  # create the clone of adjNode and add the adj of adjNode in the next iteration
+                    newNode.neighbors.append(dfs(adjNode))
+                else:  # directly add the cloned node
+                    newNode.neighbors.append(createdNodes[adjNode.val])
+
+            return newNode
+
+        return dfs(node)
 
 
 s = Solution()
