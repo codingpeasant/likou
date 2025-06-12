@@ -19,20 +19,19 @@ class Solution:
         print(self.w)
 
     def pickIndex(self) -> int:
-
         # this is where we pick the index
         N = random.uniform(0, 1)
         print(N)
-        flag = 1
+        flag = True
         index = -1
 
         # test each region of the numberline to see if N falls in it, if it
         # does not then go to the next index and check if N falls in it
-        # this is gaurenteed to break because of previous normalization
+        # this is guaranteed to break because of previous normalization
         while flag:
             index += 1
             if N <= self.w[index]:
-                flag = 0
+                flag = False
         return index
 
 

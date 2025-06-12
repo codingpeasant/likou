@@ -8,6 +8,7 @@ class Solution:
     def removeDuplicates(self, nums: List[int]) -> int:
         fast, slow = 0, 0
         while fast < len(nums) and slow < len(nums):
+            # slow makes sure only one unique element is recorded
             while fast < len(nums) and nums[fast] == nums[slow]:
                 fast += 1
             slow += 1

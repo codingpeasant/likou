@@ -7,18 +7,13 @@ from collections import defaultdict
 from functools import lru_cache
 
 
-class TrieNode:
-    def __init__(self):
-        self.children = defaultdict(TrieNode)
-        self.isWord = False
-
-
 class Trie:
     def __init__(self):
-        self.root = TrieNode()
+        self.children = defaultdict(Trie)
+        self.isWord = False
 
     def insert(self, word):
-        node = self.root
+        node = self
         for w in word:
             node = node.children[
                 w
@@ -26,7 +21,7 @@ class Trie:
         node.isWord = True
 
     def search(self, word):
-        node = self.root
+        node = self
         for w in word:
             node = node.children.get(w)
             if not node:
@@ -43,7 +38,7 @@ class Solution:
         for w in words:
             trie.insert(w)
 
-        def dfs(row: int, col: int, node: TrieNode, path: str):
+        def dfs(row: int, col: int, node: Trie, path: str):
             # match words starting from node of the trie, board starting from (row, col)
             if node.isWord:
                 res.append(path)
@@ -73,7 +68,7 @@ class Solution:
         for i in range(m):
             for j in range(n):
                 path = ""
-                dfs(i, j, trie.root, path)
+                dfs(i, j, trie, path)
         return res
 
 

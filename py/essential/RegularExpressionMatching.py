@@ -15,7 +15,7 @@ class Solution:
             if p[j - 1] == "*":
                 dp[0][j] = dp[0][
                     j - 2
-                ]  # '*' matches zero occurrence of the preceding element
+                ]  # '*' matches zero occurrence of the preceding element; but a single * cannot match english letters
 
         # Fill the DP table
         for i in range(1, m + 1):
@@ -33,6 +33,6 @@ class Solution:
 
 
 s = Solution()
-print(s.isMatch("aaaaaa", "a*"))
+print(s.isMatch("aaaaaa", "******"))
 print(s.isMatch("a", ".*"))
 print(s.isMatch("", "a*"))

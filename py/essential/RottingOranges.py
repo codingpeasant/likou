@@ -2,6 +2,7 @@
 # Grind
 # Neet
 
+from collections import deque
 from typing import List
 
 
@@ -10,7 +11,7 @@ class Solution:
         m, n = len(grid), len(grid[0])
         res, freshCount = 0, 0
         dirs = [(0, 1), (1, 0), (-1, 0), (0, -1)]
-        rotten = []
+        rotten = deque()
         for i in range(m):
             for j in range(n):
                 if grid[i][j] == 2:
@@ -21,7 +22,7 @@ class Solution:
             return 0
         while rotten:
             for _ in range(len(rotten)):
-                curRotten = rotten.pop(0)
+                curRotten = rotten.popleft()
                 for dir in dirs:
                     newX = curRotten[0] + dir[0]
                     newY = curRotten[1] + dir[1]

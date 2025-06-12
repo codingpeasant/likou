@@ -10,7 +10,7 @@ class Solution:
         Do not return anything, modify nums in-place instead.
         """
         i = 0 # left
-        for j in range(len(nums)):
+        for j in range(len(nums)): # like bubble sort
             if nums[j] != val:
                 nums[i] = nums[j]
                 i += 1

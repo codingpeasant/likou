@@ -10,11 +10,13 @@ class Solution:
         n = len(nums)
 
         @lru_cache(None)
-        def backtrack(i: int, total: int) -> int:
+        def dp(i: int, total: int) -> int:
             if i == n:
                 return 1 if total == target else 0
-            return backtrack(i +1, total + nums[i]) + backtrack(i + 1, total - nums[i])
-        return backtrack(0, 0)
+            return dp(i + 1, total + nums[i]) + dp(i + 1, total - nums[i])
+
+        return dp(0, 0)
+
 
 s = Solution()
-print(s.findTargetSumWays([1, 1, 1, 1, 1], 3)) # 5
+print(s.findTargetSumWays([1, 1, 1, 1, 1], 3))  # 5
