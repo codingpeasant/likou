@@ -8,8 +8,6 @@ class ConsistentHash:
 
     Uses a sorted list of hash values (ring) to distribute keys across nodes.
     """
-    import bisect
-    import hashlib
 
     def __init__(self, nodes=None, replicas=100):
         """
@@ -19,7 +17,7 @@ class ConsistentHash:
         :param replicas: number of replicas for each node on the ring
         """
         self.replicas = replicas
-        self.ring = []        # sorted list of hash values
+        self.ring = []  # sorted list of hash values
         self._hash2node = {}  # map from hash value to node identifier
         if nodes:
             for node in nodes:
@@ -29,7 +27,7 @@ class ConsistentHash:
         """
         Generate a hash for a given key using md5 and return an integer.
         """
-        return int(hashlib.md5(key.encode('utf-8')).hexdigest(), 16)
+        return int(hashlib.md5(key.encode("utf-8")).hexdigest(), 16)
 
     def add_node(self, node: str) -> None:
         """
@@ -64,6 +62,7 @@ class ConsistentHash:
         if idx == len(self.ring):
             idx = 0
         return self._hash2node[self.ring[idx]]
+
 
 # Example Usage
 if __name__ == "__main__":
