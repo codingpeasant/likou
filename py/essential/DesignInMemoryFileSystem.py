@@ -14,24 +14,25 @@ class Trie:
 
     def insert(self, path: str, isFile: bool):
         node = self
-        ps = path.split('/')
-        for p in ps[1:]:
+        ps = path.split("/")
+        for p in ps[1:]:  # skip the first empty token
             node = node.children[p]
         node.isFile = isFile
         if isFile:
-            node.name = ps[-1] # the file name
+            node.name = ps[-1]  # the file name
         return node
 
     def search(self, path: str):
         node = self
-        if path == '/':
+        if path == "/":
             return node
-        ps = path.split('/')
+        ps = path.split("/")
         for p in ps[1:]:
             if not node.children.get(p):
                 return None
             node = node.children[p]
         return node
+
 
 class FileSystem:
     def __init__(self):
@@ -54,16 +55,17 @@ class FileSystem:
 
     def readContentFromFile(self, filePath: str) -> str:
         node = self.root.search(filePath)
-        return ''.join(node.content)
-    
-s=FileSystem()
+        return "".join(node.content)
+
+
+s = FileSystem()
 s.mkdir("/a/b/c")
 s.addContentToFile("/a/b/c/d.txt", "hello")
-print(s.ls("/a/b/c")) # ["d.txt"]
-print(s.readContentFromFile("/a/b/c/d.txt")) # "hello"
+print(s.ls("/a/b/c"))  # ["d.txt"]
+print(s.readContentFromFile("/a/b/c/d.txt"))  # "hello"
 s.mkdir("/a/b/e")
-print(s.ls("/a/b")) # ["c", "e"]
-print(s.ls("/a")) # ["b"]
-print(s.ls("/")) # ["a"]
+print(s.ls("/a/b"))  # ["c", "e"]
+print(s.ls("/a"))  # ["b"]
+print(s.ls("/"))  # ["a"]
 s.addContentToFile("/a/b/c/d.txt", "hello1")
-print(s.readContentFromFile("/a/b/c/d.txt")) # "hellohello1"
+print(s.readContentFromFile("/a/b/c/d.txt"))  # "hellohello1"

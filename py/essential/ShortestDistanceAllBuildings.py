@@ -9,7 +9,7 @@ class Solution:
     def shortestDistance(self, grid: List[List[int]]) -> int:
         m, n = len(grid), len(grid[0])
         q = deque()
-        total = 0 # total building count
+        total = 0  # total building count
         # cnt: how many buildings can reach (x,y)
         #      if there is a column all blockers, then (x,y) cannot reach every building
         cnt = [[0] * n for _ in range(m)]
@@ -20,7 +20,7 @@ class Solution:
                     total += 1
                     q.append((i, j))
                     distance = 0
-                    vis = set() # reset for every free-land
+                    vis = set()  # reset for every free-land
                     while q:
                         distance += 1
                         for _ in range(len(q)):
@@ -44,5 +44,6 @@ class Solution:
                     ans = min(ans, dist[i][j])
         return -1 if ans == inf else ans
 
-s=Solution()
-print(s.shortestDistance([[1,0,2,0,1],[0,0,0,0,0],[0,0,1,0,0]]))
+
+s = Solution()
+print(s.shortestDistance([[1, 0, 2, 0, 1], [0, 0, 0, 0, 0], [0, 0, 1, 0, 0]]))
