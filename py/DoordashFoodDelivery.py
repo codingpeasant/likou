@@ -79,7 +79,6 @@ class DeliveryCostDashboard:
         window_end = datetime.fromtimestamp(end_time_unix)
         window_start = window_end - timedelta(hours=24)
 
-        events = []
         intervalCount = defaultdict(int)
         for d in self.deliveries:
             if d['end_time'] < window_start or d['start_time'] >= window_end:
