@@ -112,7 +112,11 @@ class Management:
                 continue
             for i in range(len(course.students)):
                 for j in range(i + 1, len(course.students)):
-                    res.add((course.students[i], course.students[j]))
+                    if (course.students[i], course.students[j]) not in res or (
+                        course.students[j],
+                        course.students[i],
+                    ) not in res:
+                        res.add((course.students[i], course.students[j]))
         return list(res)
 
     def setComponentGrade(self, stuId: str, cId: str, component: str, grade: int):

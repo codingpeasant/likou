@@ -23,6 +23,10 @@ class Solution:
 
 
 so = Solution()
-pattern = "jqeury"
-s = "jquery"
+pattern = "abb"
+s = "cat cat dog"
+print(so.wordPattern(pattern, s))
+
+pattern = "abb"
+s = "cat dog dog"
 print(so.wordPattern(pattern, s))
