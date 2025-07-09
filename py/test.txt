@@ -13,13 +13,13 @@ OPQRSTU
 VWXYZAB
 
 0
-[1,1]
+[1, 1]
 ABC
 DEF
 GHI
 
 1
-[2,2]
+[2, 2]
 ABC
 DEF
 GHI
