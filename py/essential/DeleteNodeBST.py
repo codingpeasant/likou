@@ -11,11 +11,11 @@ class Solution:
             return None
 
         if root.val > key:
-            # Target node is smaller than currnet node, search left subtree
+            # Target node is smaller than current node, search left subtree
             root.left = self.deleteNode(root.left, key)
 
         elif root.val < key:
-            # Target node is larger than currnet node, search right subtree
+            # Target node is larger than current node, search right subtree
             root.right = self.deleteNode(root.right, key)
 
         else:

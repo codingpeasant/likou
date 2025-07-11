@@ -1,8 +1,6 @@
 # https://leetcode.ca/2016-12-13-379-Design-Phone-Directory/#379-design-phone-directory
 # https://github.com/insideofdrop/Dropbox-Interview-Prep/blob/main/code/allocate_id.py
 
-from collections import deque
-import sys
 
 
 class Allocator:
