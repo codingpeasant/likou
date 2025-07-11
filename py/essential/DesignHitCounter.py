@@ -4,6 +4,7 @@
 
 from typing import Counter
 
+
 # a part of rate limit
 class HitCounter:  # extra o(N) space
     def __init__(self):

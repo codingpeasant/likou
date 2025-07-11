@@ -46,3 +46,6 @@ print(input)
 input = [1, 3, 2, 4]
 s.nextPermutation(input)
 print(input)
+input = [1, 2, 3, 4]
+s.nextPermutation(input)
+print(input)

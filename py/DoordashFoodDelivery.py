@@ -42,38 +42,48 @@
 from collections import defaultdict
 from datetime import datetime, timedelta
 from typing import List, Dict
-import time
+
+
+class Delivery:
+    def __init__(
+        self,
+        id: int,
+        startTime: datetime,
+        endTime: datetime,
+        cost: float,
+        paid: bool = False,
+    ):
+        self.driverId = id
+        self.startTime = startTime
+        self.endTime = endTime
+        self.cost = cost
+        self.paid = paid
+
 
 class DeliveryCostDashboard:
     def __init__(self):
         self.drivers: Dict[int, float] = {}
-        self.deliveries: List[Dict] = []
+        self.deliveries: List[Delivery] = []
 
     def add_driver(self, driver_id: int, usd_hourly_rate: float):
         self.drivers[driver_id] = usd_hourly_rate
 
     def record_delivery(self, driver_id: int, start_time: datetime, end_time: datetime):
         duration_seconds = (end_time - start_time).total_seconds()
-        cost = (duration_seconds / 3600.0) * self.drivers[driver_id]
-        self.deliveries.append({
-            'driver_id': driver_id,
-            'start_time': start_time,
-            'end_time': end_time,
-            'cost': cost,
-            'paid': False
-        })
+        cost = (duration_seconds // 3600.0) * self.drivers[driver_id]
+        self.deliveries.append(Delivery(driver_id, start_time, end_time, cost, False))
 
     def get_total_cost(self) -> float:
-        return sum(delivery['cost'] for delivery in self.deliveries)
+        return sum(delivery.cost for delivery in self.deliveries)
 
     def pay_up_to(self, pay_time_unix: int):
         pay_cutoff = datetime.fromtimestamp(pay_time_unix)
         for delivery in self.deliveries:
-            if not delivery['paid'] and delivery['end_time'] <= pay_cutoff:
-                delivery['paid'] = True
+            if not delivery.paid and delivery.endTime <= pay_cutoff:
+                delivery.paid = True
 
     def get_total_cost_unpaid(self) -> float:
-        return sum(delivery['cost'] for delivery in self.deliveries if not delivery['paid'])
+        return sum(delivery.cost for delivery in self.deliveries if not delivery.paid)
 
     def max_simultaneous_drivers_24h_before(self, end_time_unix: int) -> int:
         window_end = datetime.fromtimestamp(end_time_unix)
@@ -81,15 +91,15 @@ class DeliveryCostDashboard:
 
         intervalCount = defaultdict(int)
         for d in self.deliveries:
-            if d['end_time'] < window_start or d['start_time'] >= window_end:
+            if d.endTime < window_start or d.startTime >= window_end:
                 continue  # Completely outside the window
 
             # Clamp delivery times to within the window
-            start = max(d['start_time'], window_start)
-            end = min(d['end_time'], window_end)
+            start = max(d.startTime, window_start)
+            end = min(d.endTime, window_end)
 
-            intervalCount[start]+=1
-            intervalCount[end]-=1
+            intervalCount[start] += 1
+            intervalCount[end] -= 1
 
         res = cur = 0
         for time in sorted(intervalCount.keys()):
@@ -97,8 +107,8 @@ class DeliveryCostDashboard:
             res = max(res, cur)  # find out the max overlap
         return res
 
+
 from datetime import datetime, timedelta
-import time
 
 dashboard = DeliveryCostDashboard()
 dashboard.add_driver(1, 10.0)
@@ -112,8 +122,13 @@ t3 = now - timedelta(hours=0.75)
 t4 = now - timedelta(hours=1.5)
 
 # Deliveries overlap in the last hour
-dashboard.record_delivery(1, t1, now)        # driver 1 active
-dashboard.record_delivery(2, t3, t2)         # driver 2 active overlaps partially
-dashboard.record_delivery(3, t4, t1)         # driver 3 active before t1
+dashboard.record_delivery(1, t1, now)  # driver 1 active
+dashboard.record_delivery(2, t3, t2)  # driver 2 active overlaps partially
+dashboard.record_delivery(3, t4, t1)  # driver 3 active before t1
 
-print(dashboard.max_simultaneous_drivers_24h_before(int(now.timestamp())))  # Should print 2
+dashboard.pay_up_to(int(t2.timestamp()))
+print(dashboard.get_total_cost_unpaid())
+
+print(
+    dashboard.max_simultaneous_drivers_24h_before(int(now.timestamp()))
+)  # Should print 2

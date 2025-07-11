@@ -9,8 +9,8 @@ with open("./py/test.txt") as file:
         index = int(firstLine)
         if password[index]:
             break
-        coordinateLine = file.readline().strip().split(",")
-        x, y = int(coordinateLine[0][1:]), int(coordinateLine[1][:-1])
+        coordinateLine = file.readline().strip(" []\n").split(",")
+        x, y = int(coordinateLine[0]), int(coordinateLine[1])
         matrix = []
 
         while True:
