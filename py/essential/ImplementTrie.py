@@ -5,6 +5,7 @@
 
 from collections import defaultdict
 
+
 class Trie:
     def __init__(self):
         self.children = defaultdict(Trie)

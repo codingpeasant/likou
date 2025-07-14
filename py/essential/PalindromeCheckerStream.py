@@ -2,7 +2,9 @@ class StreamingPalindromeChecker:
     """
     Real-time palindrome checker for a growing string using a single rolling hash.
     """
-    def __init__(self, base: int = 131, mod: int = 10**9+7):
+
+    # Pick a prime number p as the modulus to reduce hash collisions. Choose a base b, which is often the size of the character set 256 (e.g., ASCII charset size).
+    def __init__(self, base: int = 256, mod: int = 10**9 + 7):
         self.base = base
         self.mod = mod
         self.fwd_hash = 0
@@ -18,6 +20,7 @@ class StreamingPalindromeChecker:
     def is_palindrome(self) -> bool:
         return self.fwd_hash == self.rev_hash
 
+
 # Example usage
 if __name__ == "__main__":
     stream = StreamingPalindromeChecker()
@@ -25,4 +28,4 @@ if __name__ == "__main__":
     for i, ch in enumerate(inputStream):
         if ch.isalnum():
             stream.append(ch.lower())
-            print(inputStream[:i+1], stream.is_palindrome())
+            print(inputStream[: i + 1], stream.is_palindrome())

@@ -19,7 +19,7 @@ class Solution:
                     stack.pop()
                     if (
                         not stack
-                    ):  # all pairs since left were matched, directly j - left
+                    ):  # all pairs since left were matched, directly i - left
                         res = max(res, i - left)
                     else:
                         res = max(

@@ -26,27 +26,28 @@ class Solution:
 
         # If all positive integers from 1 to n are present, return n + 1
         return n + 1
-    
+
     # TLE
     def firstMissingPositive1(self, nums: List[int]) -> int:
-        minPositive, maxPositive = float('inf'), float('-inf')
+        minPositive, maxPositive = float("inf"), float("-inf")
         for num in nums:
             if num >= 0:
                 minPositive = min(minPositive, num)
                 maxPositive = max(maxPositive, num)
         if minPositive > 1:
             return 1
-        
-        numSet = set(num for num in nums if num >=0)
-        for num in range(minPositive, maxPositive+1):
+
+        numSet = set(num for num in nums if num >= 0)
+        for num in range(minPositive, maxPositive + 1):
             if num not in numSet:
                 return num
-        return maxPositive+1
+        return maxPositive + 1
 
-s=Solution()
-print(s.firstMissingPositive([1,2,0])) # 3
-print(s.firstMissingPositive([3,4,-1,1])) # 2
-print(s.firstMissingPositive([7,8,9,11,12])) # 1
-print(s.firstMissingPositive1([1,2,0])) # 3
-print(s.firstMissingPositive1([3,4,-1,1])) # 2
-print(s.firstMissingPositive1([7,8,9,11,12])) # 1
+
+s = Solution()
+print(s.firstMissingPositive([1, 2, 0]))  # 3
+print(s.firstMissingPositive([3, 4, -1, 1]))  # 2
+print(s.firstMissingPositive([7, 8, 9, 11, 12]))  # 1
+print(s.firstMissingPositive1([1, 2, 0]))  # 3
+print(s.firstMissingPositive1([3, 4, -1, 1]))  # 2
+print(s.firstMissingPositive1([7, 8, 9, 11, 12]))  # 1

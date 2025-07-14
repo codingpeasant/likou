@@ -35,7 +35,7 @@ def evaluate1(input: list[str]):
     q = deque()
     for formula in formulas:
         tokens = formula.split(" = ")
-        if tokens[1].isdigit():
+        if tokens[1].lstrip("-").isdigit():
             q.append((tokens[0], tokens[1]))
         else:
             stringRight = tokens[1]
@@ -90,7 +90,7 @@ def evaluate1(input: list[str]):
 
 input1 = ["T2", ["T1 = 1", "T2 = T3", "T3 = T1"]]
 print(evaluate(input1))
-input2 = ["T2", ["T1 = 10", "T2 = 2 + T4", "T3 = T1 - 4", "T4 = T1 + T3"]]
+input2 = ["T2", ["T1 = -10", "T2 = 2 + T4", "T3 = T1 - 4", "T4 = T1 + T3"]]
 print(evaluate1(input2))
 input3 = ["T2", ["T1 = 1", "T2 = 2 + T4", "T3 = T1 - 4"]]
 print(evaluate1(input3))

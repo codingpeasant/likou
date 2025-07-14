@@ -1,6 +1,6 @@
 # https://leetcode.com/playground/Gn8SpaRJ
 
-from collections import defaultdict, deque
+from collections import defaultdict
 
 
 # just BFS or DFS

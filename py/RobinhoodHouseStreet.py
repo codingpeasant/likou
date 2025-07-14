@@ -45,8 +45,7 @@
 
 # // Follow-up 2: (Test 10) An offsetting match is a house_trade+house_trade or street_trade+street_trade pair where the symbol and quantity of both trades are the same, but the type is different (one is a buy and one is a sell). Prioritize exact and fuzzy matches over offsetting matches. Prioritize matching the earliest alphabetical buy with the earliest alphabetical sell.
 
-from collections import defaultdict
-from typing import List, Tuple
+from typing import Tuple
 
 
 def parse_trade(trade: str) -> Tuple[str, str, str]:

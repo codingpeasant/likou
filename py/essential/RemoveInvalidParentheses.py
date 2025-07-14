@@ -1,3 +1,5 @@
+# https://leetcode.com/problems/remove-invalid-parentheses/description/
+
 from typing import List
 
 
@@ -15,18 +17,27 @@ class Solution:
                         stack.pop()
                         leftCount -= 1
                     else:
-                        rightCount+=1
+                        rightCount += 1
             return leftCount == rightCount == 0, leftCount, rightCount
-        
-        def dfs(input: str, leftCount: int, rightCount:int):
+
+        def dfs(input: str, leftCount: int, rightCount: int):
             visited.add(input)
-            if isValid(input)[0]: res.append(input)
-            for i ,letter in enumerate(input):
-                if letter != "(" and letter != ")": continue
-                if (letter == "(" and leftCount <= 0) or (letter == ")" and rightCount <=0): continue
-                if not input[:i] + input[i+1:] in visited:
-                  dfs(input[:i] + input[i+1:], leftCount- (letter == "("), rightCount - (letter == ")"))
-              
+            if isValid(input)[0]:
+                res.append(input)
+            for i, letter in enumerate(input):
+                if letter != "(" and letter != ")":
+                    continue
+                if (letter == "(" and leftCount <= 0) or (
+                    letter == ")" and rightCount <= 0
+                ):
+                    continue
+                if not input[:i] + input[i + 1 :] in visited:
+                    dfs(
+                        input[:i] + input[i + 1 :],
+                        leftCount - (letter == "("),
+                        rightCount - (letter == ")"),
+                    )
+
         res = []
         visited = set()
         valid, leftCount, rightCount = isValid(s)
@@ -35,6 +46,7 @@ class Solution:
             return [s]
         dfs(s, leftCount, rightCount)
         return res
+
 
 s = Solution()
 

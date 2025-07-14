@@ -1,13 +1,13 @@
 # https://leetcode.ca/2016-12-13-379-Design-Phone-Directory/#379-design-phone-directory
 # https://github.com/insideofdrop/Dropbox-Interview-Prep/blob/main/code/allocate_id.py
-
+# https://massivealgorithms.blogspot.com/2016/03/dropbox-interview-misc.html
 
 
 class Allocator:
     def __init__(self, max_val):
         self.max_val = max_val
         self.boolSet = set()
-        self.curId = 0
+        self.curId = 1
 
     def allocate(self):
         if len(self.boolSet) == self.max_val + 1:
