@@ -126,5 +126,5 @@ htmlP = HtmlParser(
 
 s = Solution()
 # print(s.crawlBFS("http://news.yahoo.com/news/topics/", htmlP))
-print(s.crawlConcurrency("http://news.yahoo.com/news/topics/", htmlP))
-# print(s.crawlThreadPool("http://news.yahoo.com/news/topics/", htmlP))
+# print(s.crawlConcurrency("http://news.yahoo.com/news/topics/", htmlP))
+print(s.crawlThreadPool("http://news.yahoo.com/news/topics/", htmlP))

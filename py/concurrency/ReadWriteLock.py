@@ -13,9 +13,9 @@ class ReadWriteLock:
 
     def lock_read(self):
         with self.condition:
-            while self.writers > 0 or self.write_requests > 0:
-                print(f"{threading.current_thread().name} - lock_read wait")
-                self.condition.wait()
+            self.condition.wait_for(
+                lambda: self.writers <= 0 and self.write_requests <= 0
+            )
             self.readers += 1
             print(f"{threading.current_thread().name} - lock_read done")
 
@@ -28,9 +28,7 @@ class ReadWriteLock:
     def lock_write(self):
         with self.condition:
             self.write_requests += 1
-            while self.readers > 0 or self.writers > 0:
-                print(f"{threading.current_thread().name} - lock_write wait")
-                self.condition.wait()
+            self.condition.wait_for(lambda: self.readers <= 0 and self.writers <= 0)
             self.write_requests -= 1
             self.writers += 1
             print(f"{threading.current_thread().name} - lock_write done")

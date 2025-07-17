@@ -7,28 +7,23 @@ from typing import Callable
 class FooBar:
     def __init__(self, n):
         self.n = n
-        self.cond = threading.Condition()
-        self.toPrintFoo = True
+        self.lockFoo = threading.Lock()
+        self.lockBar = threading.Lock()
+        self.lockBar.acquire()
 
     def foo(self, printFoo: "Callable[[], None]") -> None:
         for i in range(self.n):
-            with self.cond:
-                while not self.toPrintFoo:
-                    self.cond.wait()
-                # printFoo() outputs "foo". Do not change or remove this line.
+            with self.lockFoo:
                 printFoo()
-                self.toPrintFoo = not self.toPrintFoo
-                self.cond.notify_all()
+                self.lockBar.release()
+            self.lockFoo.acquire()
 
     def bar(self, printBar: "Callable[[], None]") -> None:
         for i in range(self.n):
-            with self.cond:
-                while self.toPrintFoo:
-                    self.cond.wait()
-                # printBar() outputs "bar". Do not change or remove this line.
+            with self.lockBar:
                 printBar()
-                self.toPrintFoo = not self.toPrintFoo
-                self.cond.notify_all()
+                self.lockFoo.release()
+            self.lockBar.acquire()
 
 
 fb = FooBar(5)

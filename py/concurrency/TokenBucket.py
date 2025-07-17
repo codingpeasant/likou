@@ -51,8 +51,9 @@ class TokenBucket:
                 while len(self.bucket) < 1:
                     print(f"{threading.current_thread().name} waiting to get more")
                     self.cond.wait()
-                result.append(self.bucket.pop())
-                token_acquired += 1
+                while self.bucket and token_acquired < n:
+                    result.append(self.bucket.pop())
+                    token_acquired += 1
                 self.cond.notify_all()
 
         return result

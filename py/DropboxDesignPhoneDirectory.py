@@ -46,71 +46,64 @@ class SpaceEfficientAllocator:
         self.bool_array[id] = False
 
 
-class BinaryHeapAllocator:
-    def __init__(self, maxId):
+class AllocatorTree:
+    def __init__(self, maxId: int):
         self.maxId = maxId
-        self.bool_array = [False] * (
-            2 * maxId
-        )  # if maxId is odd, the right most leaf is null
+        # only create the exact number of tree nodes as needed
+        self.tree = [False] * (maxId * 2 if maxId % 2 == 1 else maxId * 2 - 1)
+
+    def getIdFromIndex(self, index: int):
+        return index - len(self.tree) // 2 + 1
+
+    def getIndexFromId(self, id: int):
+        return id - 1 + len(self.tree) // 2
 
     def allocate(self):
-        """Returns an unallocated id"""
         index = 0
-        if self.bool_array[index] == True:  # all children are true
+        if self.tree[index] == True:
             return -1
-        while index < self.maxId:
-            left_child_index = 2 * index + 1
-            right_child_index = 2 * index + 2
-            if (
-                self.bool_array[left_child_index] == False
-            ):  # There's an unallocated id in the subtree
-                index = left_child_index
-            elif (
-                right_child_index < len(self.bool_array)
-                and self.bool_array[right_child_index] == False
-            ):  # ... in the right subtree
-                index = right_child_index
-            else:  # Both subtrees are allocated, this actually means you broke your tree
+        while index < len(self.tree) // 2:
+            leftIndex = index * 2 + 1
+            rightIndex = index * 2 + 2
+            if not self.tree[leftIndex]:
+                index = leftIndex
+            elif rightIndex < len(self.tree) and not self.tree[rightIndex]:
+                index = rightIndex
+            else:
                 return -1
 
-        id = self.get_id_from_index(index)
-        self.bool_array[index] = True
-        self.update_tree(index)
+        id = self.getIdFromIndex(index)
+        self.tree[index] = True
+        self.updateTree(index)
         return id
 
-    def release(self, id):
-        """Releases the id and allows it to be allocated"""
-        if not 0 <= id <= self.maxId:
+    def release(self, id: int):
+        if not 1 <= id <= self.maxId:
             return -1
-        idx = self.get_index_from_id(id)
-        if self.bool_array[idx] == False:
+        index = self.getIndexFromId(id)
+        if self.tree[index] == False:
             return -1
-        self.bool_array[idx] = False
-        self.update_tree(idx)
+        self.tree[index] = False
+        self.updateTree(index)
+        return index
 
-    def get_index_from_id(self, id):  # all ids are at the leaf level
-        return id + self.maxId - 1
-
-    def get_id_from_index(self, idx):
-        return idx - (self.maxId - 1)
-
-    def update_tree(self, index):
+    def updateTree(self, index: int):
         while index > 0:
-            parent_index = (index - 1) // 2
-            both_children_are_true = False
-            if index % 2 == 1:  # this is a left child
+            parentIndex = index // 2 if index % 2 == 1 else (index - 1) // 2
+            bothAreTrue = False
+            if index % 2 == 1:
                 if (
-                    self.bool_array[index] == True
-                    and index + 1 < len(self.bool_array)
-                    and self.bool_array[index + 1] == True
-                ):
-                    both_children_are_true = True
-            else:  # this is a right child
-                if self.bool_array[index] == True == self.bool_array[index - 1]:
-                    both_children_are_true = True
-            self.bool_array[parent_index] = both_children_are_true
-            index = parent_index
-        self.bool_array[0] = self.bool_array[1] and self.bool_array[2]
+                    self.tree[index]
+                    and index + 1 < len(self.tree)
+                    and self.tree[index + 1]
+                ) or (self.tree[index] and index + 1 == len(self.tree)):
+                    bothAreTrue = True
+            else:
+                if self.tree[index] and self.tree[index - 1]:
+                    bothAreTrue = True
+            self.tree[parentIndex] = bothAreTrue
+            index = parentIndex
+        self.tree[0] = self.tree[1] and self.tree[2]
 
 
 # a = Allocator(3)
@@ -123,7 +116,7 @@ class BinaryHeapAllocator:
 # assert a.release(10) == -1  # error
 # print(a.allocate())  # 2
 
-a = BinaryHeapAllocator(3)  # ids: 1,2,3
+a = AllocatorTree(3)  # ids: 1,2,3
 print(a.allocate())
 print(a.allocate())
 print(a.allocate())
