@@ -12,6 +12,7 @@ class Solution:
                     stack.pop()
             else:
                 stack.append([char, 1])
+        print(stack)
         return "".join(char * k for char, k in stack)
 
 
